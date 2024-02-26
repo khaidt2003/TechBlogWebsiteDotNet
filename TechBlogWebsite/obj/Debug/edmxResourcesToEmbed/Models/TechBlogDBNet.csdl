@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TechBlogDBNetModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="menu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="hide" Type="Boolean" />
+    <Property Name="order" Type="Int32" />
+    <Property Name="datebegin" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="SubMenus" Relationship="Self.FK_SubMenus_menu" FromRole="menu" ToRole="SubMenus" />
+  </EntityType>
+  <EntityType Name="SubMenu">
+    <Key>
+      <PropertyRef Name="SubMenuID" />
+    </Key>
+    <Property Name="SubMenuID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="hide" Type="Boolean" />
+    <Property Name="order" Type="Int32" />
+    <Property Name="datebegin" Type="DateTime" Precision="0" />
+    <Property Name="ID" Type="Int32" />
+    <NavigationProperty Name="menu" Relationship="Self.FK_SubMenus_menu" FromRole="SubMenus" ToRole="menu" />
+  </EntityType>
+  <Association Name="FK_SubMenus_menu">
+    <End Role="menu" Type="Self.menu" Multiplicity="0..1" />
+    <End Role="SubMenus" Type="Self.SubMenu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="menu">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SubMenus">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TechBlogDBNetEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="menus" EntityType="Self.menu" />
+    <EntitySet Name="SubMenus" EntityType="Self.SubMenu" />
+    <AssociationSet Name="FK_SubMenus_menu" Association="Self.FK_SubMenus_menu">
+      <End Role="menu" EntitySet="menus" />
+      <End Role="SubMenus" EntitySet="SubMenus" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
