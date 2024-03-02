@@ -9,7 +9,7 @@ namespace TechBlogWebsite.Controllers
 {
     public class TempController : Controller
     {
-      TechBlogDBNetEntities1 db = new TechBlogDBNetEntities1();
+        TechBlogDBNetEntities _db = new TechBlogDBNetEntities();
 
         // GET: Temp
         public ActionResult Index()
@@ -17,7 +17,7 @@ namespace TechBlogWebsite.Controllers
             return View();
         }
         public ActionResult getMenu() { 
-            var v = from t in db.menus where t.hide== true orderby t.order ascending select t;
+            var v = from t in _db.menus where t.hide== true orderby t.order ascending select t;
             return PartialView(v.ToList());
         }
 
