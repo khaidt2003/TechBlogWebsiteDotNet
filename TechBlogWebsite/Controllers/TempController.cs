@@ -28,6 +28,14 @@ namespace TechBlogWebsite.Controllers
             .ToList();
             return PartialView(topPosts.ToList());
         }
+        public ActionResult RecentNews()
+        {
+            var latestPosts = _db.Posts
+            .OrderByDescending(t => t.PublishedDate)
+            .Take(10)
+            .ToList();
+            return PartialView(latestPosts.ToList());
+        }
 
     }
 }
