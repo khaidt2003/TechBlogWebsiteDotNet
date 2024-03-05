@@ -13,10 +13,10 @@ namespace TechBlogWebsite.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class TechBlogDBNetEntities : DbContext
+    public partial class TechBlogDBNetEntities1 : DbContext
     {
-        public TechBlogDBNetEntities()
-            : base("name=TechBlogDBNetEntities")
+        public TechBlogDBNetEntities1()
+            : base("name=TechBlogDBNetEntities1")
         {
         }
     
@@ -35,7 +35,6 @@ namespace TechBlogWebsite.Models
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Stat> Stats { get; set; }
         public virtual DbSet<SubMenu> SubMenus { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Tag> Tags { get; set; }
         public virtual DbSet<Topic> Topics { get; set; }
         public virtual DbSet<User> Users { get; set; }

@@ -1,0 +1,40 @@
+﻿@model IEnumerable < TechBlogWebsite.Models.Post>
+    @{
+        string[] positions = new string[] { "first-slot", "second-slot", "last-slot" };
+        int index = 0;
+    }
+
+    @foreach (var i in Model)
+    {
+
+        <div class="@positions[index]">
+            <div class="masonry-box post-media">
+                @{
+                    if (positions[index] == "second-slot" || positions[index] == "last-slot")
+                    {
+
+
+                        <img src="@i.FeaturedImage" alt="" class="img-fluid" style="height: 390px">
+
+                    }
+                    else
+                    {
+                        <img src="@i.FeaturedImage" alt="" class="img-fluid">
+
+                    }
+
+                }
+                <div class="shadoweffect">
+                    <div class="shadow-desc">
+                        <div class="blog-meta">
+                            <span class="bg-orange"><a href="tech-category-01.html" title="">@i.Category.Name</a></span>
+                            <h4><a href="tech-single.html" title="">@i.Title</a></h4>
+                            <small><a href="tech-single.html" title="">@i.PublishedDate</a></small>
+                            <small><a href="tech-author.html" title="">@i.User.Username</a></small>
+                        </div><!-- end meta -->
+                    </div><!-- end shadow-desc -->
+                </div><!-- end shadow -->
+            </div><!-- end post-media -->
+        </div>
+        index = index +1;
+    }

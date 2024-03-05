@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="c86625ddf60f44c88bc0ed4bd7b80e34" Name="Diagram1">
+      <Diagram DiagramId="137454ba3f294d089942ef5b7fa377c5" Name="Diagram1">
         <EntityTypeShape EntityType="TechBlogDBNetModel.Category" Width="1.5" PointX="6" PointY="1.875" IsExpanded="true" />
         <EntityTypeShape EntityType="TechBlogDBNetModel.Comment" Width="1.5" PointX="5.25" PointY="11.625" IsExpanded="true" />
         <EntityTypeShape EntityType="TechBlogDBNetModel.Forum" Width="1.5" PointX="6" PointY="16.875" IsExpanded="true" />
@@ -15,25 +15,24 @@
         <EntityTypeShape EntityType="TechBlogDBNetModel.Role" Width="1.5" PointX="0.75" PointY="12.25" IsExpanded="true" />
         <EntityTypeShape EntityType="TechBlogDBNetModel.Stat" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TechBlogDBNetModel.SubMenu" Width="1.5" PointX="11" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="TechBlogDBNetModel.sysdiagram" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TechBlogDBNetModel.Tag" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TechBlogDBNetModel.Tag" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TechBlogDBNetModel.Topic" Width="1.5" PointX="8.25" PointY="16.25" IsExpanded="true" />
         <EntityTypeShape EntityType="TechBlogDBNetModel.User" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />
-        <AssociationConnector Association="TechBlogDBNetModel.FK__Categorie__Paren__693CA210" ManuallyRouted="false" />
-        <AssociationConnector Association="TechBlogDBNetModel.FK__Forums__Category__7E37BEF6" ManuallyRouted="false" />
-        <AssociationConnector Association="TechBlogDBNetModel.FK__Posts__CategoryI__6D0D32F4" ManuallyRouted="false" />
-        <AssociationConnector Association="TechBlogDBNetModel.FK__Comments__Parent__76969D2E" ManuallyRouted="false" />
-        <AssociationConnector Association="TechBlogDBNetModel.FK__Comments__PostID__74AE54BC" ManuallyRouted="false" />
-        <AssociationConnector Association="TechBlogDBNetModel.FK__Comments__UserID__75A278F5" ManuallyRouted="false" />
-        <AssociationConnector Association="TechBlogDBNetModel.FK__Topics__ForumID__02084FDA" ManuallyRouted="false" />
-        <AssociationConnector Association="TechBlogDBNetModel.FK__Likes__ReplyID__0B91BA14" ManuallyRouted="false" />
-        <AssociationConnector Association="TechBlogDBNetModel.FK__Likes__UserID__0C85DE4D" ManuallyRouted="false" />
+        <AssociationConnector Association="TechBlogDBNetModel.FK__Categorie__Paren__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="TechBlogDBNetModel.FK__Forums__Category__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="TechBlogDBNetModel.FK__Posts__CategoryI__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="TechBlogDBNetModel.FK__Comments__Parent__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="TechBlogDBNetModel.FK__Comments__PostID__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="TechBlogDBNetModel.FK__Comments__UserID__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="TechBlogDBNetModel.FK__Topics__ForumID__6754599E" ManuallyRouted="false" />
+        <AssociationConnector Association="TechBlogDBNetModel.FK__Likes__ReplyID__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="TechBlogDBNetModel.FK__Likes__UserID__619B8048" ManuallyRouted="false" />
         <AssociationConnector Association="TechBlogDBNetModel.FK_SubMenus_menu" ManuallyRouted="false" />
-        <AssociationConnector Association="TechBlogDBNetModel.FK__Posts__AuthorID__6C190EBB" ManuallyRouted="false" />
-        <AssociationConnector Association="TechBlogDBNetModel.FK__Replies__TopicID__07C12930" ManuallyRouted="false" />
-        <AssociationConnector Association="TechBlogDBNetModel.FK__Replies__UserID__08B54D69" ManuallyRouted="false" />
-        <AssociationConnector Association="TechBlogDBNetModel.FK__Users__RoleID__6477ECF3" ManuallyRouted="false" />
-        <AssociationConnector Association="TechBlogDBNetModel.FK__Topics__UserID__02FC7413" ManuallyRouted="false" />
+        <AssociationConnector Association="TechBlogDBNetModel.FK__Posts__AuthorID__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="TechBlogDBNetModel.FK__Replies__TopicID__6477ECF3" ManuallyRouted="false" />
+        <AssociationConnector Association="TechBlogDBNetModel.FK__Replies__UserID__656C112C" ManuallyRouted="false" />
+        <AssociationConnector Association="TechBlogDBNetModel.FK__Users__RoleID__693CA210" ManuallyRouted="false" />
+        <AssociationConnector Association="TechBlogDBNetModel.FK__Topics__UserID__68487DD7" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -182,9 +182,6 @@
     <Compile Include="Models\SubMenu.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Tag.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -2007,6 +2004,21 @@
     <Content Include="Content\upload\banner_02.jpg" />
     <Content Include="Content\upload\banner_03.jpg" />
     <Content Include="Content\upload\banner_07.jpg" />
+    <Content Include="Content\upload\img_po1.jpg" />
+    <Content Include="Content\upload\img_po10.jpg" />
+    <Content Include="Content\upload\img_po11.jpg" />
+    <Content Include="Content\upload\img_po2.jpg" />
+    <Content Include="Content\upload\img_po3.jpg" />
+    <Content Include="Content\upload\img_po4.jpg" />
+    <Content Include="Content\upload\img_po5.jpg" />
+    <Content Include="Content\upload\img_po6.jpg" />
+    <Content Include="Content\upload\img_po7.jpg" />
+    <Content Include="Content\upload\img_po8.jpg" />
+    <Content Include="Content\upload\img_po9.jpg" />
+    <Content Include="Content\upload\img_user1.jpg" />
+    <Content Include="Content\upload\img_user2.jpg" />
+    <Content Include="Content\upload\img_user3.jpg" />
+    <Content Include="Content\upload\img_user4.jpg" />
     <Content Include="Content\upload\tech_01.jpg" />
     <Content Include="Content\upload\tech_02.jpg" />
     <Content Include="Content\upload\tech_03.jpg" />
@@ -2170,13 +2182,6 @@
     <Content Include="Content\Login\scss\bootstrap\_utilities.scss" />
     <Content Include="Content\Login\scss\bootstrap\_variables.scss" />
     <Content Include="Content\Login\scss\style.scss" />
-    <EntityDeploy Include="Models\Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\Shared\_AdminLayoutPage1.cshtml" />
     <Content Include="Content\Admin\scss\navs\_global.scss" />
@@ -2354,6 +2359,13 @@
     <Content Include="Areas\Admin\Views\Default\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Default\Buttons.cshtml" />
     <Content Include="Areas\Admin\Views\Default\Cards.cshtml" />
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2393,6 +2405,7 @@
     <Content Include="Views\Shared\_AccountLayout.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Temp\getPopularPosts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
