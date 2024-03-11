@@ -17,7 +17,7 @@ namespace TechBlogWebsite.Controllers
             return View();
         }
         public ActionResult getMenu() { 
-            var v = from t in _db.menus where t.hide== true orderby t.order ascending select t;
+            var v = from t in _db.menus where t.hide== false orderby t.order ascending select t;
             return PartialView(v.ToList());
         }
         public ActionResult getPopularPosts()

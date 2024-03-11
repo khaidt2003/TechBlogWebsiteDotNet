@@ -29,6 +29,14 @@ namespace TechBlogWebsite.Controllers
         {
             return View();
         }
+        public ActionResult TechVideo()
+        {
+            return View();
+        }
+        public ActionResult TechReivews()
+        {
+            return View();
+        }
         
     }
 }
