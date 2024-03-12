@@ -52,11 +52,11 @@ namespace TechBlogWebsite
                 },
                 namespaces: new[] { "TechBlogWebsite.Controllers" }
             );
-            routes.MapRoute("Techsingle", "{type}",
-                new { controller = "Default", action = "TechSingle", meta = UrlParameter.Optional },
+            routes.MapRoute("Techsingle", "{type}/{meta}/{metatitle}-{id}",
+                new { controller = "Post", action = "Detail", meta = UrlParameter.Optional },
                 new RouteValueDictionary
                 {
-                    { "type", "detail" }
+                    { "type", "blog" }
                 },
                 namespaces: new[] { "TechBlogWebsite.Controllers" }
             );

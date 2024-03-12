@@ -4,20 +4,20 @@
     <div class="blog-box row">
         <div class="col-md-4">
             <div class="post-media">
-                <a href="/detail" title="">
+                <a href="/blog/@i.Category.Name/@(i.Meta + "-" + i.PostID)" title="">
                     <img src="/Content/upload/@i.FeaturedImage" alt="" class="img-fluid">
                     <div class="hovereffect"></div>
                 </a>
             </div><!-- end media -->
         </div><!-- end col -->
 
-        <div class="blog-meta big-meta col-md-8">
-            <h4><a href="/detail">@i.Title</a></h4>
-            <p>@i.Content</p>
-            <small class="firstsmall"><a class="bg-orange" href="tech-category-01.html" title="">@i.Category.Name</a></small>
-            <small><a href="/detail" title="">@i.PublishedDate</a></small>
+        <div class="blog-meta big-meta col-md-8" style="height: 300px;">
+            <h4><a href="/blog/@i.Category.Name/@(i.Meta + "-" + i.PostID)">@i.Title</a></h4>
+            <p class="content-for-recent-new" style="max-height: 27%; overflow: hidden ">@i.Content</p>
+            <small class="firstsmall"><a class="bg-orange" href="/blog/@i.Category.Name/@(i.Meta + "-" + i.PostID)" title="">@i.Category.Name</a></small>
+            <small><a href="/blog/@i.Category.Name/@(i.Meta + "-" + i.PostID)" title="">@i.PublishedDate</a></small>
             <small><a href="tech-author.html" title="">@i.User.Username</a></small>
-            <small><a href="/detail" title=""><i class="fa fa-eye"></i> @i.ViewCount</a></small>
+            <small><a href="/blog/@i.Category.Name/@(i.Meta + "-" + i.PostID)" title=""><i class="fa fa-eye"></i> @i.ViewCount</a></small>
         </div><!-- end meta -->
     </div>
     <hr class="invis">

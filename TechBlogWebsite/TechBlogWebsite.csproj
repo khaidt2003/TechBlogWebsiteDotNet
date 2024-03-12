@@ -2008,10 +2008,49 @@
     <Content Include="Content\upload\img_po1.jpg" />
     <Content Include="Content\upload\img_po10.jpg" />
     <Content Include="Content\upload\img_po11.jpg" />
+    <Content Include="Content\upload\img_po12.jpg" />
+    <Content Include="Content\upload\img_po13.jpg" />
+    <Content Include="Content\upload\img_po14.jpg" />
+    <Content Include="Content\upload\img_po15.jpg" />
+    <Content Include="Content\upload\img_po16.jpg" />
+    <Content Include="Content\upload\img_po17.jpg" />
+    <Content Include="Content\upload\img_po18.jpg" />
+    <Content Include="Content\upload\img_po19.jpg" />
     <Content Include="Content\upload\img_po2.jpg" />
+    <Content Include="Content\upload\img_po20.jpg" />
+    <Content Include="Content\upload\img_po21.jpg" />
+    <Content Include="Content\upload\img_po22.jpg" />
+    <Content Include="Content\upload\img_po23.jpg" />
+    <Content Include="Content\upload\img_po24.jpg" />
+    <Content Include="Content\upload\img_po25.jpg" />
+    <Content Include="Content\upload\img_po26.jpg" />
+    <Content Include="Content\upload\img_po27.jpg" />
+    <Content Include="Content\upload\img_po28.jpg" />
+    <Content Include="Content\upload\img_po29.jpg" />
     <Content Include="Content\upload\img_po3.jpg" />
+    <Content Include="Content\upload\img_po30.jpg" />
+    <Content Include="Content\upload\img_po31.jpg" />
+    <Content Include="Content\upload\img_po32.jpg" />
+    <Content Include="Content\upload\img_po33.jpg" />
+    <Content Include="Content\upload\img_po34.jpg" />
+    <Content Include="Content\upload\img_po35.jpg" />
+    <Content Include="Content\upload\img_po36.jpg" />
+    <Content Include="Content\upload\img_po37.jpg" />
+    <Content Include="Content\upload\img_po38.jpg" />
+    <Content Include="Content\upload\img_po39.jpg" />
     <Content Include="Content\upload\img_po4.jpg" />
+    <Content Include="Content\upload\img_po40.jpg" />
+    <Content Include="Content\upload\img_po41.jpg" />
+    <Content Include="Content\upload\img_po42.jpg" />
+    <Content Include="Content\upload\img_po43.jpg" />
+    <Content Include="Content\upload\img_po44.jpg" />
+    <Content Include="Content\upload\img_po45.jpg" />
+    <Content Include="Content\upload\img_po46.jpg" />
+    <Content Include="Content\upload\img_po47.jpg" />
+    <Content Include="Content\upload\img_po48.jpg" />
+    <Content Include="Content\upload\img_po49.jpg" />
     <Content Include="Content\upload\img_po5.jpg" />
+    <Content Include="Content\upload\img_po50.jpg" />
     <Content Include="Content\upload\img_po6.jpg" />
     <Content Include="Content\upload\img_po7.jpg" />
     <Content Include="Content\upload\img_po8.jpg" />
@@ -2020,6 +2059,7 @@
     <Content Include="Content\upload\img_user2.jpg" />
     <Content Include="Content\upload\img_user3.jpg" />
     <Content Include="Content\upload\img_user4.jpg" />
+    <Content Include="Content\upload\style.css" />
     <Content Include="Content\upload\tech_01.jpg" />
     <Content Include="Content\upload\tech_02.jpg" />
     <Content Include="Content\upload\tech_03.jpg" />
@@ -2410,12 +2450,12 @@
     <Content Include="Views\Temp\RecentNews.cshtml" />
     <Content Include="Views\Default\TechVideo.cshtml" />
     <Content Include="Views\Default\TechReivews.cshtml" />
+    <Content Include="Views\Post\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Views\Menu\" />
-    <Folder Include="Views\Post\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
