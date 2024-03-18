@@ -2001,6 +2001,8 @@
     <Content Include="Content\upload\author.jpg" />
     <Content Include="Content\upload\author_01.jpg" />
     <Content Include="Content\upload\author_02.jpg" />
+    <Content Include="Content\upload\BannerAdvertise1.jpg" />
+    <Content Include="Content\upload\BannerAdvertise2.jpg" />
     <Content Include="Content\upload\banner_01.jpg" />
     <Content Include="Content\upload\banner_02.jpg" />
     <Content Include="Content\upload\banner_03.jpg" />
@@ -2451,6 +2453,8 @@
     <Content Include="Views\Default\TechVideo.cshtml" />
     <Content Include="Views\Default\TechReivews.cshtml" />
     <Content Include="Views\Post\Detail.cshtml" />
+    <Content Include="Views\Temp\getPopularBlogVideo.cshtml" />
+    <Content Include="Views\Temp\getPopularAllPosts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
