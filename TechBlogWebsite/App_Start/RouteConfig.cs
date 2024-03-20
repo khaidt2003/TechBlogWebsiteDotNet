@@ -60,6 +60,22 @@ namespace TechBlogWebsite
                 },
                 namespaces: new[] { "TechBlogWebsite.Controllers" }
             );
+            routes.MapRoute("Techa", "{type}/{meta}/{metatitle}-{id}",
+                new { controller = "Post", action = "getPreAndPostPost", meta = UrlParameter.Optional },
+                new RouteValueDictionary
+                {
+                    { "type", "blog" }
+                },
+                namespaces: new[] { "TechBlogWebsite.Controllers" }
+            );
+            routes.MapRoute("Author", "{type}/{metatitle}-{id}",
+                new { controller = "Author", action = "Author", meta = UrlParameter.Optional },
+                new RouteValueDictionary
+                {
+                    { "type", "Author" }
+                },
+                namespaces: new[] { "TechBlogWebsite.Controllers" }
+            );
             routes.MapRoute("SignIn", "{type}",
                 new { controller = "Account", action = "Login", meta = UrlParameter.Optional },
                 new RouteValueDictionary

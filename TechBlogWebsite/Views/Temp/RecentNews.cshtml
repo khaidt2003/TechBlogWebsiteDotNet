@@ -16,7 +16,7 @@
             <p class="content-for-recent-new" style="max-height: 27%; overflow: hidden ">@i.Content</p>
             <small class="firstsmall"><a class="bg-orange" href="/blog/@i.Category.Name/@(i.Meta + "-" + i.PostID)" title="">@i.Category.Name</a></small>
             <small><a href="/blog/@i.Category.Name/@(i.Meta + "-" + i.PostID)" title="">@i.PublishedDate</a></small>
-            <small><a href="tech-author.html" title="">@i.User.Username</a></small>
+            <small><a href="/Author/@(i.User.Meta + "-" + i.User.UserID)" title="">@i.User.Username</a></small>
             <small><a href="/blog/@i.Category.Name/@(i.Meta + "-" + i.PostID)" title=""><i class="fa fa-eye"></i> @i.ViewCount</a></small>
         </div><!-- end meta -->
     </div>

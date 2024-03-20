@@ -17,6 +17,7 @@ namespace TechBlogWebsite.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
+            this.BannerUsers = new HashSet<BannerUser>();
             this.Comments = new HashSet<Comment>();
             this.Likes = new HashSet<Like>();
             this.Posts = new HashSet<Post>();
@@ -40,6 +41,8 @@ namespace TechBlogWebsite.Models
         public Nullable<int> Order { get; set; }
         public Nullable<System.DateTime> DateBegin { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BannerUser> BannerUsers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Comment> Comments { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

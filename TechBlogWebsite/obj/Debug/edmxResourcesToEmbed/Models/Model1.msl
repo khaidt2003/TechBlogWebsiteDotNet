@@ -1,6 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="TechBlogDBNetModelStoreContainer" CdmEntityContainer="TechBlogDBNetEntities1">
+  <EntityContainerMapping StorageEntityContainer="TechBlogDBNetModelStoreContainer" CdmEntityContainer="TechBlogDBNetEntities">
+    <EntitySetMapping Name="BannerUsers">
+      <EntityTypeMapping TypeName="TechBlogDBNetModel.BannerUser">
+        <MappingFragment StoreEntitySet="BannerUsers">
+          <ScalarProperty Name="BannerID" ColumnName="BannerID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="BannerImage" ColumnName="BannerImage" />
+          <ScalarProperty Name="Meta" ColumnName="Meta" />
+          <ScalarProperty Name="Hide" ColumnName="Hide" />
+          <ScalarProperty Name="Order" ColumnName="Order" />
+          <ScalarProperty Name="DateBegin" ColumnName="DateBegin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Categories">
       <EntityTypeMapping TypeName="TechBlogDBNetModel.Category">
         <MappingFragment StoreEntitySet="Categories">
@@ -44,6 +57,20 @@
           <ScalarProperty Name="Slug" ColumnName="Slug" />
           <ScalarProperty Name="IsPublic" ColumnName="IsPublic" />
           <ScalarProperty Name="Link" ColumnName="Link" />
+          <ScalarProperty Name="Meta" ColumnName="Meta" />
+          <ScalarProperty Name="Hide" ColumnName="Hide" />
+          <ScalarProperty Name="Order" ColumnName="Order" />
+          <ScalarProperty Name="DateBegin" ColumnName="DateBegin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ImagePosts">
+      <EntityTypeMapping TypeName="TechBlogDBNetModel.ImagePost">
+        <MappingFragment StoreEntitySet="ImagePost">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PostID" ColumnName="PostID" />
+          <ScalarProperty Name="FeaturedImage2" ColumnName="FeaturedImage2" />
+          <ScalarProperty Name="FeaturedImage3" ColumnName="FeaturedImage3" />
           <ScalarProperty Name="Meta" ColumnName="Meta" />
           <ScalarProperty Name="Hide" ColumnName="Hide" />
           <ScalarProperty Name="Order" ColumnName="Order" />
@@ -124,22 +151,6 @@
           <ScalarProperty Name="RoleID" ColumnName="RoleID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="Link" ColumnName="Link" />
-          <ScalarProperty Name="Meta" ColumnName="Meta" />
-          <ScalarProperty Name="Hide" ColumnName="Hide" />
-          <ScalarProperty Name="Order" ColumnName="Order" />
-          <ScalarProperty Name="DateBegin" ColumnName="DateBegin" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Stats">
-      <EntityTypeMapping TypeName="TechBlogDBNetModel.Stat">
-        <MappingFragment StoreEntitySet="Stats">
-          <ScalarProperty Name="StatID" ColumnName="StatID" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="TotalViews" ColumnName="TotalViews" />
-          <ScalarProperty Name="TotalPosts" ColumnName="TotalPosts" />
-          <ScalarProperty Name="TotalUsers" ColumnName="TotalUsers" />
           <ScalarProperty Name="Link" ColumnName="Link" />
           <ScalarProperty Name="Meta" ColumnName="Meta" />
           <ScalarProperty Name="Hide" ColumnName="Hide" />

@@ -9,7 +9,7 @@ namespace TechBlogWebsite.Controllers
 {
     public class TempController : Controller
     {
-        TechBlogDBNetEntities1 _db = new TechBlogDBNetEntities1();
+        TechBlogDBNetEntities _db = new TechBlogDBNetEntities();
 
         // GET: Temp
         public ActionResult Index()
@@ -65,6 +65,29 @@ namespace TechBlogWebsite.Controllers
                 .ToList();
             return PartialView(topPosts);
         }
-
+        public ActionResult getAllPostGadgets()
+        {
+            var topPosts = _db.Posts
+                .Where(p => p.CategoryID == 4) // Assuming CategoryId is the property for category
+                .Take(12)
+                .ToList();
+            return PartialView(topPosts);
+        }
+        public ActionResult getAllPostVideos()
+        {
+            var topPosts = _db.Posts
+                .Where(p => p.CategoryID == 5) // Assuming CategoryId is the property for category
+                .Take(6)
+                .ToList();
+            return PartialView(topPosts);
+        }
+        public ActionResult getAllPostReviews()
+        {
+            var topPosts = _db.Posts
+                .Where(p => p.CategoryID == 3) // Assuming CategoryId is the property for category
+                .Take(10)
+                .ToList();
+            return PartialView(topPosts);
+        }
     }
 }

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<TechBlogWebsite.Models.Post>
+
+<style>
+    .fix-img {
+        width: 800px;
+        height: 265px;
+    }
+
+    .fix-content {
+        max-height: 27%; /* Đặt chiều cao tối đa của phần tử */
+        overflow: hidden; /* Ẩn phần dư thừa */
+        text-overflow: ellipsis; /* Hiển thị dấu chấm elip khi có nội dung bị cắt bớt */
+        white-space: nowrap;
+    }
+</style>
+
+@foreach (var i in Model)
+{
+    <div class="blog-box">
+        <div class="post-media">
+            <a href="/blog/@i.Category.Name/@(i.Meta + "-" + i.PostID)" title="">
+                <img src="~/Content/upload/@i.FeaturedImage" alt="" class="img-fluid">
+                <div class="hovereffect">
+                    <span class="videohover"></span>
+                </div>
+                <!-- end hover -->
+            </a>
+        </div>
+        <!-- end media -->
+        <div class="blog-meta big-meta text-center">
+            <div class="post-sharing">
+                <ul class="list-inline">
+                    <li><a href="#" class="fb-button btn btn-primary"><i class="fa fa-facebook"></i> <span class="down-mobile">Share on Facebook</span></a></li>
+                    <li><a href="#" class="tw-button btn btn-primary"><i class="fa fa-twitter"></i> <span class="down-mobile">Tweet on Twitter</span></a></li>
+                    <li><a href="#" class="gp-button btn btn-primary"><i class="fa fa-google-plus"></i></a></li>
+                </ul>
+            </div><!-- end post-sharing -->
+            <h4><a href="/blog/@i.Category.Name/@(i.Meta + "-" + i.PostID)" title="">@i.Title</a></h4>
+            <p class="fix-content">@i.Content</p>
+            <small><a href="tech-category.html" title="">@i.Category.Name</a></small>
+            <small><a href="/blog/@i.Category.Name/@(i.Meta + "-" + i.PostID)" title="">@i.PublishedDate</a></small>
+            <small><a href="/Author/@(i.User.Meta + "-" + i.User.UserID)" title="">@i.User.Username</a></small>
+            <small><a href="#" title=""><i class="fa fa-eye"></i> @i.ViewCount</a></small>
+        </div><!-- end meta -->
+    </div><!-- end blog-box -->
+
+    <hr class="invis">
+}

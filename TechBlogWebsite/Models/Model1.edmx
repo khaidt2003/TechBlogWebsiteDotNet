@@ -4,7 +4,19 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="TechBlogDBNetModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="TechBlogDBNetModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BannerUsers">
+          <Key>
+            <PropertyRef Name="BannerID" />
+          </Key>
+          <Property Name="BannerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="BannerImage" Type="nvarchar" MaxLength="255" />
+          <Property Name="Meta" Type="nvarchar" MaxLength="50" />
+          <Property Name="Hide" Type="bit" />
+          <Property Name="Order" Type="int" />
+          <Property Name="DateBegin" Type="smalldatetime" />
+        </EntityType>
         <EntityType Name="Categories">
           <Key>
             <PropertyRef Name="CategoryID" />
@@ -47,6 +59,19 @@
           <Property Name="Slug" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="IsPublic" Type="bit" />
           <Property Name="Link" Type="nvarchar(max)" />
+          <Property Name="Meta" Type="nvarchar" MaxLength="50" />
+          <Property Name="Hide" Type="bit" />
+          <Property Name="Order" Type="int" />
+          <Property Name="DateBegin" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="ImagePost">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PostID" Type="int" />
+          <Property Name="FeaturedImage2" Type="nvarchar" MaxLength="255" />
+          <Property Name="FeaturedImage3" Type="nvarchar" MaxLength="255" />
           <Property Name="Meta" Type="nvarchar" MaxLength="50" />
           <Property Name="Hide" Type="bit" />
           <Property Name="Order" Type="int" />
@@ -128,21 +153,6 @@
           <Property Name="Order" Type="int" />
           <Property Name="DateBegin" Type="smalldatetime" />
         </EntityType>
-        <EntityType Name="Stats">
-          <Key>
-            <PropertyRef Name="StatID" />
-          </Key>
-          <Property Name="StatID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Date" Type="date" Nullable="false" />
-          <Property Name="TotalViews" Type="int" Nullable="false" />
-          <Property Name="TotalPosts" Type="int" Nullable="false" />
-          <Property Name="TotalUsers" Type="int" Nullable="false" />
-          <Property Name="Link" Type="nvarchar(max)" />
-          <Property Name="Meta" Type="nvarchar" MaxLength="50" />
-          <Property Name="Hide" Type="bit" />
-          <Property Name="Order" Type="int" />
-          <Property Name="DateBegin" Type="smalldatetime" />
-        </EntityType>
         <EntityType Name="SubMenus">
           <Key>
             <PropertyRef Name="SubMenuID" />
@@ -210,7 +220,7 @@
           <Property Name="Order" Type="int" />
           <Property Name="DateBegin" Type="smalldatetime" />
         </EntityType>
-        <Association Name="FK__Categorie__Paren__5BE2A6F2">
+        <Association Name="FK__Categorie__Paren__5FB337D6">
           <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
           <End Role="Categories1" Type="Self.Categories" Multiplicity="*" />
           <ReferentialConstraint>
@@ -222,7 +232,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Comments__Parent__5EBF139D">
+        <Association Name="FK__Comments__Parent__628FA481">
           <End Role="Comments" Type="Self.Comments" Multiplicity="0..1" />
           <End Role="Comments1" Type="Self.Comments" Multiplicity="*" />
           <ReferentialConstraint>
@@ -234,7 +244,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Comments__PostID__5CD6CB2B">
+        <Association Name="FK__Comments__PostID__60A75C0F">
           <End Role="Posts" Type="Self.Posts" Multiplicity="0..1" />
           <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
           <ReferentialConstraint>
@@ -246,7 +256,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Comments__UserID__5DCAEF64">
+        <Association Name="FK__Comments__UserID__619B8048">
           <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
           <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
           <ReferentialConstraint>
@@ -258,7 +268,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Forums__Category__5FB337D6">
+        <Association Name="FK__Forums__Category__6383C8BA">
           <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
           <End Role="Forums" Type="Self.Forums" Multiplicity="*" />
           <ReferentialConstraint>
@@ -270,7 +280,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Likes__ReplyID__60A75C0F">
+        <Association Name="FK__Likes__ReplyID__656C112C">
           <End Role="Replies" Type="Self.Replies" Multiplicity="0..1" />
           <End Role="Likes" Type="Self.Likes" Multiplicity="*" />
           <ReferentialConstraint>
@@ -282,7 +292,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Likes__UserID__619B8048">
+        <Association Name="FK__Likes__UserID__66603565">
           <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
           <End Role="Likes" Type="Self.Likes" Multiplicity="*" />
           <ReferentialConstraint>
@@ -294,7 +304,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Posts__AuthorID__628FA481">
+        <Association Name="FK__Posts__AuthorID__6754599E">
           <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
           <End Role="Posts" Type="Self.Posts" Multiplicity="*" />
           <ReferentialConstraint>
@@ -306,7 +316,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Posts__CategoryI__6383C8BA">
+        <Association Name="FK__Posts__CategoryI__68487DD7">
           <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
           <End Role="Posts" Type="Self.Posts" Multiplicity="*" />
           <ReferentialConstraint>
@@ -318,7 +328,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Replies__TopicID__6477ECF3">
+        <Association Name="FK__Replies__TopicID__693CA210">
           <End Role="Topics" Type="Self.Topics" Multiplicity="0..1" />
           <End Role="Replies" Type="Self.Replies" Multiplicity="*" />
           <ReferentialConstraint>
@@ -330,7 +340,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Replies__UserID__656C112C">
+        <Association Name="FK__Replies__UserID__6A30C649">
           <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
           <End Role="Replies" Type="Self.Replies" Multiplicity="*" />
           <ReferentialConstraint>
@@ -342,7 +352,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Topics__ForumID__6754599E">
+        <Association Name="FK__Topics__ForumID__6C190EBB">
           <End Role="Forums" Type="Self.Forums" Multiplicity="0..1" />
           <End Role="Topics" Type="Self.Topics" Multiplicity="*" />
           <ReferentialConstraint>
@@ -354,7 +364,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Topics__UserID__68487DD7">
+        <Association Name="FK__Topics__UserID__6D0D32F4">
           <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
           <End Role="Topics" Type="Self.Topics" Multiplicity="*" />
           <ReferentialConstraint>
@@ -366,7 +376,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Users__RoleID__693CA210">
+        <Association Name="FK__Users__RoleID__6E01572D">
           <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
           <End Role="Users" Type="Self.Users" Multiplicity="*" />
           <ReferentialConstraint>
@@ -375,6 +385,30 @@
             </Principal>
             <Dependent Role="Users">
               <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BannerUsers_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="BannerUsers" Type="Self.BannerUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="BannerUsers">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PostID">
+          <End Role="Posts" Type="Self.Posts" Multiplicity="0..1" />
+          <End Role="ImagePost" Type="Self.ImagePost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Posts">
+              <PropertyRef Name="PostID" />
+            </Principal>
+            <Dependent Role="ImagePost">
+              <PropertyRef Name="PostID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -391,84 +425,107 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="TechBlogDBNetModelStoreContainer">
+          <EntitySet Name="BannerUsers" EntityType="Self.BannerUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Comments" EntityType="Self.Comments" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Forums" EntityType="Self.Forums" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ImagePost" EntityType="Self.ImagePost" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Likes" EntityType="Self.Likes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="menu" EntityType="Self.menu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Posts" EntityType="Self.Posts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Replies" EntityType="Self.Replies" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Stats" EntityType="Self.Stats" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SubMenus" EntityType="Self.SubMenus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tags" EntityType="Self.Tags" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Topics" EntityType="Self.Topics" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Categorie__Paren__5BE2A6F2" Association="Self.FK__Categorie__Paren__5BE2A6F2">
+          <AssociationSet Name="FK__Categorie__Paren__5FB337D6" Association="Self.FK__Categorie__Paren__5FB337D6">
             <End Role="Categories" EntitySet="Categories" />
             <End Role="Categories1" EntitySet="Categories" />
           </AssociationSet>
-          <AssociationSet Name="FK__Comments__Parent__5EBF139D" Association="Self.FK__Comments__Parent__5EBF139D">
+          <AssociationSet Name="FK__Comments__Parent__628FA481" Association="Self.FK__Comments__Parent__628FA481">
             <End Role="Comments" EntitySet="Comments" />
             <End Role="Comments1" EntitySet="Comments" />
           </AssociationSet>
-          <AssociationSet Name="FK__Comments__PostID__5CD6CB2B" Association="Self.FK__Comments__PostID__5CD6CB2B">
+          <AssociationSet Name="FK__Comments__PostID__60A75C0F" Association="Self.FK__Comments__PostID__60A75C0F">
             <End Role="Posts" EntitySet="Posts" />
             <End Role="Comments" EntitySet="Comments" />
           </AssociationSet>
-          <AssociationSet Name="FK__Comments__UserID__5DCAEF64" Association="Self.FK__Comments__UserID__5DCAEF64">
+          <AssociationSet Name="FK__Comments__UserID__619B8048" Association="Self.FK__Comments__UserID__619B8048">
             <End Role="Users" EntitySet="Users" />
             <End Role="Comments" EntitySet="Comments" />
           </AssociationSet>
-          <AssociationSet Name="FK__Forums__Category__5FB337D6" Association="Self.FK__Forums__Category__5FB337D6">
+          <AssociationSet Name="FK__Forums__Category__6383C8BA" Association="Self.FK__Forums__Category__6383C8BA">
             <End Role="Categories" EntitySet="Categories" />
             <End Role="Forums" EntitySet="Forums" />
           </AssociationSet>
-          <AssociationSet Name="FK__Likes__ReplyID__60A75C0F" Association="Self.FK__Likes__ReplyID__60A75C0F">
+          <AssociationSet Name="FK__Likes__ReplyID__656C112C" Association="Self.FK__Likes__ReplyID__656C112C">
             <End Role="Replies" EntitySet="Replies" />
             <End Role="Likes" EntitySet="Likes" />
           </AssociationSet>
-          <AssociationSet Name="FK__Likes__UserID__619B8048" Association="Self.FK__Likes__UserID__619B8048">
+          <AssociationSet Name="FK__Likes__UserID__66603565" Association="Self.FK__Likes__UserID__66603565">
             <End Role="Users" EntitySet="Users" />
             <End Role="Likes" EntitySet="Likes" />
           </AssociationSet>
-          <AssociationSet Name="FK__Posts__AuthorID__628FA481" Association="Self.FK__Posts__AuthorID__628FA481">
+          <AssociationSet Name="FK__Posts__AuthorID__6754599E" Association="Self.FK__Posts__AuthorID__6754599E">
             <End Role="Users" EntitySet="Users" />
             <End Role="Posts" EntitySet="Posts" />
           </AssociationSet>
-          <AssociationSet Name="FK__Posts__CategoryI__6383C8BA" Association="Self.FK__Posts__CategoryI__6383C8BA">
+          <AssociationSet Name="FK__Posts__CategoryI__68487DD7" Association="Self.FK__Posts__CategoryI__68487DD7">
             <End Role="Categories" EntitySet="Categories" />
             <End Role="Posts" EntitySet="Posts" />
           </AssociationSet>
-          <AssociationSet Name="FK__Replies__TopicID__6477ECF3" Association="Self.FK__Replies__TopicID__6477ECF3">
+          <AssociationSet Name="FK__Replies__TopicID__693CA210" Association="Self.FK__Replies__TopicID__693CA210">
             <End Role="Topics" EntitySet="Topics" />
             <End Role="Replies" EntitySet="Replies" />
           </AssociationSet>
-          <AssociationSet Name="FK__Replies__UserID__656C112C" Association="Self.FK__Replies__UserID__656C112C">
+          <AssociationSet Name="FK__Replies__UserID__6A30C649" Association="Self.FK__Replies__UserID__6A30C649">
             <End Role="Users" EntitySet="Users" />
             <End Role="Replies" EntitySet="Replies" />
           </AssociationSet>
-          <AssociationSet Name="FK__Topics__ForumID__6754599E" Association="Self.FK__Topics__ForumID__6754599E">
+          <AssociationSet Name="FK__Topics__ForumID__6C190EBB" Association="Self.FK__Topics__ForumID__6C190EBB">
             <End Role="Forums" EntitySet="Forums" />
             <End Role="Topics" EntitySet="Topics" />
           </AssociationSet>
-          <AssociationSet Name="FK__Topics__UserID__68487DD7" Association="Self.FK__Topics__UserID__68487DD7">
+          <AssociationSet Name="FK__Topics__UserID__6D0D32F4" Association="Self.FK__Topics__UserID__6D0D32F4">
             <End Role="Users" EntitySet="Users" />
             <End Role="Topics" EntitySet="Topics" />
           </AssociationSet>
-          <AssociationSet Name="FK__Users__RoleID__693CA210" Association="Self.FK__Users__RoleID__693CA210">
+          <AssociationSet Name="FK__Users__RoleID__6E01572D" Association="Self.FK__Users__RoleID__6E01572D">
             <End Role="Roles" EntitySet="Roles" />
             <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BannerUsers_Users" Association="Self.FK_BannerUsers_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="BannerUsers" EntitySet="BannerUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PostID" Association="Self.FK_PostID">
+            <End Role="Posts" EntitySet="Posts" />
+            <End Role="ImagePost" EntitySet="ImagePost" />
           </AssociationSet>
           <AssociationSet Name="FK_SubMenus_menu" Association="Self.FK_SubMenus_menu">
             <End Role="menu" EntitySet="menu" />
             <End Role="SubMenus" EntitySet="SubMenus" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TechBlogDBNetModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BannerUser">
+          <Key>
+            <PropertyRef Name="BannerID" />
+          </Key>
+          <Property Name="BannerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="BannerImage" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Hide" Type="Boolean" />
+          <Property Name="Order" Type="Int32" />
+          <Property Name="DateBegin" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="User" Relationship="Self.FK_BannerUsers_Users" FromRole="BannerUsers" ToRole="Users" />
+        </EntityType>
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="CategoryID" />
@@ -482,10 +539,10 @@
           <Property Name="Hide" Type="Boolean" />
           <Property Name="Order" Type="Int32" />
           <Property Name="DateBegin" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="Categories1" Relationship="Self.FK__Categorie__Paren__5BE2A6F2" FromRole="Categories" ToRole="Categories1" />
-          <NavigationProperty Name="Category1" Relationship="Self.FK__Categorie__Paren__5BE2A6F2" FromRole="Categories1" ToRole="Categories" />
-          <NavigationProperty Name="Forums" Relationship="Self.FK__Forums__Category__5FB337D6" FromRole="Categories" ToRole="Forums" />
-          <NavigationProperty Name="Posts" Relationship="Self.FK__Posts__CategoryI__6383C8BA" FromRole="Categories" ToRole="Posts" />
+          <NavigationProperty Name="Categories1" Relationship="Self.FK__Categorie__Paren__5FB337D6" FromRole="Categories" ToRole="Categories1" />
+          <NavigationProperty Name="Category1" Relationship="Self.FK__Categorie__Paren__5FB337D6" FromRole="Categories1" ToRole="Categories" />
+          <NavigationProperty Name="Forums" Relationship="Self.FK__Forums__Category__6383C8BA" FromRole="Categories" ToRole="Forums" />
+          <NavigationProperty Name="Posts" Relationship="Self.FK__Posts__CategoryI__68487DD7" FromRole="Categories" ToRole="Posts" />
         </EntityType>
         <EntityType Name="Comment">
           <Key>
@@ -503,10 +560,10 @@
           <Property Name="Hide" Type="Boolean" />
           <Property Name="Order" Type="Int32" />
           <Property Name="DateBegin" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="Comments1" Relationship="Self.FK__Comments__Parent__5EBF139D" FromRole="Comments" ToRole="Comments1" />
-          <NavigationProperty Name="Comment1" Relationship="Self.FK__Comments__Parent__5EBF139D" FromRole="Comments1" ToRole="Comments" />
-          <NavigationProperty Name="Post" Relationship="Self.FK__Comments__PostID__5CD6CB2B" FromRole="Comments" ToRole="Posts" />
-          <NavigationProperty Name="User" Relationship="Self.FK__Comments__UserID__5DCAEF64" FromRole="Comments" ToRole="Users" />
+          <NavigationProperty Name="Comments1" Relationship="Self.FK__Comments__Parent__628FA481" FromRole="Comments" ToRole="Comments1" />
+          <NavigationProperty Name="Comment1" Relationship="Self.FK__Comments__Parent__628FA481" FromRole="Comments1" ToRole="Comments" />
+          <NavigationProperty Name="Post" Relationship="Self.FK__Comments__PostID__60A75C0F" FromRole="Comments" ToRole="Posts" />
+          <NavigationProperty Name="User" Relationship="Self.FK__Comments__UserID__619B8048" FromRole="Comments" ToRole="Users" />
         </EntityType>
         <EntityType Name="Forum">
           <Key>
@@ -523,8 +580,22 @@
           <Property Name="Hide" Type="Boolean" />
           <Property Name="Order" Type="Int32" />
           <Property Name="DateBegin" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="Category" Relationship="Self.FK__Forums__Category__5FB337D6" FromRole="Forums" ToRole="Categories" />
-          <NavigationProperty Name="Topics" Relationship="Self.FK__Topics__ForumID__6754599E" FromRole="Forums" ToRole="Topics" />
+          <NavigationProperty Name="Category" Relationship="Self.FK__Forums__Category__6383C8BA" FromRole="Forums" ToRole="Categories" />
+          <NavigationProperty Name="Topics" Relationship="Self.FK__Topics__ForumID__6C190EBB" FromRole="Forums" ToRole="Topics" />
+        </EntityType>
+        <EntityType Name="ImagePost">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PostID" Type="Int32" />
+          <Property Name="FeaturedImage2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="FeaturedImage3" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Hide" Type="Boolean" />
+          <Property Name="Order" Type="Int32" />
+          <Property Name="DateBegin" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Post" Relationship="Self.FK_PostID" FromRole="ImagePost" ToRole="Posts" />
         </EntityType>
         <EntityType Name="Like">
           <Key>
@@ -538,8 +609,8 @@
           <Property Name="Hide" Type="Boolean" />
           <Property Name="Order" Type="Int32" />
           <Property Name="DateBegin" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="Reply" Relationship="Self.FK__Likes__ReplyID__60A75C0F" FromRole="Likes" ToRole="Replies" />
-          <NavigationProperty Name="User" Relationship="Self.FK__Likes__UserID__619B8048" FromRole="Likes" ToRole="Users" />
+          <NavigationProperty Name="Reply" Relationship="Self.FK__Likes__ReplyID__656C112C" FromRole="Likes" ToRole="Replies" />
+          <NavigationProperty Name="User" Relationship="Self.FK__Likes__UserID__66603565" FromRole="Likes" ToRole="Users" />
         </EntityType>
         <EntityType Name="menu">
           <Key>
@@ -574,9 +645,10 @@
           <Property Name="Hide" Type="Boolean" />
           <Property Name="Order" Type="Int32" />
           <Property Name="DateBegin" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="Category" Relationship="Self.FK__Posts__CategoryI__6383C8BA" FromRole="Posts" ToRole="Categories" />
-          <NavigationProperty Name="Comments" Relationship="Self.FK__Comments__PostID__5CD6CB2B" FromRole="Posts" ToRole="Comments" />
-          <NavigationProperty Name="User" Relationship="Self.FK__Posts__AuthorID__628FA481" FromRole="Posts" ToRole="Users" />
+          <NavigationProperty Name="Category" Relationship="Self.FK__Posts__CategoryI__68487DD7" FromRole="Posts" ToRole="Categories" />
+          <NavigationProperty Name="Comments" Relationship="Self.FK__Comments__PostID__60A75C0F" FromRole="Posts" ToRole="Comments" />
+          <NavigationProperty Name="ImagePosts" Relationship="Self.FK_PostID" FromRole="Posts" ToRole="ImagePost" />
+          <NavigationProperty Name="User" Relationship="Self.FK__Posts__AuthorID__6754599E" FromRole="Posts" ToRole="Users" />
         </EntityType>
         <EntityType Name="Reply">
           <Key>
@@ -594,9 +666,9 @@
           <Property Name="Hide" Type="Boolean" />
           <Property Name="Order" Type="Int32" />
           <Property Name="DateBegin" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="Likes" Relationship="Self.FK__Likes__ReplyID__60A75C0F" FromRole="Replies" ToRole="Likes" />
-          <NavigationProperty Name="Topic" Relationship="Self.FK__Replies__TopicID__6477ECF3" FromRole="Replies" ToRole="Topics" />
-          <NavigationProperty Name="User" Relationship="Self.FK__Replies__UserID__656C112C" FromRole="Replies" ToRole="Users" />
+          <NavigationProperty Name="Likes" Relationship="Self.FK__Likes__ReplyID__656C112C" FromRole="Replies" ToRole="Likes" />
+          <NavigationProperty Name="Topic" Relationship="Self.FK__Replies__TopicID__693CA210" FromRole="Replies" ToRole="Topics" />
+          <NavigationProperty Name="User" Relationship="Self.FK__Replies__UserID__6A30C649" FromRole="Replies" ToRole="Users" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -610,22 +682,7 @@
           <Property Name="Hide" Type="Boolean" />
           <Property Name="Order" Type="Int32" />
           <Property Name="DateBegin" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="Users" Relationship="Self.FK__Users__RoleID__693CA210" FromRole="Roles" ToRole="Users" />
-        </EntityType>
-        <EntityType Name="Stat">
-          <Key>
-            <PropertyRef Name="StatID" />
-          </Key>
-          <Property Name="StatID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="TotalViews" Type="Int32" Nullable="false" />
-          <Property Name="TotalPosts" Type="Int32" Nullable="false" />
-          <Property Name="TotalUsers" Type="Int32" Nullable="false" />
-          <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Hide" Type="Boolean" />
-          <Property Name="Order" Type="Int32" />
-          <Property Name="DateBegin" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Users__RoleID__6E01572D" FromRole="Roles" ToRole="Users" />
         </EntityType>
         <EntityType Name="SubMenu">
           <Key>
@@ -674,9 +731,9 @@
           <Property Name="Hide" Type="Boolean" />
           <Property Name="Order" Type="Int32" />
           <Property Name="DateBegin" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="Forum" Relationship="Self.FK__Topics__ForumID__6754599E" FromRole="Topics" ToRole="Forums" />
-          <NavigationProperty Name="Replies" Relationship="Self.FK__Replies__TopicID__6477ECF3" FromRole="Topics" ToRole="Replies" />
-          <NavigationProperty Name="User" Relationship="Self.FK__Topics__UserID__68487DD7" FromRole="Topics" ToRole="Users" />
+          <NavigationProperty Name="Forum" Relationship="Self.FK__Topics__ForumID__6C190EBB" FromRole="Topics" ToRole="Forums" />
+          <NavigationProperty Name="Replies" Relationship="Self.FK__Replies__TopicID__693CA210" FromRole="Topics" ToRole="Replies" />
+          <NavigationProperty Name="User" Relationship="Self.FK__Topics__UserID__6D0D32F4" FromRole="Topics" ToRole="Users" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -697,14 +754,27 @@
           <Property Name="Hide" Type="Boolean" />
           <Property Name="Order" Type="Int32" />
           <Property Name="DateBegin" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="Comments" Relationship="Self.FK__Comments__UserID__5DCAEF64" FromRole="Users" ToRole="Comments" />
-          <NavigationProperty Name="Likes" Relationship="Self.FK__Likes__UserID__619B8048" FromRole="Users" ToRole="Likes" />
-          <NavigationProperty Name="Posts" Relationship="Self.FK__Posts__AuthorID__628FA481" FromRole="Users" ToRole="Posts" />
-          <NavigationProperty Name="Replies" Relationship="Self.FK__Replies__UserID__656C112C" FromRole="Users" ToRole="Replies" />
-          <NavigationProperty Name="Role" Relationship="Self.FK__Users__RoleID__693CA210" FromRole="Users" ToRole="Roles" />
-          <NavigationProperty Name="Topics" Relationship="Self.FK__Topics__UserID__68487DD7" FromRole="Users" ToRole="Topics" />
+          <NavigationProperty Name="BannerUsers" Relationship="Self.FK_BannerUsers_Users" FromRole="Users" ToRole="BannerUsers" />
+          <NavigationProperty Name="Comments" Relationship="Self.FK__Comments__UserID__619B8048" FromRole="Users" ToRole="Comments" />
+          <NavigationProperty Name="Likes" Relationship="Self.FK__Likes__UserID__66603565" FromRole="Users" ToRole="Likes" />
+          <NavigationProperty Name="Posts" Relationship="Self.FK__Posts__AuthorID__6754599E" FromRole="Users" ToRole="Posts" />
+          <NavigationProperty Name="Replies" Relationship="Self.FK__Replies__UserID__6A30C649" FromRole="Users" ToRole="Replies" />
+          <NavigationProperty Name="Role" Relationship="Self.FK__Users__RoleID__6E01572D" FromRole="Users" ToRole="Roles" />
+          <NavigationProperty Name="Topics" Relationship="Self.FK__Topics__UserID__6D0D32F4" FromRole="Users" ToRole="Topics" />
         </EntityType>
-        <Association Name="FK__Categorie__Paren__5BE2A6F2">
+        <Association Name="FK_BannerUsers_Users">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="BannerUsers" Type="Self.BannerUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="BannerUsers">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Categorie__Paren__5FB337D6">
           <End Role="Categories" Type="Self.Category" Multiplicity="0..1" />
           <End Role="Categories1" Type="Self.Category" Multiplicity="*" />
           <ReferentialConstraint>
@@ -716,7 +786,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Forums__Category__5FB337D6">
+        <Association Name="FK__Forums__Category__6383C8BA">
           <End Role="Categories" Type="Self.Category" Multiplicity="0..1" />
           <End Role="Forums" Type="Self.Forum" Multiplicity="*" />
           <ReferentialConstraint>
@@ -728,7 +798,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Posts__CategoryI__6383C8BA">
+        <Association Name="FK__Posts__CategoryI__68487DD7">
           <End Role="Categories" Type="Self.Category" Multiplicity="0..1" />
           <End Role="Posts" Type="Self.Post" Multiplicity="*" />
           <ReferentialConstraint>
@@ -740,7 +810,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Comments__Parent__5EBF139D">
+        <Association Name="FK__Comments__Parent__628FA481">
           <End Role="Comments" Type="Self.Comment" Multiplicity="0..1" />
           <End Role="Comments1" Type="Self.Comment" Multiplicity="*" />
           <ReferentialConstraint>
@@ -752,7 +822,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Comments__PostID__5CD6CB2B">
+        <Association Name="FK__Comments__PostID__60A75C0F">
           <End Role="Posts" Type="Self.Post" Multiplicity="0..1" />
           <End Role="Comments" Type="Self.Comment" Multiplicity="*" />
           <ReferentialConstraint>
@@ -764,7 +834,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Comments__UserID__5DCAEF64">
+        <Association Name="FK__Comments__UserID__619B8048">
           <End Role="Users" Type="Self.User" Multiplicity="0..1" />
           <End Role="Comments" Type="Self.Comment" Multiplicity="*" />
           <ReferentialConstraint>
@@ -776,7 +846,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Topics__ForumID__6754599E">
+        <Association Name="FK__Topics__ForumID__6C190EBB">
           <End Role="Forums" Type="Self.Forum" Multiplicity="0..1" />
           <End Role="Topics" Type="Self.Topic" Multiplicity="*" />
           <ReferentialConstraint>
@@ -788,7 +858,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Likes__ReplyID__60A75C0F">
+        <Association Name="FK_PostID">
+          <End Role="Posts" Type="Self.Post" Multiplicity="0..1" />
+          <End Role="ImagePost" Type="Self.ImagePost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Posts">
+              <PropertyRef Name="PostID" />
+            </Principal>
+            <Dependent Role="ImagePost">
+              <PropertyRef Name="PostID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Likes__ReplyID__656C112C">
           <End Role="Replies" Type="Self.Reply" Multiplicity="0..1" />
           <End Role="Likes" Type="Self.Like" Multiplicity="*" />
           <ReferentialConstraint>
@@ -800,7 +882,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Likes__UserID__619B8048">
+        <Association Name="FK__Likes__UserID__66603565">
           <End Role="Users" Type="Self.User" Multiplicity="0..1" />
           <End Role="Likes" Type="Self.Like" Multiplicity="*" />
           <ReferentialConstraint>
@@ -824,7 +906,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Posts__AuthorID__628FA481">
+        <Association Name="FK__Posts__AuthorID__6754599E">
           <End Role="Users" Type="Self.User" Multiplicity="0..1" />
           <End Role="Posts" Type="Self.Post" Multiplicity="*" />
           <ReferentialConstraint>
@@ -836,7 +918,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Replies__TopicID__6477ECF3">
+        <Association Name="FK__Replies__TopicID__693CA210">
           <End Role="Topics" Type="Self.Topic" Multiplicity="0..1" />
           <End Role="Replies" Type="Self.Reply" Multiplicity="*" />
           <ReferentialConstraint>
@@ -848,7 +930,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Replies__UserID__656C112C">
+        <Association Name="FK__Replies__UserID__6A30C649">
           <End Role="Users" Type="Self.User" Multiplicity="0..1" />
           <End Role="Replies" Type="Self.Reply" Multiplicity="*" />
           <ReferentialConstraint>
@@ -860,7 +942,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Users__RoleID__693CA210">
+        <Association Name="FK__Users__RoleID__6E01572D">
           <End Role="Roles" Type="Self.Role" Multiplicity="0..1" />
           <End Role="Users" Type="Self.User" Multiplicity="*" />
           <ReferentialConstraint>
@@ -872,7 +954,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Topics__UserID__68487DD7">
+        <Association Name="FK__Topics__UserID__6D0D32F4">
           <End Role="Users" Type="Self.User" Multiplicity="0..1" />
           <End Role="Topics" Type="Self.Topic" Multiplicity="*" />
           <ReferentialConstraint>
@@ -884,53 +966,62 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="TechBlogDBNetEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="TechBlogDBNetEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BannerUsers" EntityType="Self.BannerUser" />
           <EntitySet Name="Categories" EntityType="Self.Category" />
           <EntitySet Name="Comments" EntityType="Self.Comment" />
           <EntitySet Name="Forums" EntityType="Self.Forum" />
+          <EntitySet Name="ImagePosts" EntityType="Self.ImagePost" />
           <EntitySet Name="Likes" EntityType="Self.Like" />
           <EntitySet Name="menus" EntityType="Self.menu" />
           <EntitySet Name="Posts" EntityType="Self.Post" />
           <EntitySet Name="Replies" EntityType="Self.Reply" />
           <EntitySet Name="Roles" EntityType="Self.Role" />
-          <EntitySet Name="Stats" EntityType="Self.Stat" />
           <EntitySet Name="SubMenus" EntityType="Self.SubMenu" />
           <EntitySet Name="Tags" EntityType="Self.Tag" />
           <EntitySet Name="Topics" EntityType="Self.Topic" />
           <EntitySet Name="Users" EntityType="Self.User" />
-          <AssociationSet Name="FK__Categorie__Paren__5BE2A6F2" Association="Self.FK__Categorie__Paren__5BE2A6F2">
+          <AssociationSet Name="FK_BannerUsers_Users" Association="Self.FK_BannerUsers_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="BannerUsers" EntitySet="BannerUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Categorie__Paren__5FB337D6" Association="Self.FK__Categorie__Paren__5FB337D6">
             <End Role="Categories" EntitySet="Categories" />
             <End Role="Categories1" EntitySet="Categories" />
           </AssociationSet>
-          <AssociationSet Name="FK__Forums__Category__5FB337D6" Association="Self.FK__Forums__Category__5FB337D6">
+          <AssociationSet Name="FK__Forums__Category__6383C8BA" Association="Self.FK__Forums__Category__6383C8BA">
             <End Role="Categories" EntitySet="Categories" />
             <End Role="Forums" EntitySet="Forums" />
           </AssociationSet>
-          <AssociationSet Name="FK__Posts__CategoryI__6383C8BA" Association="Self.FK__Posts__CategoryI__6383C8BA">
+          <AssociationSet Name="FK__Posts__CategoryI__68487DD7" Association="Self.FK__Posts__CategoryI__68487DD7">
             <End Role="Categories" EntitySet="Categories" />
             <End Role="Posts" EntitySet="Posts" />
           </AssociationSet>
-          <AssociationSet Name="FK__Comments__Parent__5EBF139D" Association="Self.FK__Comments__Parent__5EBF139D">
+          <AssociationSet Name="FK__Comments__Parent__628FA481" Association="Self.FK__Comments__Parent__628FA481">
             <End Role="Comments" EntitySet="Comments" />
             <End Role="Comments1" EntitySet="Comments" />
           </AssociationSet>
-          <AssociationSet Name="FK__Comments__PostID__5CD6CB2B" Association="Self.FK__Comments__PostID__5CD6CB2B">
+          <AssociationSet Name="FK__Comments__PostID__60A75C0F" Association="Self.FK__Comments__PostID__60A75C0F">
             <End Role="Posts" EntitySet="Posts" />
             <End Role="Comments" EntitySet="Comments" />
           </AssociationSet>
-          <AssociationSet Name="FK__Comments__UserID__5DCAEF64" Association="Self.FK__Comments__UserID__5DCAEF64">
+          <AssociationSet Name="FK__Comments__UserID__619B8048" Association="Self.FK__Comments__UserID__619B8048">
             <End Role="Users" EntitySet="Users" />
             <End Role="Comments" EntitySet="Comments" />
           </AssociationSet>
-          <AssociationSet Name="FK__Topics__ForumID__6754599E" Association="Self.FK__Topics__ForumID__6754599E">
+          <AssociationSet Name="FK__Topics__ForumID__6C190EBB" Association="Self.FK__Topics__ForumID__6C190EBB">
             <End Role="Forums" EntitySet="Forums" />
             <End Role="Topics" EntitySet="Topics" />
           </AssociationSet>
-          <AssociationSet Name="FK__Likes__ReplyID__60A75C0F" Association="Self.FK__Likes__ReplyID__60A75C0F">
+          <AssociationSet Name="FK_PostID" Association="Self.FK_PostID">
+            <End Role="Posts" EntitySet="Posts" />
+            <End Role="ImagePost" EntitySet="ImagePosts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Likes__ReplyID__656C112C" Association="Self.FK__Likes__ReplyID__656C112C">
             <End Role="Replies" EntitySet="Replies" />
             <End Role="Likes" EntitySet="Likes" />
           </AssociationSet>
-          <AssociationSet Name="FK__Likes__UserID__619B8048" Association="Self.FK__Likes__UserID__619B8048">
+          <AssociationSet Name="FK__Likes__UserID__66603565" Association="Self.FK__Likes__UserID__66603565">
             <End Role="Users" EntitySet="Users" />
             <End Role="Likes" EntitySet="Likes" />
           </AssociationSet>
@@ -938,23 +1029,23 @@
             <End Role="menu" EntitySet="menus" />
             <End Role="SubMenus" EntitySet="SubMenus" />
           </AssociationSet>
-          <AssociationSet Name="FK__Posts__AuthorID__628FA481" Association="Self.FK__Posts__AuthorID__628FA481">
+          <AssociationSet Name="FK__Posts__AuthorID__6754599E" Association="Self.FK__Posts__AuthorID__6754599E">
             <End Role="Users" EntitySet="Users" />
             <End Role="Posts" EntitySet="Posts" />
           </AssociationSet>
-          <AssociationSet Name="FK__Replies__TopicID__6477ECF3" Association="Self.FK__Replies__TopicID__6477ECF3">
+          <AssociationSet Name="FK__Replies__TopicID__693CA210" Association="Self.FK__Replies__TopicID__693CA210">
             <End Role="Topics" EntitySet="Topics" />
             <End Role="Replies" EntitySet="Replies" />
           </AssociationSet>
-          <AssociationSet Name="FK__Replies__UserID__656C112C" Association="Self.FK__Replies__UserID__656C112C">
+          <AssociationSet Name="FK__Replies__UserID__6A30C649" Association="Self.FK__Replies__UserID__6A30C649">
             <End Role="Users" EntitySet="Users" />
             <End Role="Replies" EntitySet="Replies" />
           </AssociationSet>
-          <AssociationSet Name="FK__Users__RoleID__693CA210" Association="Self.FK__Users__RoleID__693CA210">
+          <AssociationSet Name="FK__Users__RoleID__6E01572D" Association="Self.FK__Users__RoleID__6E01572D">
             <End Role="Roles" EntitySet="Roles" />
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
-          <AssociationSet Name="FK__Topics__UserID__68487DD7" Association="Self.FK__Topics__UserID__68487DD7">
+          <AssociationSet Name="FK__Topics__UserID__6D0D32F4" Association="Self.FK__Topics__UserID__6D0D32F4">
             <End Role="Users" EntitySet="Users" />
             <End Role="Topics" EntitySet="Topics" />
           </AssociationSet>
@@ -964,7 +1055,20 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="TechBlogDBNetModelStoreContainer" CdmEntityContainer="TechBlogDBNetEntities1">
+        <EntityContainerMapping StorageEntityContainer="TechBlogDBNetModelStoreContainer" CdmEntityContainer="TechBlogDBNetEntities">
+          <EntitySetMapping Name="BannerUsers">
+            <EntityTypeMapping TypeName="TechBlogDBNetModel.BannerUser">
+              <MappingFragment StoreEntitySet="BannerUsers">
+                <ScalarProperty Name="BannerID" ColumnName="BannerID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="BannerImage" ColumnName="BannerImage" />
+                <ScalarProperty Name="Meta" ColumnName="Meta" />
+                <ScalarProperty Name="Hide" ColumnName="Hide" />
+                <ScalarProperty Name="Order" ColumnName="Order" />
+                <ScalarProperty Name="DateBegin" ColumnName="DateBegin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Categories">
             <EntityTypeMapping TypeName="TechBlogDBNetModel.Category">
               <MappingFragment StoreEntitySet="Categories">
@@ -1008,6 +1112,20 @@
                 <ScalarProperty Name="Slug" ColumnName="Slug" />
                 <ScalarProperty Name="IsPublic" ColumnName="IsPublic" />
                 <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Meta" ColumnName="Meta" />
+                <ScalarProperty Name="Hide" ColumnName="Hide" />
+                <ScalarProperty Name="Order" ColumnName="Order" />
+                <ScalarProperty Name="DateBegin" ColumnName="DateBegin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImagePosts">
+            <EntityTypeMapping TypeName="TechBlogDBNetModel.ImagePost">
+              <MappingFragment StoreEntitySet="ImagePost">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PostID" ColumnName="PostID" />
+                <ScalarProperty Name="FeaturedImage2" ColumnName="FeaturedImage2" />
+                <ScalarProperty Name="FeaturedImage3" ColumnName="FeaturedImage3" />
                 <ScalarProperty Name="Meta" ColumnName="Meta" />
                 <ScalarProperty Name="Hide" ColumnName="Hide" />
                 <ScalarProperty Name="Order" ColumnName="Order" />
@@ -1088,22 +1206,6 @@
                 <ScalarProperty Name="RoleID" ColumnName="RoleID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Link" ColumnName="Link" />
-                <ScalarProperty Name="Meta" ColumnName="Meta" />
-                <ScalarProperty Name="Hide" ColumnName="Hide" />
-                <ScalarProperty Name="Order" ColumnName="Order" />
-                <ScalarProperty Name="DateBegin" ColumnName="DateBegin" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Stats">
-            <EntityTypeMapping TypeName="TechBlogDBNetModel.Stat">
-              <MappingFragment StoreEntitySet="Stats">
-                <ScalarProperty Name="StatID" ColumnName="StatID" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="TotalViews" ColumnName="TotalViews" />
-                <ScalarProperty Name="TotalPosts" ColumnName="TotalPosts" />
-                <ScalarProperty Name="TotalUsers" ColumnName="TotalUsers" />
                 <ScalarProperty Name="Link" ColumnName="Link" />
                 <ScalarProperty Name="Meta" ColumnName="Meta" />
                 <ScalarProperty Name="Hide" ColumnName="Hide" />

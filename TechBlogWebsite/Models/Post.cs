@@ -18,6 +18,7 @@ namespace TechBlogWebsite.Models
         public Post()
         {
             this.Comments = new HashSet<Comment>();
+            this.ImagePosts = new HashSet<ImagePost>();
         }
     
         public int PostID { get; set; }
@@ -40,6 +41,8 @@ namespace TechBlogWebsite.Models
         public virtual Category Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Comment> Comments { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ImagePost> ImagePosts { get; set; }
         public virtual User User { get; set; }
     }
 }

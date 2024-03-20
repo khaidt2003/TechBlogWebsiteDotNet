@@ -12,17 +12,17 @@ namespace TechBlogWebsite.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Stat
+    public partial class ImagePost
     {
-        public int StatID { get; set; }
-        public System.DateTime Date { get; set; }
-        public int TotalViews { get; set; }
-        public int TotalPosts { get; set; }
-        public int TotalUsers { get; set; }
-        public string Link { get; set; }
+        public int ID { get; set; }
+        public Nullable<int> PostID { get; set; }
+        public string FeaturedImage2 { get; set; }
+        public string FeaturedImage3 { get; set; }
         public string Meta { get; set; }
         public Nullable<bool> Hide { get; set; }
         public Nullable<int> Order { get; set; }
         public Nullable<System.DateTime> DateBegin { get; set; }
+    
+        public virtual Post Post { get; set; }
     }
 }

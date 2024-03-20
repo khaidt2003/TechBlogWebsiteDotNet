@@ -17,13 +17,13 @@
                             <li class="breadcrumb-item active">@Model.Title</li>
                         </ol>
 
-                        <span class="color-orange"><a href="tech-category-01.html" title="">Technology</a></span>
+                        <span class="color-orange"><a href="tech-category-01.html" title="">@Model.Category.Name</a></span>
 
                         <h3>@Model.Title</h3>
 
                         <div class="blog-meta big-meta">
-                            <small><a href="tech-single.html" title="">@Model.PublishedDate</a></small>
-                            <small><a href="tech-author.html" title="">@Model.User.Username</a></small>
+                            <small><a href="/blog/@Model.Category.Name/@(Model.Meta + "-" + Model.PostID)" title="">@Model.PublishedDate</a></small>
+                            <small><a href="/Author/@(Model.User.Meta + "-" + Model.User.UserID)" title="">@Model.User.Username</a></small>
                             <small><a href="#" title=""><i class="fa fa-eye"></i> @Model.ViewCount</a></small>
                         </div><!-- end meta -->
 
@@ -114,37 +114,8 @@
 
                     <hr class="invis1">
 
-                    <div class="custombox prevnextpost clearfix">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="blog-list-widget">
-                                    <div class="list-group">
-                                        <a href="tech-single.html" class="list-group-item list-group-item-action flex-column align-items-start">
-                                            <div class="w-100 justify-content-between text-right">
-                                                <img src="~/Content/upload/@Model.FeaturedImage" alt="" class="img-fluid float-right">
-                                                <h5 class="mb-1">5 Beautiful buildings you need to before dying</h5>
-                                                <small>Prev Post</small>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div><!-- end col -->
+                    @{Html.RenderAction("getPreAndPostPost", "Post", new { postId = @Model.PostID });}
 
-                            <div class="col-lg-6">
-                                <div class="blog-list-widget">
-                                    <div class="list-group">
-                                        <a href="tech-single.html" class="list-group-item list-group-item-action flex-column align-items-start">
-                                            <div class="w-100 justify-content-between">
-                                                <img src="~/Content/upload/@Model.FeaturedImage" alt="" class="img-fluid float-left">
-                                                <h5 class="mb-1">Let's make an introduction to the glorious world of history</h5>
-                                                <small>Next Post</small>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div><!-- end col -->
-                        </div><!-- end row -->
-                    </div><!-- end author-box -->
 
                     <hr class="invis1">
 
@@ -152,11 +123,11 @@
                         <h4 class="small-title">About author</h4>
                         <div class="row">
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                                <img src="~/Content/upload/author.jpg" alt="" class="img-fluid rounded-circle">
+                                <img src="~/Content/upload/@Model.User.Avatar" alt="" class="img-fluid rounded-circle">
                             </div><!-- end col -->
 
                             <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-                                <h4><a href="#">Jessica</a></h4>
+                                <h4><a href="#">@Model.User.Username</a></h4>
                                 <p>Quisque sed tristique felis. Lorem <a href="#">visit my website</a> amet, consectetur adipiscing elit. Phasellus quis mi auctor, tincidunt nisl eget, finibus odio. Duis tempus elit quis risus congue feugiat. Thanks for stop Tech Blog!</p>
 
                                 <div class="topsocial">
@@ -174,46 +145,7 @@
 
                     <hr class="invis1">
 
-                    <div class="custombox clearfix">
-                        <h4 class="small-title">You may also like</h4>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="blog-box">
-                                    <div class="post-media">
-                                        <a href="tech-single.html" title="">
-                                            <img src="~/Content/upload/@Model.FeaturedImage" alt="" class="img-fluid">
-                                            <div class="hovereffect">
-                                                <span class=""></span>
-                                            </div><!-- end hover -->
-                                        </a>
-                                    </div><!-- end media -->
-                                    <div class="blog-meta">
-                                        <h4><a href="tech-single.html" title="">We are guests of ABC Design Studio</a></h4>
-                                        <small><a href="blog-category-01.html" title="">Trends</a></small>
-                                        <small><a href="blog-category-01.html" title="">21 July, 2017</a></small>
-                                    </div><!-- end meta -->
-                                </div><!-- end blog-box -->
-                            </div><!-- end col -->
-
-                            <div class="col-lg-6">
-                                <div class="blog-box">
-                                    <div class="post-media">
-                                        <a href="tech-single.html" title="">
-                                            <img src="~/Content/upload/tech_menu_06.jpg" alt="" class="img-fluid">
-                                            <div class="hovereffect">
-                                                <span class=""></span>
-                                            </div><!-- end hover -->
-                                        </a>
-                                    </div><!-- end media -->
-                                    <div class="blog-meta">
-                                        <h4><a href="tech-single.html" title="">Nostalgia at work with family</a></h4>
-                                        <small><a href="blog-category-01.html" title="">News</a></small>
-                                        <small><a href="blog-category-01.html" title="">20 July, 2017</a></small>
-                                    </div><!-- end meta -->
-                                </div><!-- end blog-box -->
-                            </div><!-- end col -->
-                        </div><!-- end row -->
-                    </div><!-- end custom-box -->
+                    @{Html.RenderAction("RandomPost", "Post");}
 
                     <hr class="invis1">
 
@@ -224,7 +156,7 @@
                                 <div class="comments-list">
                                     <div class="media">
                                         <a class="media-left" href="#">
-                                            <img src="~/Content/upload/author.jpg" alt="" class="rounded-circle">
+                                            <img src="~/Content/upload/img_user2.jpg" alt="" class="rounded-circle">
                                         </a>
                                         <div class="media-body">
                                             <h4 class="media-heading user_name">Amanda Martines <small>5 days ago</small></h4>
@@ -234,7 +166,7 @@
                                     </div>
                                     <div class="media">
                                         <a class="media-left" href="#">
-                                            <img src="~/Content/upload/author_01.jpg" alt="" class="rounded-circle">
+                                            <img src="~/Content/upload/img_user3.jpg" alt="" class="rounded-circle">
                                         </a>
                                         <div class="media-body">
 
@@ -247,7 +179,7 @@
                                     </div>
                                     <div class="media last-child">
                                         <a class="media-left" href="#">
-                                            <img src="~/Content/upload/author_02.jpg" alt="" class="rounded-circle">
+                                            <img src="~/Content/upload/img_user4.jpg" alt="" class="rounded-circle">
                                         </a>
                                         <div class="media-body">
 
@@ -286,7 +218,7 @@
                     <div class="widget">
                         <div class="banner-spot clearfix">
                             <div class="banner-img">
-                                <img src="~/Content/upload/banner_07.jpg" alt="" class="img-fluid">
+                                <img src="~/Content/upload/BannerAdvertise1.jpg" alt="" class="img-fluid">
                             </div><!-- end banner-img -->
                         </div><!-- end banner -->
                     </div><!-- end widget -->
@@ -294,51 +226,7 @@
                     <div class="widget">
                         <h2 class="widget-title">Trend Videos</h2>
                         <div class="trend-videos">
-                            <div class="blog-box">
-                                <div class="post-media">
-                                    <a href="tech-single.html" title="">
-                                        <img src="~/Content/upload/tech_video_01.jpg" alt="" class="img-fluid">
-                                        <div class="hovereffect">
-                                            <span class="videohover"></span>
-                                        </div><!-- end hover -->
-                                    </a>
-                                </div><!-- end media -->
-                                <div class="blog-meta">
-                                    <h4><a href="tech-single.html" title="">We prepared the best 10 laptop presentations for you</a></h4>
-                                </div><!-- end meta -->
-                            </div><!-- end blog-box -->
-
-                            <hr class="invis">
-
-                            <div class="blog-box">
-                                <div class="post-media">
-                                    <a href="tech-single.html" title="">
-                                        <img src="~/Content/upload/tech_video_02.jpg" alt="" class="img-fluid">
-                                        <div class="hovereffect">
-                                            <span class="videohover"></span>
-                                        </div><!-- end hover -->
-                                    </a>
-                                </div><!-- end media -->
-                                <div class="blog-meta">
-                                    <h4><a href="tech-single.html" title="">We are guests of ABC Design Studio - Vlog</a></h4>
-                                </div><!-- end meta -->
-                            </div><!-- end blog-box -->
-
-                            <hr class="invis">
-
-                            <div class="blog-box">
-                                <div class="post-media">
-                                    <a href="tech-single.html" title="">
-                                        <img src="~/Content/upload/tech_video_03.jpg" alt="" class="img-fluid">
-                                        <div class="hovereffect">
-                                            <span class="videohover"></span>
-                                        </div><!-- end hover -->
-                                    </a>
-                                </div><!-- end media -->
-                                <div class="blog-meta">
-                                    <h4><a href="tech-single.html" title="">Both blood pressure monitor and intelligent clock</a></h4>
-                                </div><!-- end meta -->
-                            </div><!-- end blog-box -->
+                            @{Html.RenderAction("getPopularBlogVideo", "Temp");}
                         </div><!-- end videos -->
                     </div><!-- end widget -->
 
@@ -346,29 +234,7 @@
                         <h2 class="widget-title">Popular Posts</h2>
                         <div class="blog-list-widget">
                             <div class="list-group">
-                                <a href="tech-single.html" class="list-group-item list-group-item-action flex-column align-items-start">
-                                    <div class="w-100 justify-content-between">
-                                        <img src="~/Content/upload/tech_blog_08.jpg" alt="" class="img-fluid float-left">
-                                        <h5 class="mb-1">5 Beautiful buildings you need..</h5>
-                                        <small>12 Jan, 2016</small>
-                                    </div>
-                                </a>
-
-                                <a href="tech-single.html" class="list-group-item list-group-item-action flex-column align-items-start">
-                                    <div class="w-100 justify-content-between">
-                                        <img src="~/Content/upload/tech_blog_01.jpg" alt="" class="img-fluid float-left">
-                                        <h5 class="mb-1">Let's make an introduction for..</h5>
-                                        <small>11 Jan, 2016</small>
-                                    </div>
-                                </a>
-
-                                <a href="tech-single.html" class="list-group-item list-group-item-action flex-column align-items-start">
-                                    <div class="w-100 last-item justify-content-between">
-                                        <img src="~/Content/upload/tech_blog_03.jpg" alt="" class="img-fluid float-left">
-                                        <h5 class="mb-1">Did you see the most beautiful..</h5>
-                                        <small>07 Jan, 2016</small>
-                                    </div>
-                                </a>
+                                @{Html.RenderAction("getPopularAllPosts", "Temp");}
                             </div>
                         </div><!-- end blog-list -->
                     </div><!-- end widget -->
@@ -377,47 +243,7 @@
                         <h2 class="widget-title">Recent Reviews</h2>
                         <div class="blog-list-widget">
                             <div class="list-group">
-                                <a href="tech-single.html" class="list-group-item list-group-item-action flex-column align-items-start">
-                                    <div class="w-100 justify-content-between">
-                                        <img src="~/Content/upload/tech_blog_02.jpg" alt="" class="img-fluid float-left">
-                                        <h5 class="mb-1">Banana-chip chocolate cake recipe..</h5>
-                                        <span class="rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </span>
-                                    </div>
-                                </a>
-
-                                <a href="tech-single.html" class="list-group-item list-group-item-action flex-column align-items-start">
-                                    <div class="w-100 justify-content-between">
-                                        <img src="~/Content/upload/tech_blog_03.jpg" alt="" class="img-fluid float-left">
-                                        <h5 class="mb-1">10 practical ways to choose organic..</h5>
-                                        <span class="rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </span>
-                                    </div>
-                                </a>
-
-                                <a href="tech-single.html" class="list-group-item list-group-item-action flex-column align-items-start">
-                                    <div class="w-100 last-item justify-content-between">
-                                        <img src="~/Content/upload/tech_blog_07.jpg" alt="" class="img-fluid float-left">
-                                        <h5 class="mb-1">We are making homemade ravioli..</h5>
-                                        <span class="rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </span>
-                                    </div>
-                                </a>
+                                @{Html.RenderAction("getRecentReviews", "Temp");}
                             </div>
                         </div><!-- end blog-list -->
                     </div><!-- end widget -->
@@ -459,7 +285,7 @@
                     <div class="widget">
                         <div class="banner-spot clearfix">
                             <div class="banner-img">
-                                <img src="~/Content/upload/banner_03.jpg" alt="" class="img-fluid">
+                                <img src="~/Content/upload/BannerAdvertise1.jpg" alt="" class="img-fluid">
                             </div><!-- end banner-img -->
                         </div><!-- end banner -->
                     </div><!-- end widget -->

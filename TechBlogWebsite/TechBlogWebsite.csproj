@@ -131,12 +131,16 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\DefaultController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AuthorController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\TempController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BannerUser.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Category.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -145,6 +149,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Forum.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ImagePost.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Like.cs">
@@ -175,9 +182,6 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Role.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Stat.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SubMenu.cs">
@@ -2007,6 +2011,99 @@
     <Content Include="Content\upload\banner_02.jpg" />
     <Content Include="Content\upload\banner_03.jpg" />
     <Content Include="Content\upload\banner_07.jpg" />
+    <Content Include="Content\upload\banner_user2.jpg" />
+    <Content Include="Content\upload\banner_user3.jpg" />
+    <Content Include="Content\upload\img2_po1.jpg" />
+    <Content Include="Content\upload\img2_po10.jpg" />
+    <Content Include="Content\upload\img2_po11.jpg" />
+    <Content Include="Content\upload\img2_po12.jpg" />
+    <Content Include="Content\upload\img2_po13.jpg" />
+    <Content Include="Content\upload\img2_po14.jpg" />
+    <Content Include="Content\upload\img2_po15.jpg" />
+    <Content Include="Content\upload\img2_po16.jpg" />
+    <Content Include="Content\upload\img2_po17.jpg" />
+    <Content Include="Content\upload\img2_po18.jpg" />
+    <Content Include="Content\upload\img2_po19.jpg" />
+    <Content Include="Content\upload\img2_po2.jpg" />
+    <Content Include="Content\upload\img2_po20.jpg" />
+    <Content Include="Content\upload\img2_po21.jpg" />
+    <Content Include="Content\upload\img2_po22.jpg" />
+    <Content Include="Content\upload\img2_po23.jpg" />
+    <Content Include="Content\upload\img2_po24.jpg" />
+    <Content Include="Content\upload\img2_po25.jpg" />
+    <Content Include="Content\upload\img2_po26.jpg" />
+    <Content Include="Content\upload\img2_po27.jpg" />
+    <Content Include="Content\upload\img2_po28.jpg" />
+    <Content Include="Content\upload\img2_po29.jpg" />
+    <Content Include="Content\upload\img2_po3.jpg" />
+    <Content Include="Content\upload\img2_po30.jpg" />
+    <Content Include="Content\upload\img2_po31.jpg" />
+    <Content Include="Content\upload\img2_po32.jpg" />
+    <Content Include="Content\upload\img2_po33.jpg" />
+    <Content Include="Content\upload\img2_po34.jpg" />
+    <Content Include="Content\upload\img2_po35.jpg" />
+    <Content Include="Content\upload\img2_po36.jpg" />
+    <Content Include="Content\upload\img2_po37.jpg" />
+    <Content Include="Content\upload\img2_po38.jpg" />
+    <Content Include="Content\upload\img2_po39.jpg" />
+    <Content Include="Content\upload\img2_po4.jpg" />
+    <Content Include="Content\upload\img2_po40.jpg" />
+    <Content Include="Content\upload\img2_po41.jpg" />
+    <Content Include="Content\upload\img2_po42.jpg" />
+    <Content Include="Content\upload\img2_po43.jpg" />
+    <Content Include="Content\upload\img2_po44.jpg" />
+    <Content Include="Content\upload\img2_po45.jpg" />
+    <Content Include="Content\upload\img2_po46.jpg" />
+    <Content Include="Content\upload\img2_po47.jpg" />
+    <Content Include="Content\upload\img2_po48.jpg" />
+    <Content Include="Content\upload\img2_po49.jpg" />
+    <Content Include="Content\upload\img2_po5.jpg" />
+    <Content Include="Content\upload\img2_po50.jpg" />
+    <Content Include="Content\upload\img2_po6.jpg" />
+    <Content Include="Content\upload\img2_po7.jpg" />
+    <Content Include="Content\upload\img2_po8.jpg" />
+    <Content Include="Content\upload\img2_po9.jpg" />
+    <Content Include="Content\upload\img3_po1.jpg" />
+    <Content Include="Content\upload\img3_po10.jpg" />
+    <Content Include="Content\upload\img3_po11.jpg" />
+    <Content Include="Content\upload\img3_po12.jpg" />
+    <Content Include="Content\upload\img3_po13.jpg" />
+    <Content Include="Content\upload\img3_po14.jpg" />
+    <Content Include="Content\upload\img3_po16.jpg" />
+    <Content Include="Content\upload\img3_po17.jpg" />
+    <Content Include="Content\upload\img3_po18.jpg" />
+    <Content Include="Content\upload\img3_po2.jpg" />
+    <Content Include="Content\upload\img3_po22.jpg" />
+    <Content Include="Content\upload\img3_po23.jpg" />
+    <Content Include="Content\upload\img3_po24.jpg" />
+    <Content Include="Content\upload\img3_po25.jpg" />
+    <Content Include="Content\upload\img3_po26.jpg" />
+    <Content Include="Content\upload\img3_po27.jpg" />
+    <Content Include="Content\upload\img3_po28.jpg" />
+    <Content Include="Content\upload\img3_po3.jpg" />
+    <Content Include="Content\upload\img3_po30.jpg" />
+    <Content Include="Content\upload\img3_po32.jpg" />
+    <Content Include="Content\upload\img3_po33.jpg" />
+    <Content Include="Content\upload\img3_po34.jpg" />
+    <Content Include="Content\upload\img3_po36.jpg" />
+    <Content Include="Content\upload\img3_po37.jpg" />
+    <Content Include="Content\upload\img3_po38.jpg" />
+    <Content Include="Content\upload\img3_po39.jpg" />
+    <Content Include="Content\upload\img3_po4.jpg" />
+    <Content Include="Content\upload\img3_po40.jpg" />
+    <Content Include="Content\upload\img3_po41.jpg" />
+    <Content Include="Content\upload\img3_po42.jpg" />
+    <Content Include="Content\upload\img3_po44.jpg" />
+    <Content Include="Content\upload\img3_po45.jpg" />
+    <Content Include="Content\upload\img3_po47.jpg" />
+    <Content Include="Content\upload\img3_po48.jpg" />
+    <Content Include="Content\upload\img3_po49.jpg" />
+    <Content Include="Content\upload\img3_po5.jpg" />
+    <Content Include="Content\upload\img3_po50.jpg" />
+    <Content Include="Content\upload\img3_po6.jpg" />
+    <Content Include="Content\upload\img3_po7.jpg" />
+    <Content Include="Content\upload\img3_po8.jpg" />
+    <Content Include="Content\upload\img3_po9.jpg" />
     <Content Include="Content\upload\img_po1.jpg" />
     <Content Include="Content\upload\img_po10.jpg" />
     <Content Include="Content\upload\img_po11.jpg" />
@@ -2441,7 +2538,6 @@
     <Content Include="Views\Shared\MyLayout.cshtml" />
     <Content Include="Views\Default\Index.cshtml" />
     <Content Include="Views\Default\Contact.cshtml" />
-    <Content Include="Views\Default\TechSingle.cshtml" />
     <Content Include="Views\Default\TechCategory.cshtml" />
     <Content Include="Views\Default\TechAuthor.cshtml" />
     <Content Include="Views\Temp\getMenu.cshtml" />
@@ -2455,6 +2551,14 @@
     <Content Include="Views\Post\Detail.cshtml" />
     <Content Include="Views\Temp\getPopularBlogVideo.cshtml" />
     <Content Include="Views\Temp\getPopularAllPosts.cshtml" />
+    <Content Include="Views\Temp\getRecentReviews.cshtml" />
+    <Content Include="Views\Temp\getAllPostGadgets.cshtml" />
+    <Content Include="Views\Temp\getAllPostVideos.cshtml" />
+    <Content Include="Views\Temp\getAllPostReviews.cshtml" />
+    <Content Include="Views\Post\getPreAndPostPost.cshtml" />
+    <Content Include="Views\Post\RandomPost.cshtml" />
+    <Content Include="Views\Author\Author.cshtml" />
+    <Content Include="Views\Author\getAllAuthorPosts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

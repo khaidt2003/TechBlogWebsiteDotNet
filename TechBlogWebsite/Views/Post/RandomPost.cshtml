@@ -1,0 +1,50 @@
+﻿@model IEnumerable<TechBlogWebsite.Models.Post>
+@{
+    var post1 = Model.ElementAtOrDefault(0);
+    var post2 = Model.ElementAtOrDefault(1);
+}
+<style>
+    .img-fix {
+        height: 280px;
+    }
+</style>
+<div class="custombox clearfix">
+    <h4 class="small-title">You may also like</h4>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="blog-box">
+                <div class="post-media">
+                    <a href="/blog/@post1.Category.Name/@(post1.Meta + "-" + post1.PostID)" title="">
+                        <img src="~/Content/upload/@post1.FeaturedImage" alt="" class="img-fluid fix-img">
+                        <div class="hovereffect">
+                            <span class=""></span>
+                        </div><!-- end hover -->
+                    </a>
+                </div><!-- end media -->
+                <div class="blog-meta">
+                    <h4><a href="/blog/@post1.Category.Name/@(post1.Meta + "-" + post1.PostID)" title="">@post1.Title</a></h4>
+                    <small><a href="blog-category-01.html" title="">@post1.Category.Name</a></small>
+                    <small><a href="blog-category-01.html" title="">@post1.PublishedDate</a></small>
+                </div><!-- end meta -->
+            </div><!-- end blog-box -->
+        </div><!-- end col -->
+
+        <div class="col-lg-6">
+            <div class="blog-box">
+                <div class="post-media">
+                    <a href="/blog/@post2.Category.Name/@(post2.Meta + "-" + post2.PostID)" title="">
+                        <img src="~/Content/upload/@post2.FeaturedImage" alt="" class="img-fluid fix-img">
+                        <div class="hovereffect">
+                            <span class=""></span>
+                        </div><!-- end hover -->
+                    </a>
+                </div><!-- end media -->
+                <div class="blog-meta">
+                    <h4><a href="/blog/@post2.Category.Name/@(post2.Meta + "-" + post2.PostID)" title="">@post2.Title</a></h4>
+                    <small><a href="blog-category-01.html" title="">@post2.Category.Name</a></small>
+                    <small><a href="blog-category-01.html" title="">@post2.PublishedDate</a></small>
+                </div><!-- end meta -->
+            </div><!-- end blog-box -->
+        </div><!-- end col -->
+    </div><!-- end row -->
+</div><!-- end custom-box -->
