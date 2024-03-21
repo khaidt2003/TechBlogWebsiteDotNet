@@ -37,6 +37,14 @@ namespace TechBlogWebsite.Controllers
         {
             return View();
         }
-        
+        public ActionResult TechTechnology()
+        {
+            return View();
+        }
+        public ActionResult TechSciences()
+        {
+            return View();
+        }
+
     }
 }

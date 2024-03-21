@@ -2559,6 +2559,12 @@
     <Content Include="Views\Post\RandomPost.cshtml" />
     <Content Include="Views\Author\Author.cshtml" />
     <Content Include="Views\Author\getAllAuthorPosts.cshtml" />
+    <Content Include="Views\Temp\getAllPostTechnologys.cshtml" />
+    <Content Include="Views\Default\TechTechnology.cshtml" />
+    <Content Include="Views\Default\TechSciences.cshtml" />
+    <Content Include="Views\Temp\getAllPostSciences.cshtml" />
+    <Content Include="Views\Temp\GetPopularPostsOfTechnology.cshtml" />
+    <Content Include="Views\Temp\GetPopularPostsOfScience.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

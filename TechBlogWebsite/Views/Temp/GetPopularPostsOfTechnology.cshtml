@@ -1,0 +1,35 @@
+﻿@model IEnumerable<TechBlogWebsite.Models.Post>
+<style>
+    .fix-img {
+        width: 800px;
+        height: 150px;
+    }
+
+    .fix-content {
+        max-height: 27%; /* Đặt chiều cao tối đa của phần tử */
+        overflow: hidden; /* Ẩn phần dư thừa */
+        text-overflow: ellipsis; /* Hiển thị dấu chấm elip khi có nội dung bị cắt bớt */
+        white-space: nowrap;
+    }
+</style>
+<div class="row">
+    
+
+    @foreach(var i in Model) { 
+        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+            <div class="blog-box">
+                <div class="post-media">
+                    <a href="/blog/@i.Category.Name/@(i.Meta + "-" + i.PostID)" title="">
+                        <img src="~/Content/upload/@i.FeaturedImage" alt="" class="img-fluid fix-img">
+                        <div class="hovereffect">
+                        </div><!-- end hover -->
+                        <span class="menucat">@i.Category.Name</span>
+                    </a>
+                </div><!-- end media -->
+                <div class="blog-meta">
+                    <h4><a href="/blog/@i.Category.Name/@(i.Meta + "-" + i.PostID)" title="">@i.Title</a></h4>
+                </div><!-- end meta -->
+            </div><!-- end blog-box -->
+        </div>
+    }
+</div><!-- end row -->

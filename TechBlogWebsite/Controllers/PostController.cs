@@ -32,20 +32,14 @@ namespace TechBlogWebsite.Controllers
             }
 
             var previousPost = _db.Posts
-                .Where(p => p.CategoryID == selectedPost.CategoryID && p.PostID < postId)
+                .Where(p => p.PostID < postId)
                 .OrderByDescending(p => p.PostID)
                 .FirstOrDefault();
 
             var nextPost = _db.Posts
-                .Where(p => p.CategoryID == selectedPost.CategoryID && p.PostID > postId)
+                .Where(p => p.PostID > postId)
                 .OrderBy(p => p.PostID)
                 .FirstOrDefault();
-
-            if (previousPost == null && nextPost == null)
-            {
-                // Trả về một danh sách trống nếu không có bài đăng nào phía trước hoặc phía sau
-                return PartialView(new List<Post>());
-            }
 
             var result = new List<Post>();
             if (previousPost != null)
@@ -59,6 +53,9 @@ namespace TechBlogWebsite.Controllers
 
             return PartialView(result);
         }
+
+
+
         public ActionResult RandomPost()
         {
             var allPosts = _db.Posts.ToList();

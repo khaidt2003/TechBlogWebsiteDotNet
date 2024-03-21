@@ -52,6 +52,23 @@ namespace TechBlogWebsite
                 },
                 namespaces: new[] { "TechBlogWebsite.Controllers" }
             );
+            
+            routes.MapRoute("TechTechnology", "{type}",
+                new { controller = "Default", action = "TechTechnology", meta = UrlParameter.Optional },
+                new RouteValueDictionary
+                {
+                    { "type", "Cong-Nghe" }
+                },
+                namespaces: new[] { "TechBlogWebsite.Controllers" }
+            );
+            routes.MapRoute("TechScience", "{type}",
+                new { controller = "Default", action = "TechSciences", meta = UrlParameter.Optional },
+                new RouteValueDictionary
+                {
+                    { "type", "Khoa-hoc" }
+                },
+                namespaces: new[] { "TechBlogWebsite.Controllers" }
+            );
             routes.MapRoute("Techsingle", "{type}/{meta}/{metatitle}-{id}",
                 new { controller = "Post", action = "Detail", meta = UrlParameter.Optional },
                 new RouteValueDictionary

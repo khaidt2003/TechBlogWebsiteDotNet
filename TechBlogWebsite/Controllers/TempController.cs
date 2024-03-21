@@ -89,5 +89,39 @@ namespace TechBlogWebsite.Controllers
                 .ToList();
             return PartialView(topPosts);
         }
+        public ActionResult getAllPostTechnologys()
+        {
+            var topPosts = _db.Posts
+                .Where(p => p.CategoryID == 2) // Assuming CategoryId is the property for category
+                .Take(10)
+                .ToList();
+            return PartialView(topPosts);
+        }
+        public ActionResult getAllPostSciences()
+        {
+            var topPosts = _db.Posts
+                .Where(p => p.CategoryID == 1) // Assuming CategoryId is the property for category
+                .Take(10)
+                .ToList();
+            return PartialView(topPosts);
+        }
+        public ActionResult GetPopularPostsOfTechnology()
+        {
+            var topPosts = _db.Posts
+                .Where(p => p.CategoryID == 2) 
+                .OrderByDescending(t => t.ViewCount)
+                .Take(4)
+                .ToList();
+            return PartialView(topPosts);
+        }
+        public ActionResult GetPopularPostsOfScience()
+        {
+            var topPosts = _db.Posts
+                .Where(p => p.CategoryID == 1)
+                .OrderByDescending(t => t.ViewCount)
+                .Take(4)
+                .ToList();
+            return PartialView(topPosts);
+        }
     }
 }
