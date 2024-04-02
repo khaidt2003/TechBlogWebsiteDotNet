@@ -1,4 +1,4 @@
-﻿@model TechBlogWebsite.Models.User
+﻿@model TechBlogWebsite.ViewModels.RegisterVM
 
 @{
     ViewBag.Title = "Register";
@@ -16,26 +16,35 @@
             <div class="col-md-6 col-lg-8">
                 <div class="login-wrap p-0">
                     <h3 class="mb-4 text-center">Have an account?</h3>
-                    <form action="#" class="signin-form">
+                    @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <input type="text" class="form-control" placeholder="First Name" required>
+                                @Html.TextBoxFor(temp => temp.firstName, new { placeholder = "First Name", @class = "form-control" })
+                                @Html.ValidationMessageFor(temp => temp.Password)
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.TextBoxFor(temp => temp.lastName, new { placeholder = "Last Name", @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.lastName, "", new { @class = "badge badge-danger" })
                             </div>
                             <div class="form-group col-md-6">
-                                <input type="text" class="form-control" placeholder="Last Name" required>
+                                @Html.TextBoxFor(temp => temp.Email, new { placeholder = "Email", @class = "form-control" })
+                                @Html.ValidationMessageFor(temp => temp.Email)
                             </div>
                             <div class="form-group col-md-6">
-                                <input type="text" class="form-control" placeholder="Email" required>
+                                @Html.TextBoxFor(temp => temp.Username, new { placeholder = "Username", @class = "form-control" })
+                                @Html.ValidationMessageFor(temp => temp.Username)
                             </div>
                             <div class="form-group col-md-6">
-                                <input type="text" class="form-control" placeholder="Username" required>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <input id="password-field" type="password" class="form-control" placeholder="Password" required>
+                                @Html.PasswordFor(temp => temp.Password, new { placeholder = "password", @class = "form-control" })
+                                @Html.ValidationMessageFor(temp => temp.Password)
                                 <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                             </div>
                             <div class="form-group col-md-6">
-                                <input id="confirm-password-field" type="password" class="form-control" placeholder="Confirm Password" required>
+                                @Html.PasswordFor(temp => temp.ConfirmPassword, new { placeholder = "Confirm Password", @class = "form-control", @id = "confirm-password-field" })
+                                @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "badge badge-danger" })
                                 <span toggle="#confirm-password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                             </div>
                         </div>
@@ -54,7 +63,7 @@
                                 <a href="#" style="color: #fff">Forgot Password</a>
                             </div>
                         </div>
-                    </form>
+                    }
                     <p class="w-100 text-center">&mdash; Or Sign In With &mdash;</p>
                     <div class="social d-flex text-center">
                         <a href="#" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span> Facebook</a>
@@ -65,3 +74,4 @@
         </div>
     </div>
 </section>
+
