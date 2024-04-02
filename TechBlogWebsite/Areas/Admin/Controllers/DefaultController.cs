@@ -21,5 +21,9 @@ namespace TechBlogWebsite.Areas.Admin.Controllers
         {
             return View();
         }
+        public ActionResult Table()
+        {
+            return View();
+        }
     }
 }
