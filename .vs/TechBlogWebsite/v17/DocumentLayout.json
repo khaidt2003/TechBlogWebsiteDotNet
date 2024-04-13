@@ -1,33 +1,101 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\HocTap\\DotNet\\TechBlogWebsiteDotNet\\",
+  "WorkspaceRootPath": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|D:\\HocTap\\DotNet\\TechBlogWebsiteDotNet\\techblogwebsite\\areas\\admin\\views\\shared\\_adminlayoutpage1.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|d:\\hoctap\\new folder (2)\\techblogwebsitedotnet\\techblogwebsite\\areas\\admin\\views\\menus\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|solutionrelative:techblogwebsite\\areas\\admin\\views\\menus\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\techblogwebsite\\areas\\admin\\views\\posts\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|solutionrelative:techblogwebsite\\areas\\admin\\views\\posts\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|d:\\hoctap\\new folder (2)\\techblogwebsitedotnet\\techblogwebsite\\areas\\admin\\views\\users\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|solutionrelative:techblogwebsite\\areas\\admin\\views\\users\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|d:\\hoctap\\new folder (2)\\techblogwebsitedotnet\\techblogwebsite\\areas\\admin\\controllers\\menuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|solutionrelative:techblogwebsite\\areas\\admin\\controllers\\menuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|d:\\hoctap\\new folder (2)\\techblogwebsitedotnet\\techblogwebsite\\models\\model1.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
+      "RelativeMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|solutionrelative:techblogwebsite\\models\\model1.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|d:\\hoctap\\new folder (2)\\techblogwebsitedotnet\\techblogwebsite\\models\\model1.context.tt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|solutionrelative:techblogwebsite\\models\\model1.context.tt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\techblogwebsite\\areas\\admin\\views\\bannerusers\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|solutionrelative:techblogwebsite\\areas\\admin\\views\\bannerusers\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|d:\\hoctap\\new folder (2)\\techblogwebsitedotnet\\techblogwebsite\\areas\\admin\\controllers\\postscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|solutionrelative:techblogwebsite\\areas\\admin\\controllers\\postscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|d:\\hoctap\\new folder (2)\\techblogwebsitedotnet\\techblogwebsite\\areas\\admin\\controllers\\defaultcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|solutionrelative:techblogwebsite\\areas\\admin\\controllers\\defaultcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\techblogwebsite\\areas\\admin\\views\\shared\\_adminlayoutpage1.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|solutionrelative:techblogwebsite\\areas\\admin\\views\\shared\\_adminlayoutpage1.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|d:\\hoctap\\dotnet\\techblogwebsitedotnet\\techblogwebsite\\areas\\admin\\views\\default\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|solutionrelative:techblogwebsite\\areas\\admin\\views\\default\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|d:\\hoctap\\new folder (2)\\techblogwebsitedotnet\\techblogwebsite\\areas\\admin\\adminarearegistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|solutionrelative:techblogwebsite\\areas\\admin\\adminarearegistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|d:\\hoctap\\dotnet\\techblogwebsitedotnet\\techblogwebsite\\areas\\admin\\views\\default\\table.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\techblogwebsite\\areas\\admin\\views\\default\\table.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|solutionrelative:techblogwebsite\\areas\\admin\\views\\default\\table.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|D:\\HocTap\\DotNet\\TechBlogWebsiteDotNet\\techblogwebsite\\controllers\\tempcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\techblogwebsite\\areas\\admin\\views\\default\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|solutionrelative:techblogwebsite\\areas\\admin\\views\\default\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|d:\\hoctap\\new folder (2)\\techblogwebsitedotnet\\techblogwebsite\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|solutionrelative:techblogwebsite\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\techblogwebsite\\areas\\admin\\views\\default\\chart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|solutionrelative:techblogwebsite\\areas\\admin\\views\\default\\chart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\techblogwebsite\\areas\\admin\\views\\bannerusers\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|solutionrelative:techblogwebsite\\areas\\admin\\views\\bannerusers\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\techblogwebsite\\areas\\admin\\views\\posts\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|solutionrelative:techblogwebsite\\areas\\admin\\views\\posts\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\techblogwebsite\\areas\\admin\\views\\posts\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|solutionrelative:techblogwebsite\\areas\\admin\\views\\posts\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\techblogwebsite\\areas\\admin\\views\\menus\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|solutionrelative:techblogwebsite\\areas\\admin\\views\\menus\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\techblogwebsite\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|solutionrelative:techblogwebsite\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\techblogwebsite\\controllers\\tempcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|solutionrelative:techblogwebsite\\controllers\\tempcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|D:\\HocTap\\DotNet\\TechBlogWebsiteDotNet\\techblogwebsite\\views\\default\\techtechnology.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\techblogwebsite\\views\\default\\techtechnology.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|solutionrelative:techblogwebsite\\views\\default\\techtechnology.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|D:\\HocTap\\DotNet\\TechBlogWebsiteDotNet\\techblogwebsite\\views\\temp\\getpopularpostsofscience.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\techblogwebsite\\views\\temp\\getpopularpostsofscience.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|solutionrelative:techblogwebsite\\views\\temp\\getpopularpostsofscience.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|D:\\HocTap\\DotNet\\TechBlogWebsiteDotNet\\techblogwebsite\\views\\temp\\getpopularpostsoftechnology.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\techblogwebsite\\views\\temp\\getpopularpostsoftechnology.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|solutionrelative:techblogwebsite\\views\\temp\\getpopularpostsoftechnology.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
@@ -38,54 +106,269 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\HocTap\\DotNet\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Views\\Default\\Index.cshtml",
-              "RelativeDocumentMoniker": "TechBlogWebsite\\Areas\\Admin\\Views\\Default\\Index.cshtml",
-              "ToolTip": "D:\\HocTap\\DotNet\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Views\\Default\\Index.cshtml",
-              "RelativeToolTip": "TechBlogWebsite\\Areas\\Admin\\Views\\Default\\Index.cshtml",
-              "ViewState": "AQIAAH4AAAAAAAAAAAAAAAAAAAAAAAAA",
+              "DocumentMoniker": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Views\\Users\\Index.cshtml",
+              "RelativeDocumentMoniker": "TechBlogWebsite\\Areas\\Admin\\Views\\Users\\Index.cshtml",
+              "ToolTip": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Views\\Users\\Index.cshtml",
+              "RelativeToolTip": "TechBlogWebsite\\Areas\\Admin\\Views\\Users\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-02T01:37:18.451Z",
+              "WhenOpened": "2024-04-13T03:44:41.784Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Table.cshtml",
-              "DocumentMoniker": "D:\\HocTap\\DotNet\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Views\\Default\\Table.cshtml",
-              "RelativeDocumentMoniker": "TechBlogWebsite\\Areas\\Admin\\Views\\Default\\Table.cshtml",
-              "ToolTip": "D:\\HocTap\\DotNet\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Views\\Default\\Table.cshtml",
-              "RelativeToolTip": "TechBlogWebsite\\Areas\\Admin\\Views\\Default\\Table.cshtml",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAAAYAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-02T01:33:03.57Z",
+              "DocumentIndex": 4,
+              "Title": "Model1.edmx [Diagram1]",
+              "DocumentMoniker": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Models\\Model1.edmx",
+              "RelativeDocumentMoniker": "TechBlogWebsite\\Models\\Model1.edmx",
+              "ToolTip": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Models\\Model1.edmx [Diagram1]",
+              "RelativeToolTip": "TechBlogWebsite\\Models\\Model1.edmx [Diagram1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
+              "WhenOpened": "2024-04-13T03:41:41.208Z",
+              "EditorCaption": " [Diagram1]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "PostsController.cs",
+              "DocumentMoniker": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Controllers\\PostsController.cs",
+              "RelativeDocumentMoniker": "TechBlogWebsite\\Areas\\Admin\\Controllers\\PostsController.cs",
+              "ToolTip": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Controllers\\PostsController.cs",
+              "RelativeToolTip": "TechBlogWebsite\\Areas\\Admin\\Controllers\\PostsController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-13T03:37:37.695Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "menusController.cs",
+              "DocumentMoniker": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Controllers\\menusController.cs",
+              "RelativeDocumentMoniker": "TechBlogWebsite\\Areas\\Admin\\Controllers\\menusController.cs",
+              "ToolTip": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Controllers\\menusController.cs",
+              "RelativeToolTip": "TechBlogWebsite\\Areas\\Admin\\Controllers\\menusController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-13T03:35:33.143Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AdminAreaRegistration.cs",
+              "DocumentMoniker": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\AdminAreaRegistration.cs",
+              "RelativeDocumentMoniker": "TechBlogWebsite\\Areas\\Admin\\AdminAreaRegistration.cs",
+              "ToolTip": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\AdminAreaRegistration.cs",
+              "RelativeToolTip": "TechBlogWebsite\\Areas\\Admin\\AdminAreaRegistration.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-13T03:35:04.29Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Views\\menus\\Index.cshtml",
+              "RelativeDocumentMoniker": "TechBlogWebsite\\Areas\\Admin\\Views\\menus\\Index.cshtml",
+              "ToolTip": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Views\\menus\\Index.cshtml",
+              "RelativeToolTip": "TechBlogWebsite\\Areas\\Admin\\Views\\menus\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-13T03:22:45.258Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Chart.cshtml",
+              "DocumentMoniker": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Views\\Default\\Chart.cshtml",
+              "RelativeDocumentMoniker": "TechBlogWebsite\\Areas\\Admin\\Views\\Default\\Chart.cshtml",
+              "ToolTip": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Views\\Default\\Chart.cshtml",
+              "RelativeToolTip": "TechBlogWebsite\\Areas\\Admin\\Views\\Default\\Chart.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-13T03:22:36.857Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Views\\BannerUsers\\Create.cshtml",
+              "RelativeDocumentMoniker": "TechBlogWebsite\\Areas\\Admin\\Views\\BannerUsers\\Create.cshtml",
+              "ToolTip": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Views\\BannerUsers\\Create.cshtml",
+              "RelativeToolTip": "TechBlogWebsite\\Areas\\Admin\\Views\\BannerUsers\\Create.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-13T03:20:04.06Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Views\\Posts\\Delete.cshtml",
+              "RelativeDocumentMoniker": "TechBlogWebsite\\Areas\\Admin\\Views\\Posts\\Delete.cshtml",
+              "ToolTip": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Views\\Posts\\Delete.cshtml",
+              "RelativeToolTip": "TechBlogWebsite\\Areas\\Admin\\Views\\Posts\\Delete.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-13T03:20:00.472Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Views\\Posts\\Index.cshtml",
+              "RelativeDocumentMoniker": "TechBlogWebsite\\Areas\\Admin\\Views\\Posts\\Index.cshtml",
+              "ToolTip": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Views\\Posts\\Index.cshtml",
+              "RelativeToolTip": "TechBlogWebsite\\Areas\\Admin\\Views\\Posts\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAABWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-13T03:04:43.74Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Model1.Context.tt",
+              "DocumentMoniker": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Models\\Model1.Context.tt",
+              "RelativeDocumentMoniker": "TechBlogWebsite\\Models\\Model1.Context.tt",
+              "ToolTip": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Models\\Model1.Context.tt",
+              "RelativeToolTip": "TechBlogWebsite\\Models\\Model1.Context.tt",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-04-13T03:42:28.106Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Views\\Posts\\Create.cshtml",
+              "RelativeDocumentMoniker": "TechBlogWebsite\\Areas\\Admin\\Views\\Posts\\Create.cshtml",
+              "ToolTip": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Views\\Posts\\Create.cshtml",
+              "RelativeToolTip": "TechBlogWebsite\\Areas\\Admin\\Views\\Posts\\Create.cshtml",
+              "ViewState": "AQIAADYAAAAAAAAAAAAAABQAAAByAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-13T03:19:54.194Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Views\\BannerUsers\\Index.cshtml",
+              "RelativeDocumentMoniker": "TechBlogWebsite\\Areas\\Admin\\Views\\BannerUsers\\Index.cshtml",
+              "ToolTip": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Views\\BannerUsers\\Index.cshtml",
+              "RelativeToolTip": "TechBlogWebsite\\Areas\\Admin\\Views\\BannerUsers\\Index.cshtml",
+              "ViewState": "AQIAAFEAAAAAAAAAAAAAABEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-13T03:14:43.288Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Views\\menus\\Delete.cshtml",
+              "RelativeDocumentMoniker": "TechBlogWebsite\\Areas\\Admin\\Views\\menus\\Delete.cshtml",
+              "ToolTip": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Views\\menus\\Delete.cshtml",
+              "RelativeToolTip": "TechBlogWebsite\\Areas\\Admin\\Views\\menus\\Delete.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-13T03:14:31.328Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "DefaultController.cs",
+              "DocumentMoniker": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Controllers\\DefaultController.cs",
+              "RelativeDocumentMoniker": "TechBlogWebsite\\Areas\\Admin\\Controllers\\DefaultController.cs",
+              "ToolTip": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Controllers\\DefaultController.cs",
+              "RelativeToolTip": "TechBlogWebsite\\Areas\\Admin\\Controllers\\DefaultController.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAAIwCEAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-13T03:35:34.272Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Web.config",
+              "DocumentMoniker": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Web.config",
+              "RelativeDocumentMoniker": "TechBlogWebsite\\Web.config",
+              "ToolTip": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Web.config",
+              "RelativeToolTip": "TechBlogWebsite\\Web.config",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAqwEAAAADrAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-04-13T03:04:06.976Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "_AdminLayoutPage1.cshtml",
-              "DocumentMoniker": "D:\\HocTap\\DotNet\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Views\\Shared\\_AdminLayoutPage1.cshtml",
+              "DocumentMoniker": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Views\\Shared\\_AdminLayoutPage1.cshtml",
               "RelativeDocumentMoniker": "TechBlogWebsite\\Areas\\Admin\\Views\\Shared\\_AdminLayoutPage1.cshtml",
-              "ToolTip": "D:\\HocTap\\DotNet\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Views\\Shared\\_AdminLayoutPage1.cshtml",
+              "ToolTip": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Views\\Shared\\_AdminLayoutPage1.cshtml",
               "RelativeToolTip": "TechBlogWebsite\\Areas\\Admin\\Views\\Shared\\_AdminLayoutPage1.cshtml",
-              "ViewState": "AQIAAG4AAAAAAAAAAAAEwIIAAAAfAAAA",
+              "ViewState": "AQIAAFIAAAAAAAAAAAAAAGQAAABHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-03-21T12:41:09.553Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 13,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "TechBlogWebsite\\Controllers\\AccountController.cs",
+              "ToolTip": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "TechBlogWebsite\\Controllers\\AccountController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-13T03:27:52.562Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Views\\Default\\Index.cshtml",
+              "RelativeDocumentMoniker": "TechBlogWebsite\\Areas\\Admin\\Views\\Default\\Index.cshtml",
+              "ToolTip": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Views\\Default\\Index.cshtml",
+              "RelativeToolTip": "TechBlogWebsite\\Areas\\Admin\\Views\\Default\\Index.cshtml",
+              "ViewState": "AQIAAHAAAAAAAAAAAAAqwKMAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-02T01:37:18.451Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Table.cshtml",
+              "DocumentMoniker": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Views\\Default\\Table.cshtml",
+              "RelativeDocumentMoniker": "TechBlogWebsite\\Areas\\Admin\\Views\\Default\\Table.cshtml",
+              "ToolTip": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Views\\Default\\Table.cshtml",
+              "RelativeToolTip": "TechBlogWebsite\\Areas\\Admin\\Views\\Default\\Table.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-02T01:33:03.57Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
               "Title": "GetPopularPostsOfScience.cshtml",
-              "DocumentMoniker": "D:\\HocTap\\DotNet\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Views\\Temp\\GetPopularPostsOfScience.cshtml",
+              "DocumentMoniker": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Views\\Temp\\GetPopularPostsOfScience.cshtml",
               "RelativeDocumentMoniker": "TechBlogWebsite\\Views\\Temp\\GetPopularPostsOfScience.cshtml",
-              "ToolTip": "D:\\HocTap\\DotNet\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Views\\Temp\\GetPopularPostsOfScience.cshtml",
+              "ToolTip": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Views\\Temp\\GetPopularPostsOfScience.cshtml",
               "RelativeToolTip": "TechBlogWebsite\\Views\\Temp\\GetPopularPostsOfScience.cshtml",
               "ViewState": "AQIAAA8AAAAAAAAAAAAAACMAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002242|",
@@ -93,23 +376,23 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 20,
               "Title": "TempController.cs",
-              "DocumentMoniker": "D:\\HocTap\\DotNet\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Controllers\\TempController.cs",
+              "DocumentMoniker": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Controllers\\TempController.cs",
               "RelativeDocumentMoniker": "TechBlogWebsite\\Controllers\\TempController.cs",
-              "ToolTip": "D:\\HocTap\\DotNet\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Controllers\\TempController.cs",
+              "ToolTip": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Controllers\\TempController.cs",
               "RelativeToolTip": "TechBlogWebsite\\Controllers\\TempController.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAcwCYAAAAeAAAA",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAtwCAAAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-21T12:41:10.164Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 21,
               "Title": "TechTechnology.cshtml",
-              "DocumentMoniker": "D:\\HocTap\\DotNet\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Views\\Default\\TechTechnology.cshtml",
+              "DocumentMoniker": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Views\\Default\\TechTechnology.cshtml",
               "RelativeDocumentMoniker": "TechBlogWebsite\\Views\\Default\\TechTechnology.cshtml",
-              "ToolTip": "D:\\HocTap\\DotNet\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Views\\Default\\TechTechnology.cshtml",
+              "ToolTip": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Views\\Default\\TechTechnology.cshtml",
               "RelativeToolTip": "TechBlogWebsite\\Views\\Default\\TechTechnology.cshtml",
               "ViewState": "AQIAACQAAAAAAAAAAAAAACcAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -117,11 +400,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 23,
               "Title": "GetPopularPostsOfTechnology.cshtml",
-              "DocumentMoniker": "D:\\HocTap\\DotNet\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Views\\Temp\\GetPopularPostsOfTechnology.cshtml",
+              "DocumentMoniker": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Views\\Temp\\GetPopularPostsOfTechnology.cshtml",
               "RelativeDocumentMoniker": "TechBlogWebsite\\Views\\Temp\\GetPopularPostsOfTechnology.cshtml",
-              "ToolTip": "D:\\HocTap\\DotNet\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Views\\Temp\\GetPopularPostsOfTechnology.cshtml",
+              "ToolTip": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Views\\Temp\\GetPopularPostsOfTechnology.cshtml",
               "RelativeToolTip": "TechBlogWebsite\\Views\\Temp\\GetPopularPostsOfTechnology.cshtml",
               "ViewState": "AQIAAA4AAAAAAAAAAAAAACIAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002242|",
