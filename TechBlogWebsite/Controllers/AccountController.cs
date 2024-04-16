@@ -11,6 +11,8 @@ namespace TechBlogWebsite.Controllers
 {
     public class AccountController : Controller
     {
+        TechBlogDBNetEntities _db = new TechBlogDBNetEntities();
+
         // GET: Account
         public ActionResult Register()
         {
@@ -20,7 +22,6 @@ namespace TechBlogWebsite.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Register(User _user)
         {
-            TechBlogDBNetEntities _db = new TechBlogDBNetEntities();
             if (ModelState.IsValid)
             {
                 var check = _db.Users.FirstOrDefault(s => s.Email == _user.Email);
@@ -50,6 +51,41 @@ namespace TechBlogWebsite.Controllers
 
 
         }
+
+        public ActionResult Logout()
+        {
+            Session.Clear();//remove session
+            return RedirectToAction("Login");
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(string email, string password)
+        {
+            if (ModelState.IsValid)
+            {
+
+
+                var f_password = GetMD5(password);
+                var data = _db.Users.Where(s => s.Email.Equals(email) && s.Password.Equals(f_password)).ToList();
+                if (data.Count() > 0)
+                {
+                    //add session
+                    Session["FullName"] = data.FirstOrDefault().FirstName + " " + data.FirstOrDefault().LastName;
+                    Session["AvatarUrl"] = data.FirstOrDefault().Avatar;
+                    Session["idUser"] = data.FirstOrDefault().UserID;
+                    return RedirectToAction("Index", "Default");
+                }
+                else
+                {
+                    ViewBag.error = "Login failed";
+                    return View();
+                }
+            }
+            return View();
+        }
+
 
         public ActionResult Login()
         {

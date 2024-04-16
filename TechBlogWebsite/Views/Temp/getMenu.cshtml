@@ -10,13 +10,13 @@
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">News</a>
                     <ul class="dropdown-menu megamenu" aria-labelledby="dropdown01">
                         <li>
-                            <div class="container" >
+                            <div class="container">
                                 <div class="mega-menu-content clearfix">
                                     <div class="tab">
                                         <button class="tablinks active" onclick="openCategory(event, 'cat01')">Science</button>
                                         <button class="tablinks" onclick="openCategory(event, 'cat02')">Technology</button>
                                     </div>
-                                    
+
                                     <div class="tab-details clearfix" style="background-color: #edeff2;">
                                         <div id="cat01" class="tabcontent active" style="background-color: #fff;">
                                             @{Html.RenderAction("GetPopularPostsOfScience", "Temp");}
@@ -42,7 +42,7 @@
 
             }
         }
-            <!--                          <li class="nav-item">
+        <!--                          <li class="nav-item">
             <a class="nav-link" href="tech-index.html">Home</a>
         </li>
         <li class="nav-item dropdown has-submenu menu-large hidden-md-down hidden-sm-down hidden-xs-down">
@@ -60,13 +60,42 @@
         <li class="nav-item">
             <a class="nav-link" href="tech-contact.html">Contact Us</a>
         </li>-->
-        </ul>
-    <ul class="navbar-nav mr-2">
-        <li class="nav-item">
-            <a class="nav-link" href="/login"><i class="fa-solid fa-right-to-bracket"></i> Sign in</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/signup"><i class="fa-solid fa-user-plus"></i> Sign up</a>
-        </li>
     </ul>
+    <div class="card-body">
+        @if (Session["FullName"] != null)
+        {
+            <div class="user-info">
+                <div class="d-flex align-items-center">
+                    @if (Session["AvatarUrl"] != null)
+                    {
+                        <img src="@Session["AvatarUrl"].ToString()" alt="Avatar" class="avatar mr-2 rounded-circle" width="50" height="50">
+                    }
+                    else
+                    {
+                        <!-- Sử dụng avatar mặc định tại đây -->
+                        <img src="~/Content/upload/img_user1.jpg" alt="Default Avatar" class="avatar mr-2 rounded-circle" width="30" height="30">
+                    }
+                    <p class="text-white mb-0">Welcome, <strong>@Session["FullName"].ToString()</strong></p>
+                </div>
+                <a href="@Url.Action("Logout","Account")" class="btn btn-warning">Logout</a>
+            </div>
+        }
+        else
+        {
+            <ul class="navbar-nav mr-2">
+                <li class="nav-item">
+                    <a class="nav-link" href="/login"><i class="fa-solid fa-right-to-bracket"></i> Sign in</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/signup"><i class="fa-solid fa-user-plus"></i> Sign up</a>
+                </li>
+            </ul>
+        }
+    </div>
+
+
+
+
+
+
 </div>
