@@ -1,4 +1,5 @@
-﻿@model IEnumerable<TechBlogWebsite.Models.Role>
+﻿@using TechBlogWebsite.Help;
+@model IEnumerable<TechBlogWebsite.Models.Role>
 
 @{
     ViewBag.Title = "Index";
@@ -87,9 +88,9 @@
                                     @Html.DisplayFor(modelItem => item.DateBegin)
                                 </td>
                                 <td>
-                                    @Html.ActionLink("Edit", "Edit", new { id = item.RoleID }) |
-                                    @Html.ActionLink("Details", "Details", new { id = item.RoleID }) |
-                                    @Html.ActionLink("Delete", "Delete", new { id = item.RoleID })
+                                    @Html.NoEncodeActionLink("<i class='fas fa-pencil-alt'>Edit</i>", "Edit", "Edit", "Roles", routeValues: new { id = item.RoleID }, htmlAttributes: new { data_modal = "", @class = "btn btn-dark" })
+                                    @Html.NoEncodeActionLink("<i class='fas fa-info-circle'>Detail</i>", "Detail", "Detail", "Posts", routeValues: new { id = item.RoleID }, htmlAttributes: new { data_modal = "", @class = "btn btn-primary" })
+                                    @Html.NoEncodeActionLink("<i class='fas fa-trash'>Delete</i>", "Delete", "Delete", "Posts", routeValues: new { id = item.RoleID }, htmlAttributes: new { data_modal = "", @class = "btn btn-danger" })
                                 </td>
                             </tr>
                         }

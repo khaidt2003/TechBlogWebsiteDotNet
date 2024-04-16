@@ -3,12 +3,24 @@
   "WorkspaceRootPath": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\techblogwebsite\\areas\\admin\\views\\menus\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|solutionrelative:techblogwebsite\\areas\\admin\\views\\menus\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|d:\\hoctap\\new folder (2)\\techblogwebsitedotnet\\techblogwebsite\\areas\\admin\\views\\roles\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|solutionrelative:techblogwebsite\\areas\\admin\\views\\roles\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|d:\\hoctap\\new folder (2)\\techblogwebsitedotnet\\techblogwebsite\\areas\\admin\\views\\posts\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|solutionrelative:techblogwebsite\\areas\\admin\\views\\posts\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\techblogwebsite\\areas\\admin\\views\\menus\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|solutionrelative:techblogwebsite\\areas\\admin\\views\\menus\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|d:\\hoctap\\new folder (2)\\techblogwebsitedotnet\\techblogwebsite\\areas\\admin\\views\\users\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|solutionrelative:techblogwebsite\\areas\\admin\\views\\users\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|d:\\hoctap\\new folder (2)\\techblogwebsitedotnet\\techblogwebsite\\areas\\admin\\views\\bannerusers\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F042CA07-8BD2-47C7-AE34-F1C4B9FBA2FB}|TechBlogWebsite\\TechBlogWebsite.csproj|solutionrelative:techblogwebsite\\areas\\admin\\views\\bannerusers\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -24,26 +36,65 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Views\\Posts\\Index.cshtml",
-              "RelativeDocumentMoniker": "TechBlogWebsite\\Areas\\Admin\\Views\\Posts\\Index.cshtml",
-              "ToolTip": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Views\\Posts\\Index.cshtml",
-              "RelativeToolTip": "TechBlogWebsite\\Areas\\Admin\\Views\\Posts\\Index.cshtml",
-              "ViewState": "AQIAADYAAAAAAAAAAAAAAEcAAACjAAAA",
+              "DocumentMoniker": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Views\\menus\\Index.cshtml",
+              "RelativeDocumentMoniker": "TechBlogWebsite\\Areas\\Admin\\Views\\menus\\Index.cshtml",
+              "ToolTip": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Views\\menus\\Index.cshtml",
+              "RelativeToolTip": "TechBlogWebsite\\Areas\\Admin\\Views\\menus\\Index.cshtml",
+              "ViewState": "AQIAAEgAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-16T02:14:41.288Z",
+              "WhenOpened": "2024-04-13T04:25:33.052Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Views\\Users\\Index.cshtml",
+              "RelativeDocumentMoniker": "TechBlogWebsite\\Areas\\Admin\\Views\\Users\\Index.cshtml",
+              "ToolTip": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Views\\Users\\Index.cshtml",
+              "RelativeToolTip": "TechBlogWebsite\\Areas\\Admin\\Views\\Users\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAHQAAACoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-16T02:25:14.897Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Views\\BannerUsers\\Index.cshtml",
+              "RelativeDocumentMoniker": "TechBlogWebsite\\Areas\\Admin\\Views\\BannerUsers\\Index.cshtml",
+              "ToolTip": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Views\\BannerUsers\\Index.cshtml",
+              "RelativeToolTip": "TechBlogWebsite\\Areas\\Admin\\Views\\BannerUsers\\Index.cshtml",
+              "ViewState": "AQIAAEIAAAAAAAAAAAAAAFgAAACrAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-16T02:25:04.662Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Views\\menus\\Index.cshtml",
-              "RelativeDocumentMoniker": "TechBlogWebsite\\Areas\\Admin\\Views\\menus\\Index.cshtml",
-              "ToolTip": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Views\\menus\\Index.cshtml",
-              "RelativeToolTip": "TechBlogWebsite\\Areas\\Admin\\Views\\menus\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "DocumentMoniker": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Views\\Roles\\Index.cshtml",
+              "RelativeDocumentMoniker": "TechBlogWebsite\\Areas\\Admin\\Views\\Roles\\Index.cshtml",
+              "ToolTip": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Views\\Roles\\Index.cshtml",
+              "RelativeToolTip": "TechBlogWebsite\\Areas\\Admin\\Views\\Roles\\Index.cshtml",
+              "ViewState": "AQIAAEgAAAAAAAAAAAAAAFwAAACjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-13T04:25:33.052Z",
+              "WhenOpened": "2024-04-16T02:24:48.279Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Views\\Posts\\Index.cshtml",
+              "RelativeDocumentMoniker": "TechBlogWebsite\\Areas\\Admin\\Views\\Posts\\Index.cshtml",
+              "ToolTip": "D:\\HocTap\\New folder (2)\\TechBlogWebsiteDotNet\\TechBlogWebsite\\Areas\\Admin\\Views\\Posts\\Index.cshtml",
+              "RelativeToolTip": "TechBlogWebsite\\Areas\\Admin\\Views\\Posts\\Index.cshtml",
+              "ViewState": "AQIAADMAAAAAAAAAAAAAAEcAAADqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-16T02:14:41.288Z",
               "EditorCaption": ""
             }
           ]

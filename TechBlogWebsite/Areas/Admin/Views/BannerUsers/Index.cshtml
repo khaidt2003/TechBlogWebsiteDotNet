@@ -1,4 +1,5 @@
-﻿@model IEnumerable<TechBlogWebsite.Models.BannerUser>
+﻿@using TechBlogWebsite.Help;
+@model IEnumerable<TechBlogWebsite.Models.BannerUser>
 
 @{
     ViewBag.Title = "Index";
@@ -83,9 +84,9 @@
                                     @Html.DisplayFor(modelItem => item.User.Username)
                                 </td>
                                 <td>
-                                    @Html.ActionLink("Edit", "Edit", new { id = item.BannerID }) |
-                                    @Html.ActionLink("Details", "Details", new { id = item.BannerID }) |
-                                    @Html.ActionLink("Delete", "Delete", new { id = item.BannerID })
+                                    @Html.NoEncodeActionLink("<i class='fas fa-pencil-alt'>Edit</i>", "Edit", "Edit", "BannerUsers", routeValues: new { id = item.BannerID }, htmlAttributes: new { data_modal = "", @class = "btn btn-dark" })
+                                    @Html.NoEncodeActionLink("<i class='fas fa-info-circle'>Detail</i>", "Detail", "Detail", "BannerUsers", routeValues: new { id = item.BannerID }, htmlAttributes: new { data_modal = "", @class = "btn btn-primary" })
+                                    @Html.NoEncodeActionLink("<i class='fas fa-trash'>Delete</i>", "Delete", "Delete", "BannerUsers", routeValues: new { id = item.BannerID }, htmlAttributes: new { data_modal = "", @class = "btn btn-danger" })
                                 </td>
                             </tr>
                         }

@@ -1,4 +1,5 @@
-﻿@model IEnumerable<TechBlogWebsite.Models.User>
+﻿@using TechBlogWebsite.Help;
+@model IEnumerable<TechBlogWebsite.Models.User>
 
 @{
     ViewBag.Title = "Index";
@@ -82,7 +83,7 @@
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.Email)
-                                </td>     
+                                </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.FirstName)
                                 </td>
@@ -111,9 +112,9 @@
                                     @Html.DisplayFor(modelItem => item.Role.Name)
                                 </td>
                                 <td>
-                                    @Html.ActionLink("Edit", "Edit", new { id = item.UserID }) |
-                                    @Html.ActionLink("Details", "Details", new { id = item.UserID }) |
-                                    @Html.ActionLink("Delete", "Delete", new { id = item.UserID })
+                                    @Html.NoEncodeActionLink("<i class='fas fa-pencil-alt'>Edit</i>", "Edit", "Edit", "Users", routeValues: new { id = item.BannerUsers }, htmlAttributes: new { data_modal = "", @class = "btn btn-dark" })
+                                    @Html.NoEncodeActionLink("<i class='fas fa-info-circle'>Detail</i>", "Detail", "Detail", "Users", routeValues: new { id = item.BannerUsers }, htmlAttributes: new { data_modal = "", @class = "btn btn-primary" })
+                                    @Html.NoEncodeActionLink("<i class='fas fa-trash'>Delete</i>", "Delete", "Delete", "Users", routeValues: new { id = item.BannerUsers }, htmlAttributes: new { data_modal = "", @class = "btn btn-danger" })
                                 </td>
                             </tr>
                         }
