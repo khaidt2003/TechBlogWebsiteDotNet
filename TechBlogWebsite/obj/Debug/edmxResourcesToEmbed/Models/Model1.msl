@@ -108,6 +108,7 @@
     <EntitySetMapping Name="Posts">
       <EntityTypeMapping TypeName="TechBlogDBNetModel.Post">
         <MappingFragment StoreEntitySet="Posts">
+          <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="PostID" ColumnName="PostID" />
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Content" ColumnName="Content" />
@@ -227,6 +228,22 @@
           <ScalarProperty Name="Hide" ColumnName="Hide" />
           <ScalarProperty Name="Order" ColumnName="Order" />
           <ScalarProperty Name="DateBegin" ColumnName="DateBegin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stats">
+      <EntityTypeMapping TypeName="TechBlogDBNetModel.Stat">
+        <MappingFragment StoreEntitySet="Stats">
+          <ScalarProperty Name="DateBegin" ColumnName="DateBegin" />
+          <ScalarProperty Name="Order" ColumnName="Order" />
+          <ScalarProperty Name="Hide" ColumnName="Hide" />
+          <ScalarProperty Name="Meta" ColumnName="Meta" />
+          <ScalarProperty Name="Link" ColumnName="Link" />
+          <ScalarProperty Name="TotalUsers" ColumnName="TotalUsers" />
+          <ScalarProperty Name="TotalPosts" ColumnName="TotalPosts" />
+          <ScalarProperty Name="TotalViews" ColumnName="TotalViews" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="StatID" ColumnName="StatID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

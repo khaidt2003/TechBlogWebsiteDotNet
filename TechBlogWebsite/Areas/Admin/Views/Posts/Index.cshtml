@@ -1,0 +1,105 @@
+﻿@using TechBlogWebsite.Help;
+@model IEnumerable<TechBlogWebsite.Models.Post>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage1.cshtml";
+}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"></script>
+
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+    <p class="mb-4">
+        DataTables is a third party plugin that is used to generate the demo table below.
+        For more information about DataTables, please visit the <a target="_blank"
+                                                                   href="https://datatables.net">official DataTables documentation</a>.
+    </p>
+    <p>
+        <a href="@Url.Action("Create")" class="btn btn-dark">Create New</a>
+    </p>
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-dark">DataTables Example</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.Title)</th>
+                            <th>@Html.DisplayNameFor(model => model.Description)</th>
+                            <th>@Html.DisplayNameFor(model => model.PublishedDate)</th>
+                            <th>@Html.DisplayNameFor(model => model.ModifiedDate)</th>
+                            <th>@Html.DisplayNameFor(model => model.Tags)</th>
+                            <th>@Html.DisplayNameFor(model => model.FeaturedImage)</th>
+                            <th>@Html.DisplayNameFor(model => model.Status)</th>
+                            <th>@Html.DisplayNameFor(model => model.ViewCount)</th>
+                            <th>@Html.DisplayNameFor(model => model.Link)</th>
+                            <th>@Html.DisplayNameFor(model => model.Meta)</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.Title)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                                <td>@Html.DisplayFor(modelItem => item.PublishedDate)</td>
+                                <td>@Html.DisplayFor(modelItem => item.ModifiedDate)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Tags)</td>
+                                <td><img src="~/Content/upload/@item.FeaturedImage" alt="Image" style="max-width:100px; max-height:100px;" /></td>
+                                <td>@Html.DisplayFor(modelItem => item.Status)</td>
+                                <td>@Html.DisplayFor(modelItem => item.ViewCount)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Link)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Meta)</td>
+                                <td>
+                                    @Html.NoEncodeActionLink("<i class='fas fa-pencil-alt'>Edit</i>", "Edit", "Edit", "Posts", routeValues: new { id = item.PostID }, htmlAttributes: new { data_modal = "", @class = "btn btn-dark" })
+                                    @Html.NoEncodeActionLink("<i class='fas fa-info-circle'>Detail</i>", "Detail", "Detail", "Posts", routeValues: new { id = item.PostID }, htmlAttributes: new { data_modal = "", @class = "btn btn-primary" })
+                                    @Html.NoEncodeActionLink("<i class='fas fa-trash'>Delete</i>", "Delete", "Delete", "Posts", routeValues: new { id = item.PostID }, htmlAttributes: new { data_modal = "", @class = "btn btn-danger" })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script>
+    $(document).ready(function () {
+        $('#dataTable').DataTable({
+            search: true,
+            paging: true,
+            pageLength: 11,
+            columns: [
+                { data: '1' },
+                { data: '2' },
+                { data: '3' },
+                { data: '4' },
+                { data: '5' },
+                { data: '6' },
+                { data: '7' },
+                { data: '8' },
+                { data: '9' },
+                { data: '10' },
+                { data: '11' },
+            ]
+        });
+    });
+</script>
+

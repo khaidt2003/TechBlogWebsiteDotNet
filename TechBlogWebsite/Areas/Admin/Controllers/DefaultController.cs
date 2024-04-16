@@ -25,5 +25,29 @@ namespace TechBlogWebsite.Areas.Admin.Controllers
         {
             return View();
         }
+        public ActionResult TablePosts()
+        {
+            return View();
+        }
+        public ActionResult TableUser()
+        {
+            return View();
+        }
+        public ActionResult TableBannerUser()
+        {
+            return View();
+        }
+        public ActionResult TableRole()
+        {
+            return View();
+        }
+        public ActionResult Chart()
+        {
+            return View();
+        }
+        public ActionResult Err404()
+        {
+            return View();
+        }
     }
 }

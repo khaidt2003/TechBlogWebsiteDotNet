@@ -36,6 +36,7 @@
         <AssociationConnector Association="TechBlogDBNetModel.FK__Replies__UserID__6A30C649" ManuallyRouted="false" />
         <AssociationConnector Association="TechBlogDBNetModel.FK__Users__RoleID__6E01572D" ManuallyRouted="false" />
         <AssociationConnector Association="TechBlogDBNetModel.FK__Topics__UserID__6D0D32F4" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TechBlogDBNetModel.Stat" Width="1.5" PointX="3.375" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
