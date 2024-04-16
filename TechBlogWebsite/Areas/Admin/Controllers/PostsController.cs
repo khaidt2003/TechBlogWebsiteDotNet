@@ -49,6 +49,7 @@ namespace TechBlogWebsite.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Create([Bind(Include = "PostID,Title,Content,AuthorID,CategoryID,PublishedDate,ModifiedDate,Tags,FeaturedImage,Status,ViewCount,Link,Meta,Hide,Order,DateBegin")] Post post)
         {
             if (ModelState.IsValid)

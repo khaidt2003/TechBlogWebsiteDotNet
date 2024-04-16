@@ -5296,13 +5296,6 @@
     <Content Include="Areas\Admin\Views\Default\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Default\Buttons.cshtml" />
     <Content Include="Areas\Admin\Views\Default\Cards.cshtml" />
-    <EntityDeploy Include="Models\Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
     <Content Include="Areas\Admin\Views\Default\Table.cshtml" />
     <Content Include=".vs\TechBlogWebsite.csproj.dtbcache.json" />
     <Content Include="Areas\Admin\Content\ckeditor\CHANGES.md" />
@@ -5529,6 +5522,13 @@
     <Content Include="Areas\Admin\Views\Default\TablePosts.cshtml" />
     <Content Include="Areas\Admin\Views\Default\TableRole.cshtml" />
     <Content Include="Areas\Admin\Views\Default\TableUser.cshtml" />
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

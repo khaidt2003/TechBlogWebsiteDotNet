@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -48,17 +50,42 @@ namespace TechBlogWebsite.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BannerID,UserID,BannerImage,Meta,Hide,Order,DateBegin")] BannerUser bannerUser)
+        public ActionResult Create([Bind(Include = "BannerID,UserID,BannerImage,Meta,Hide,Order,DateBegin")] BannerUser bannerUser, HttpPostedFileBase img)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.BannerUsers.Add(bannerUser);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                var path = "";
+                var filename = "";
+                if (ModelState.IsValid)
+                {
+                    if (img != null)
+                    {
+                        //filename = Guid.NewGuid().ToString() + img.FileName;
+                        filename = DateTime.Now.ToString("dd-MM-yy-hh-mm-ss-") + img.FileName;
+                        path = Path.Combine(Server.MapPath("~/Content/upload/"), filename);
+                        img.SaveAs(path);
+                        bannerUser.BannerImage = filename; //Lưu ý
+                    }
+                    else
+                    {
+                        bannerUser.BannerImage = "logo.jpg";
+                    }
+                    db.BannerUsers.Add(bannerUser);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
 
-            ViewBag.UserID = new SelectList(db.Users, "UserID", "Username", bannerUser.UserID);
-            return View(bannerUser);
+                ViewBag.UserID = new SelectList(db.Users, "UserID", "Username", bannerUser.UserID);
+                return View(bannerUser);
+            }
+            catch (DbEntityValidationException e)
+            {
+                throw e;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
 
         // GET: Admin/BannerUsers/Edit/5
@@ -82,16 +109,37 @@ namespace TechBlogWebsite.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "BannerID,UserID,BannerImage,Meta,Hide,Order,DateBegin")] BannerUser bannerUser)
+        public ActionResult Edit([Bind(Include = "BannerID,UserID,BannerImage,Meta,Hide,Order,DateBegin")] BannerUser bannerUser, HttpPostedFileBase img)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Entry(bannerUser).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                var path = "";
+                var filename = "";
+                if (ModelState.IsValid)
+                {
+                    if (img != null)
+                    {
+                        //filename = Guid.NewGuid().ToString() + img.FileName;
+                        filename = DateTime.Now.ToString("dd-MM-yy-hh-mm-ss-") + img.FileName;
+                        path = Path.Combine(Server.MapPath("~/Content/upload"), filename);
+                        img.SaveAs(path);
+                        bannerUser.BannerImage = filename; //Lưu ý
+                    }
+                    db.Entry(bannerUser).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                ViewBag.UserID = new SelectList(db.Users, "UserID", "Username", bannerUser.UserID);
+                return View(bannerUser);
             }
-            ViewBag.UserID = new SelectList(db.Users, "UserID", "Username", bannerUser.UserID);
-            return View(bannerUser);
+            catch (DbEntityValidationException e)
+            {
+                throw e;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         // GET: Admin/BannerUsers/Delete/5

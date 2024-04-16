@@ -136,7 +136,6 @@
     <NavigationProperty Name="Comments" Relationship="Self.FK__Comments__PostID__60A75C0F" FromRole="Posts" ToRole="Comments" />
     <NavigationProperty Name="ImagePosts" Relationship="Self.FK_PostID" FromRole="Posts" ToRole="ImagePost" />
     <NavigationProperty Name="User" Relationship="Self.FK__Posts__AuthorID__6754599E" FromRole="Posts" ToRole="Users" />
-    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Reply">
     <Key>
@@ -171,6 +170,21 @@
     <Property Name="Order" Type="Int32" />
     <Property Name="DateBegin" Type="DateTime" Precision="0" />
     <NavigationProperty Name="Users" Relationship="Self.FK__Users__RoleID__6E01572D" FromRole="Roles" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Stat">
+    <Key>
+      <PropertyRef Name="StatID" />
+    </Key>
+    <Property Name="StatID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="TotalViews" Type="Int32" Nullable="false" />
+    <Property Name="TotalPosts" Type="Int32" Nullable="false" />
+    <Property Name="TotalUsers" Type="Int32" Nullable="false" />
+    <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Hide" Type="Boolean" />
+    <Property Name="Order" Type="Int32" />
+    <Property Name="DateBegin" Type="DateTime" Precision="0" />
   </EntityType>
   <EntityType Name="SubMenu">
     <Key>
@@ -465,6 +479,7 @@
     <EntitySet Name="Posts" EntityType="Self.Post" />
     <EntitySet Name="Replies" EntityType="Self.Reply" />
     <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="Stats" EntityType="Self.Stat" />
     <EntitySet Name="SubMenus" EntityType="Self.SubMenu" />
     <EntitySet Name="Tags" EntityType="Self.Tag" />
     <EntitySet Name="Topics" EntityType="Self.Topic" />
@@ -537,21 +552,5 @@
       <End Role="Users" EntitySet="Users" />
       <End Role="Topics" EntitySet="Topics" />
     </AssociationSet>
-    <EntitySet Name="Stats" EntityType="TechBlogDBNetModel.Stat" />
   </EntityContainer>
-  <EntityType Name="Stat">
-    <Key>
-      <PropertyRef Name="StatID" />
-    </Key>
-    <Property Name="StatID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="TotalViews" Type="Int32" Nullable="false" />
-    <Property Name="TotalPosts" Type="Int32" Nullable="false" />
-    <Property Name="TotalUsers" Type="Int32" Nullable="false" />
-    <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Hide" Type="Boolean" />
-    <Property Name="Order" Type="Int32" />
-    <Property Name="DateBegin" Type="DateTime" Precision="0" />
-  </EntityType>
 </Schema>

@@ -5,63 +5,53 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage1.cshtml";
 }
 
-<h2>Details</h2>
-
-<div>
-    <h4>BannerUser</h4>
+<div class="container">
+    <h2 class="text-center">Banner User Details</h2>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.BannerImage)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.BannerImage)
-        </dd>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Banner Image</h4>
+                </div>
+                <div class="card-body">
+                    <img src="@Model.BannerImage" class="img-fluid" alt="Banner Image">
+                </div>
+            </div>
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Meta)
-        </dt>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Details</h4>
+                </div>
+                <div class="card-body">
+                    <dl class="row">
+                        <dt class="col-sm-4">Meta:</dt>
+                        <dd class="col-sm-8">@Model.Meta</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Meta)
-        </dd>
+                        <dt class="col-sm-4">Hide:</dt>
+                        <dd class="col-sm-8">@Model.Hide</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Hide)
-        </dt>
+                        <dt class="col-sm-4">Order:</dt>
+                        <dd class="col-sm-8">@Model.Order</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Hide)
-        </dd>
+                        <dt class="col-sm-4">Date Begin:</dt>
+                        <dd class="col-sm-8">@Model.DateBegin</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Order)
-        </dt>
+                        <dt class="col-sm-4">Username:</dt>
+                        <dd class="col-sm-8">@Model.User.Username</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Order)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DateBegin)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DateBegin)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.User.Username)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.User.Username)
-        </dd>
-
-    </dl>
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <a href="@Url.Action("Edit", new { id = Model.BannerID })" class="btn btn-primary">Edit</a>
+            <a href="@Url.Action("Index")" class="btn btn-secondary">Back to List</a>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.BannerID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
