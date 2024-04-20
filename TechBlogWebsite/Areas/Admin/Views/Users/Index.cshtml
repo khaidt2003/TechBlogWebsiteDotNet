@@ -112,9 +112,9 @@
                                     @Html.DisplayFor(modelItem => item.Role.Name)
                                 </td>
                                 <td>
-                                    @Html.NoEncodeActionLink("<i class='fas fa-pencil-alt'>Edit</i>", "Edit", "Edit", "Users", routeValues: new { id = item.BannerUsers }, htmlAttributes: new { data_modal = "", @class = "btn btn-dark" })
-                                    @Html.NoEncodeActionLink("<i class='fas fa-info-circle'>Detail</i>", "Detail", "Detail", "Users", routeValues: new { id = item.BannerUsers }, htmlAttributes: new { data_modal = "", @class = "btn btn-primary" })
-                                    @Html.NoEncodeActionLink("<i class='fas fa-trash'>Delete</i>", "Delete", "Delete", "Users", routeValues: new { id = item.BannerUsers }, htmlAttributes: new { data_modal = "", @class = "btn btn-danger" })
+                                    @Html.NoEncodeActionLink("<i class='fas fa-pencil-alt'>Edit</i>", "Edit", "Edit", "Users", routeValues: new { id = item.UserID }, htmlAttributes: new { data_modal = "", @class = "btn btn-dark" })
+                                    @Html.NoEncodeActionLink("<i class='fas fa-info-circle'>Detail</i>", "Detail", "Details", "Users", routeValues: new { id = item.UserID }, htmlAttributes: new { data_modal = "", @class = "btn btn-primary" })
+                                    @Html.NoEncodeActionLink("<i class='fas fa-trash'>Delete</i>", "Delete", "Delete", "Users", routeValues: new { id = item.UserID }, htmlAttributes: new { data_modal = "", @class = "btn btn-danger" })
                                 </td>
                             </tr>
                         }

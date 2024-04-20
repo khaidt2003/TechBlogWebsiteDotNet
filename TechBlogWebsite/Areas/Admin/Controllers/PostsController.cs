@@ -15,10 +15,16 @@ namespace TechBlogWebsite.Areas.Admin.Controllers
         private TechBlogDBNetEntities db = new TechBlogDBNetEntities();
 
         // GET: Admin/Posts
-        public ActionResult Index()
+        public ActionResult Index(long? id = null)
         {
-            var posts = db.Posts.Include(p => p.Category).Include(p => p.User);
-            return View(posts.ToList());
+            getCategory(id);
+            return View();
+        }
+
+        public void getCategory(long? selectedId = null)
+        {
+            ViewBag.Categories = new SelectList(db.Categories.Where(x => x.Hide == false)
+                .OrderBy(x => x.Order), "CategoryID", "Name", selectedId);
         }
 
         // GET: Admin/Posts/Details/5
@@ -62,6 +68,17 @@ namespace TechBlogWebsite.Areas.Admin.Controllers
             ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "Name", post.CategoryID);
             ViewBag.AuthorID = new SelectList(db.Users, "UserID", "Username", post.AuthorID);
             return View(post);
+        }
+
+        public ActionResult getPosts(long? id)
+        {
+            if (id == null)
+            {
+                var v = db.Posts.OrderBy(x => x.Order).ToList();
+                return PartialView(v);
+            }
+            var m = db.Posts.Where(x => x.CategoryID == id).OrderBy(x => x.Order).ToList();
+            return PartialView(m);
         }
 
         // GET: Admin/Posts/Edit/5
