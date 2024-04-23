@@ -37,7 +37,15 @@ namespace TechBlogWebsite.Areas.Admin.Controllers
         {
             return View();
         }
-        public ActionResult TableRole()
+        public ActionResult TableSubMenus()
+        {
+            return View();
+        }
+        public ActionResult TableImagePosts()
+        {
+            return View();
+        }
+        public ActionResult TableCategories()
         {
             return View();
         }

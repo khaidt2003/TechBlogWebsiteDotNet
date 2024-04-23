@@ -1,0 +1,133 @@
+﻿@model TechBlogWebsite.Models.Category
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage1.cshtml";
+}
+
+<div class="container py-5 text-center" style="background-color: #fff7d6;">
+    <h2 class="text-dark font-weight-bold">CREATE CATEGORY</h2>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label text-primary" })
+                    <div>
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Name" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label text-primary" })
+                    <div>
+                        @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Description" } })
+                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ParentID, "ParentID", htmlAttributes: new { @class = "control-label text-primary" })
+                    <div>
+                        @Html.DropDownList("ParentID", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ParentID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Link, htmlAttributes: new { @class = "control-label text-primary" })
+                    <div>
+                        @Html.EditorFor(model => model.Link, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Link" } })
+                        @Html.ValidationMessageFor(model => model.Link, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Meta, htmlAttributes: new { @class = "control-label text-primary" })
+                    <div>
+                        @Html.EditorFor(model => model.Meta, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Meta" } })
+                        @Html.ValidationMessageFor(model => model.Meta, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Hide, htmlAttributes: new { @class = "control-label text-primary" })
+                    <div class="checkbox">
+                        <label>
+                            @Html.EditorFor(model => model.Hide)
+                            Hide
+                        </label>
+                        @Html.ValidationMessageFor(model => model.Hide, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Order, htmlAttributes: new { @class = "control-label text-primary" })
+                    <div>
+                        @Html.EditorFor(model => model.Order, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Order" } })
+                        @Html.ValidationMessageFor(model => model.Order, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DateBegin, htmlAttributes: new { @class = "control-label text-primary" })
+                    <div>
+                        @Html.EditorFor(model => model.DateBegin, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Date Begin" } })
+                        @Html.ValidationMessageFor(model => model.DateBegin, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Create</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section _Footer
+{
+    <script src="~/Areas/Admin/Content/ckfinder/ckfinder.js"></script>
+    <script src="~/Areas/Admin/Content/ckeditor/ckeditor.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#Name").keyup(function () {
+                var text = $.trim($(this).val().toLowerCase());
+                var text_create = text.replace(/à|á|ạ|à|ã|â|â|â|â|â|â|ă|à|å|ặ|å|ã|ả|ẹ|é|è|ý|ỳ|ỵ|í|ì|i/g, "a").replace(/\ /g, '-').replace(/đ /g, "d");
+                $('#Meta').val(text_create);
+            }).keyup();
+        });
+    </script>
+}
+<div class="container text-center">
+    @Html.ActionLink("Back to List", "Index")
+</div>

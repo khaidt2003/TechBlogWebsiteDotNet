@@ -5,74 +5,99 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage1.cshtml";
 }
 
-<h2>Create</h2>
+<div class="container py-5 text-center" style="background-color: #fff7d6;">
+    <h2 class="text-dark font-weight-bold">CREATE BANNER USER</h2>
+</div>
 
-@using (Html.BeginForm("Create", "bannerUsers", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Create", "BannerUsers", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>BannerUser</h4>
+
+    <div class="container">
+
+        <h4>Banner User Information</h4>
         <hr />
+
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.UserID, "UserID", htmlAttributes: new { @class = "control-label col-md-2" })
+
+        <div class="row">
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.UserID, "UserID", htmlAttributes: new { @class = "control-label text-primary" })
+            </div>
             <div class="col-md-10">
                 @Html.DropDownList("UserID", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.UserID, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.Label("Hình đại diện", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="row mt-3">
+            <div class="col-md-2">
+                <label class="control-label text-primary">Profile Picture</label>
+            </div>
             <div class="col-md-10">
-                <input type="file" name="img" id="img" accept=".jpg,.png,.gif,.jpeg,.bmp" />
+                <input type="file" name="img" id="img" accept=".jpg,.png,.gif,.jpeg,.bmp" class="form-control-file" />
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Meta, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Meta, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Meta, "", new { @class = "text-danger" })
+        <div class="row mt-3">
+            <div class="col-md-2">
+                <label class="control-label text-primary">Display</label>
             </div>
-        </div>
-
-        <div class="form-group">
-            @Html.Label("Hiển thị", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @{
                     bool hide = true;
                 }
                 @Html.CheckBoxFor(model => hide)
-
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Order, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="row mt-3">
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.Order, htmlAttributes: new { @class = "control-label text-primary" })
+            </div>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Order, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Order, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Order" } })
                 @Html.ValidationMessageFor(model => model.Order, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.DateBegin, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="row mt-3">
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.DateBegin, htmlAttributes: new { @class = "control-label text-primary" })
+            </div>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.DateBegin, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.DateBegin, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Date Begin" } })
                 @Html.ValidationMessageFor(model => model.DateBegin, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-primary">Create</button>
             </div>
         </div>
     </div>
 }
 
-<div>
+@section _Footer
+{
+    <script src="~/Areas/Admin/Content/ckfinder/ckfinder.js"></script>
+    <script src="~/Areas/Admin/Content/ckeditor/ckeditor.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#Title").keyup(function () {
+                var text = $.trim($(this).val().toLowerCase());
+                var text_create = text.replace(/à|á|ạ|à|ã|â|â|â|â|â|â|ă|à|å|ặ|å|ã|ả|ẹ|é|è|ý|ỳ|ỵ|í|ì|i/g, "a").replace(/\ /g, '-').replace(/đ /g, "d");
+                $('#Meta').val(text_create);
+            }).keyup();
+
+            CKEDITOR.replace("txtContent");
+            CKEDITOR.replace("txtContent", { height: '600px' });
+            CKEDITOR.config.customConfig = '/Areas/admin/Content/ckeditor/config.js';
+        });
+    </script>
+}
+<div class="container text-center">
     @Html.ActionLink("Back to List", "Index")
 </div>

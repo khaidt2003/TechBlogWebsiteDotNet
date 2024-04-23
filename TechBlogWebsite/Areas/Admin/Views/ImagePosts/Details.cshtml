@@ -1,0 +1,75 @@
+﻿@model TechBlogWebsite.Models.ImagePost
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage1.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ImagePost</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FeaturedImage2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FeaturedImage2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FeaturedImage3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FeaturedImage3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Meta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Meta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hide)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hide)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Order)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Order)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateBegin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateBegin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Post.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Post.Title)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
