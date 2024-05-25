@@ -36,7 +36,6 @@
           <ScalarProperty Name="PostID" ColumnName="PostID" />
           <ScalarProperty Name="UserID" ColumnName="UserID" />
           <ScalarProperty Name="Content" ColumnName="Content" />
-          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
           <ScalarProperty Name="PublishedDate" ColumnName="PublishedDate" />
           <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
           <ScalarProperty Name="Link" ColumnName="Link" />
@@ -111,6 +110,7 @@
           <ScalarProperty Name="PostID" ColumnName="PostID" />
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="AuthorID" ColumnName="AuthorID" />
           <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
           <ScalarProperty Name="PublishedDate" ColumnName="PublishedDate" />

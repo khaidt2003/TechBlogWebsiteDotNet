@@ -18,6 +18,8 @@ namespace TechBlogWebsite.Models
         public Forum()
         {
             this.Topics = new HashSet<Topic>();
+            this.Topics1 = new HashSet<Topic>();
+            this.Topics2 = new HashSet<Topic>();
         }
     
         public int ForumID { get; set; }
@@ -33,7 +35,13 @@ namespace TechBlogWebsite.Models
         public Nullable<System.DateTime> DateBegin { get; set; }
     
         public virtual Category Category { get; set; }
+        public virtual Category Category1 { get; set; }
+        public virtual Category Category2 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Topic> Topics { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Topic> Topics1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Topic> Topics2 { get; set; }
     }
 }

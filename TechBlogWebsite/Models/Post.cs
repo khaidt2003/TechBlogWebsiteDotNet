@@ -24,6 +24,7 @@ namespace TechBlogWebsite.Models
         public int PostID { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
+        public string Description { get; set; }
         public Nullable<int> AuthorID { get; set; }
         public Nullable<int> CategoryID { get; set; }
         public System.DateTime PublishedDate { get; set; }
@@ -39,10 +40,14 @@ namespace TechBlogWebsite.Models
         public Nullable<System.DateTime> DateBegin { get; set; }
     
         public virtual Category Category { get; set; }
+        public virtual Category Category1 { get; set; }
+        public virtual Category Category2 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Comment> Comments { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ImagePost> ImagePosts { get; set; }
         public virtual User User { get; set; }
+        public virtual User User1 { get; set; }
+        public virtual User User2 { get; set; }
     }
 }

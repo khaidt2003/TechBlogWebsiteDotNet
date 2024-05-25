@@ -24,6 +24,10 @@ namespace TechBlogWebsite.Models
         public Nullable<System.DateTime> DateBegin { get; set; }
     
         public virtual Reply Reply { get; set; }
+        public virtual Reply Reply1 { get; set; }
+        public virtual Reply Reply2 { get; set; }
         public virtual User User { get; set; }
+        public virtual User User1 { get; set; }
+        public virtual User User2 { get; set; }
     }
 }

@@ -1,0 +1,32 @@
+﻿@model IEnumerable<TechBlogWebsite.Models.Comment>
+@using TechBlogWebsite.Help
+@{
+    int totalComments = Model.Count();
+}
+<div class="custombox clearfix">
+    <h4 class="small-title">
+        @totalComments Comments<h4>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="comments-list">
+                    @foreach (var i in Model)
+                    {
+                        <div class="media">
+                            <a class="media-left" href="#">
+                                <img src="~/Content/upload/img_user2.jpg" alt="" class="rounded-circle">
+                            </a>
+                            <div class="media-body">
+                                <h4 class="media-heading user_name">
+                                    @i.User.Username
+                                    <small>@i.PublishedDate.GetTimeAgo()</small>
+                                </h4>
+                                <p>@i.Content</p>
+                                <a href="#" class="btn btn-primary btn-sm">Reply</a>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div><!-- end col -->
+        </div><!-- end row -->
+</div><!-- end custom-box -->

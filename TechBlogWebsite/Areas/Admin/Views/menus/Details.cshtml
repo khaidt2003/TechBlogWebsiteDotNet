@@ -5,63 +5,36 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage1.cshtml";
 }
 
-<h2>Details</h2>
+<div class="container">
+    <h2 class="text-center mt-4">Details</h2>
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Menu Details</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-3">Name:</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.name)</dd>
 
-<div>
-    <h4>menu</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.name)
-        </dt>
+                <dt class="col-sm-3">Link:</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.link)</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.name)
-        </dd>
+                <dt class="col-sm-3">Meta:</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.meta)</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.link)
-        </dt>
+                <dt class="col-sm-3">Hide:</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.hide)</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.link)
-        </dd>
+                <dt class="col-sm-3">Order:</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.order)</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.meta)
-        </dt>
+                <dt class="col-sm-3">Date Begin:</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.datebegin)</dd>
+            </dl>
+        </div>
+    </div>
+    <div class="mt-4">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }, new { @class = "btn btn-primary" })
+        @Html.ActionLink("Back to List", "Table", "Default", null, new { @class = "btn btn-secondary" })
 
-        <dd>
-            @Html.DisplayFor(model => model.meta)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.hide)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.hide)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.order)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.order)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.datebegin)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.datebegin)
-        </dd>
-
-    </dl>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

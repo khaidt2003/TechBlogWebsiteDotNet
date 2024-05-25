@@ -18,6 +18,8 @@ namespace TechBlogWebsite.Models
         public Reply()
         {
             this.Likes = new HashSet<Like>();
+            this.Likes1 = new HashSet<Like>();
+            this.Likes2 = new HashSet<Like>();
         }
     
         public int ReplyID { get; set; }
@@ -35,7 +37,15 @@ namespace TechBlogWebsite.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Like> Likes { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Like> Likes1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Like> Likes2 { get; set; }
         public virtual Topic Topic { get; set; }
+        public virtual Topic Topic1 { get; set; }
+        public virtual Topic Topic2 { get; set; }
         public virtual User User { get; set; }
+        public virtual User User1 { get; set; }
+        public virtual User User2 { get; set; }
     }
 }

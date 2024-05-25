@@ -8,53 +8,40 @@
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-
 <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"></script>
 
-<div class="container-fluid">
-
-    <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Management</h1>
-    <!-- DataTales Example -->
-    <div class="btn-group">
-        @Html.NoEncodeActionLink("<i class='fas fa-pencil-alt'></i> Thêm mới", "Create", "Create", "Posts", routeValues: new { }, htmlAttributes: new { @class = "btn btn-primary" })
+<div class="container-fluid mt-4">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex justify-content-between">
+                    <div>
+                        <div class="btn-group">
+                            @Html.NoEncodeActionLink("<i class='fas fa-plus'></i> Add New", "Create", "Create", "Posts", null, new { @class = "btn btn-success" })
+                        </div>
+                    </div>
+                    <div>
+                        <div class="input-group">
+                            @Html.DropDownListFor(model => model.CategoryID, (SelectList)ViewBag.Categories, " --- All Products --- ", new { @class = "custom-select", @id = "CategoryID" })
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div id="getPosts"></div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="btn-group">
-        @Html.DropDownListFor(model => model.CategoryID, (SelectList)ViewBag.Categories, " --- Tất cả sản phẩm --- ",
-                            new { @class = "form-control", @id = "CategoryID" })
-    </div>
-    <div id="getPosts"></div>
-    <script>
-    $(document).ready(function () {
-        $('#dataTable').DataTable({
-            search: true,
-            paging: true,
-            pageLength: 11,
-            columns: [
-                { data: '1' },
-                { data: '2' },
-                { data: '3' },
-                { data: '4' },
-                { data: '5' },
-                { data: '6' },
-                { data: '7' },
-                { data: '8' },
-                { data: '9' },
-                { data: '10' },
-                { data: '11' },
-            ]
-        });
-    });
+</div>
 
-    $(document).ready(function () {
-        function getPosts() {
-            var CategoryId = $('#CategoryID').val();
+<script>
+$(document).ready(function () {
+    function getPosts() {
+        var CategoryId = $('#CategoryID').val();
         $.ajax({
             url: '@Url.Action("getPosts", "Posts")',
             type: "GET",
@@ -62,15 +49,14 @@
             success: function (data) {
                 $("#getPosts").html(data);
             },
-            error: function (data) {
-                alert("something went wrong.");
+            error: function () {
+                alert("An error occurred.");
             }
         });
     }
+    getPosts();
+    $("#CategoryID").change(function () {
         getPosts();
-        $("#CategoryID").change(function () {
-        getPosts();
-    })
+    });
 });
-    </script>
-
+</script>

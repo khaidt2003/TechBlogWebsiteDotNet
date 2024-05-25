@@ -127,6 +127,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\MenuRouteConstraint.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
@@ -147,7 +148,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Help\Funtions.cs" />
+    <Compile Include="Help\Functions.cs" />
     <Compile Include="Models\BannerUser.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -4805,6 +4806,7 @@
     <Content Include="Content\upload\author.jpg" />
     <Content Include="Content\upload\author_01.jpg" />
     <Content Include="Content\upload\author_02.jpg" />
+    <Content Include="Content\upload\Avatar\avartar_default.png" />
     <Content Include="Content\upload\BannerAdvertise1.jpg" />
     <Content Include="Content\upload\BannerAdvertise2.jpg" />
     <Content Include="Content\upload\banner_01.jpg" />
@@ -5520,13 +5522,6 @@
     <Content Include="Areas\Admin\Views\Default\TablePosts.cshtml" />
     <Content Include="Areas\Admin\Views\Default\TableRole.cshtml" />
     <Content Include="Areas\Admin\Views\Default\TableUser.cshtml" />
-    <EntityDeploy Include="Models\Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
     <Content Include="Areas\Admin\Views\Posts\getPosts.cshtml" />
     <Content Include="Areas\Admin\Views\Categories\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Categories\Delete.cshtml" />
@@ -5546,6 +5541,13 @@
     <Content Include="Areas\Admin\Views\Default\TableSubMenus.cshtml" />
     <Content Include="Areas\Admin\Views\Default\TableImagePosts.cshtml" />
     <Content Include="Areas\Admin\Views\Default\TableCategories.cshtml" />
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -5605,6 +5607,7 @@
     <Content Include="Views\Temp\getAllPostSciences.cshtml" />
     <Content Include="Views\Temp\GetPopularPostsOfTechnology.cshtml" />
     <Content Include="Views\Temp\GetPopularPostsOfScience.cshtml" />
+    <Content Include="Views\Post\GetComments.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

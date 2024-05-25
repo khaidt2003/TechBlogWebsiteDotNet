@@ -1,37 +1,44 @@
 ﻿@model IEnumerable<TechBlogWebsite.Models.Post>
 
 @{
-    var prevPost = Model.ElementAtOrDefault(0); // Phần tử trước
-    var nextPost = Model.ElementAtOrDefault(1); // Phần tử sau
+    var prevPost = Model?.ElementAtOrDefault(0); // Phần tử trước
+    var nextPost = Model?.ElementAtOrDefault(1); // Phần tử sau
 }
+
 <div class="custombox prevnextpost clearfix">
     <div class="row">
-        <div class="col-lg-6">
-            <div class="blog-list-widget">
-                <div class="list-group">
-                    <a href="/blog/@prevPost.Category.Name/@(prevPost.Meta + "-" + prevPost.PostID)" class="list-group-item list-group-item-action flex-column align-items-start">
-                        <div class="w-100 justify-content-between text-right">
-                            <img src="~/Content/upload/@prevPost.FeaturedImage" alt="" class="img-fluid float-right">
-                            <h5 class="mb-1">@prevPost.Title</h5>
-                            <small>Prev Post</small>
-                        </div>
-                    </a>
+        @if (prevPost != null)
+        {
+            <div class="col-lg-6">
+                <div class="blog-list-widget">
+                    <div class="list-group">
+                        <a href="/blog/@prevPost.Category.Name/@(prevPost.Meta + "-" + prevPost.PostID)" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="w-100 justify-content-between text-right">
+                                <img src="~/Content/upload/@prevPost.FeaturedImage" alt="" class="img-fluid float-right">
+                                <h5 class="mb-1">@prevPost.Title</h5>
+                                <small>Prev Post</small>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-            </div>
-        </div><!-- end col -->
+            </div><!-- end col -->
+        }
 
-        <div class="col-lg-6">
-            <div class="blog-list-widget">
-                <div class="list-group">
-                    <a href="/blog/@nextPost.Category.Name/@(nextPost.Meta + "-" + nextPost.PostID)" class="list-group-item list-group-item-action flex-column align-items-start">
-                        <div class="w-100 justify-content-between">
-                            <img src="~/Content/upload/@nextPost.FeaturedImage" alt="" class="img-fluid float-left">
-                            <h5 class="mb-1">@nextPost.Title</h5>
-                            <small>Next Post</small>
-                        </div>
-                    </a>
+        @if (nextPost != null)
+        {
+            <div class="col-lg-6">
+                <div class="blog-list-widget">
+                    <div class="list-group">
+                        <a href="/blog/@nextPost.Category.Name/@(nextPost.Meta + "-" + nextPost.PostID)" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="w-100 justify-content-between">
+                                <img src="~/Content/upload/@nextPost.FeaturedImage" alt="" class="img-fluid float-left">
+                                <h5 class="mb-1">@nextPost.Title</h5>
+                                <small>Next Post</small>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-            </div>
-        </div><!-- end col -->
+            </div><!-- end col -->
+        }
     </div><!-- end row -->
-</div><!-- end author-box -->
+</div><!-- end custombox -->

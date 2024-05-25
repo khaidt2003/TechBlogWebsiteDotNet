@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -82,16 +85,39 @@ namespace TechBlogWebsite.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "UserID,Username,Email,Password,FirstName,LastName,RoleID,Avatar,Bio,IsActive,Link,Meta,Hide,Order,DateBegin")] User user)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(user).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+        public ActionResult Edit([Bind(Include = "UserID,Username,Email,Password,FirstName,LastName,RoleID,Avatar,Bio,Link,Meta,IsActive,Hide,Order,DateBegin")] User user, HttpPostedFileBase img)
+        {   
+            try {
+                var path = "";
+                var filename = "";
+                Debug.WriteLine("Debug Test");
+                if (ModelState.IsValid)
+                {
+                    Debug.WriteLine("Debug Test");
+                    if (img != null)
+                    {
+                        filename = DateTime.Now.ToString("dd-MM-yy-hh-mm-ss-") + img.FileName;
+                        path = Path.Combine(Server.MapPath("~/Content/upload"), filename);
+                        img.SaveAs(path);
+                        user.Avatar = filename;
+                    }
+                        db.Entry(user).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+
+                ViewBag.RoleID = new SelectList(db.Roles, "RoleID", "Name", user.RoleID);
+                return View(user);
             }
-            ViewBag.RoleID = new SelectList(db.Roles, "RoleID", "Name", user.RoleID);
-            return View(user);
+            catch (DbEntityValidationException e)
+            {
+                throw e;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            
         }
 
         // GET: Admin/Users/Delete/5

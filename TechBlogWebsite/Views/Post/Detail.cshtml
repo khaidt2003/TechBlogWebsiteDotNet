@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Detail";
     Layout = "~/Views/Shared/MyLayout.cshtml";
+    var postId = Model.PostID;
 }
 
 <section class="section single-wrapper">
@@ -74,8 +75,7 @@
 
                     <hr class="invis1">
 
-                    @{Html.RenderAction("getPreAndPostPost", "Post", new { postId = @Model.PostID });}
-
+                    @Html.Action("getPreAndPostPost", "Post", new { postId = @Model.PostID })
 
                     <hr class="invis1">
 
@@ -98,61 +98,19 @@
                                     <a href="#" data-toggle="tooltip" data-placement="bottom" title="Instagram"><i class="fa fa-instagram"></i></a>
                                     <a href="#" data-toggle="tooltip" data-placement="bottom" title="Website"><i class="fa fa-link"></i></a>
                                 </div><!-- end social -->
-
                             </div><!-- end col -->
                         </div><!-- end row -->
                     </div><!-- end author-box -->
 
                     <hr class="invis1">
 
-                    @{Html.RenderAction("RandomPost", "Post");}
+                    @Html.Action("RandomPost", "Post")
 
                     <hr class="invis1">
 
-                    <div class="custombox clearfix">
-                        <h4 class="small-title">3 Comments</h4>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="comments-list">
-                                    <div class="media">
-                                        <a class="media-left" href="#">
-                                            <img src="~/Content/upload/img_user2.jpg" alt="" class="rounded-circle">
-                                        </a>
-                                        <div class="media-body">
-                                            <h4 class="media-heading user_name">Amanda Martines <small>5 days ago</small></h4>
-                                            <p>Exercitation photo booth stumptown tote bag Banksy, elit small batch freegan sed. Craft beer elit seitan exercitation, photo booth et 8-bit kale chips proident chillwave deep v laborum. Aliquip veniam delectus, Marfa eiusmod Pinterest in do umami readymade swag. Selfies iPhone Kickstarter, drinking vinegar jean.</p>
-                                            <a href="#" class="btn btn-primary btn-sm">Reply</a>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <a class="media-left" href="#">
-                                            <img src="~/Content/upload/img_user3.jpg" alt="" class="rounded-circle">
-                                        </a>
-                                        <div class="media-body">
-
-                                            <h4 class="media-heading user_name">Baltej Singh <small>5 days ago</small></h4>
-
-                                            <p>Drinking vinegar stumptown yr pop-up artisan sunt. Deep v cliche lomo biodiesel Neutra selfies. Shorts fixie consequat flexitarian four loko tempor duis single-origin coffee. Banksy, elit small.</p>
-
-                                            <a href="#" class="btn btn-primary btn-sm">Reply</a>
-                                        </div>
-                                    </div>
-                                    <div class="media last-child">
-                                        <a class="media-left" href="#">
-                                            <img src="~/Content/upload/img_user4.jpg" alt="" class="rounded-circle">
-                                        </a>
-                                        <div class="media-body">
-
-                                            <h4 class="media-heading user_name">Marie Johnson <small>5 days ago</small></h4>
-                                            <p>Kickstarter seitan retro. Drinking vinegar stumptown yr pop-up artisan sunt. Deep v cliche lomo biodiesel Neutra selfies. Shorts fixie consequat flexitarian four loko tempor duis single-origin coffee. Banksy, elit small.</p>
-
-                                            <a href="#" class="btn btn-primary btn-sm">Reply</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><!-- end col -->
-                        </div><!-- end row -->
-                    </div><!-- end custom-box -->
+                    <div id="comments">
+                        @Html.Action("GetComments", "Post", new { postId = postId })
+                    </div>
 
                     <hr class="invis1">
 
@@ -160,16 +118,43 @@
                         <h4 class="small-title">Leave a Reply</h4>
                         <div class="row">
                             <div class="col-lg-12">
-                                <form class="form-wrapper">
-                                    <input type="text" class="form-control" placeholder="Your name">
-                                    <input type="text" class="form-control" placeholder="Email address">
-                                    <input type="text" class="form-control" placeholder="Website">
-                                    <textarea class="form-control" placeholder="Your comment"></textarea>
-                                    <button type="submit" class="btn btn-primary">Submit Comment</button>
-                                </form>
+                                @if (Session["idUser"] != null)
+                                {
+                                    using (Html.BeginForm("SaveComment", "Post", FormMethod.Post, new { @class = "form-wrapper" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        @Html.HiddenFor(model => model.PostID) <!-- Thêm trường ẩn để lưu PostID -->
+                                        @Html.HiddenFor(model => Session["idUser"])
+                                        <div class="form-group">
+                                            <label for="Username">Username</label>
+                                            <input type="text" id="Username" name="Username" class="form-control" value="@Session["FullName"].ToString()" readonly />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="Email">Email</label>
+                                            <input type="text" id="Email" name="Email" class="form-control" value="@Session["Email"].ToString()" readonly />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="Website">Website</label>
+                                            <input type="text" id="Website" name="Link" class="form-control" readonly />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="Content">Your comment</label>
+                                            <textarea id="Content" name="Content" class="form-control" placeholder="Your comment" required></textarea>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary">Submit Comment</button>
+                                    }
+                                }
+                                else
+                                {
+                                    <div class="alert alert-warning">
+                                        Bạn phải <a href="@Url.Action("Login", "Account")">đăng nhập</a> để để lại bình luận.
+                                    </div>
+                                }
                             </div>
                         </div>
                     </div>
+
                 </div><!-- end page-wrapper -->
             </div><!-- end col -->
 
@@ -186,7 +171,7 @@
                     <div class="widget">
                         <h2 class="widget-title">Trend Videos</h2>
                         <div class="trend-videos">
-                            @{Html.RenderAction("getPopularBlogVideo", "Temp");}
+                            @Html.Action("getPopularBlogVideo", "Temp")
                         </div><!-- end videos -->
                     </div><!-- end widget -->
 
@@ -194,7 +179,7 @@
                         <h2 class="widget-title">Popular Posts</h2>
                         <div class="blog-list-widget">
                             <div class="list-group">
-                                @{Html.RenderAction("getPopularAllPosts", "Temp");}
+                                @Html.Action("getPopularAllPosts", "Temp")
                             </div>
                         </div><!-- end blog-list -->
                     </div><!-- end widget -->
@@ -203,14 +188,13 @@
                         <h2 class="widget-title">Recent Reviews</h2>
                         <div class="blog-list-widget">
                             <div class="list-group">
-                                @{Html.RenderAction("getRecentReviews", "Temp");}
+                                @Html.Action("getRecentReviews", "Temp")
                             </div>
                         </div><!-- end blog-list -->
                     </div><!-- end widget -->
 
                     <div class="widget">
                         <h2 class="widget-title">Follow Us</h2>
-
                         <div class="row text-center">
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
                                 <a href="#" class="social-button facebook-button">
@@ -218,21 +202,18 @@
                                     <p>27k</p>
                                 </a>
                             </div>
-
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
                                 <a href="#" class="social-button twitter-button">
                                     <i class="fa fa-twitter"></i>
                                     <p>98k</p>
                                 </a>
                             </div>
-
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
                                 <a href="#" class="social-button google-button">
                                     <i class="fa fa-google-plus"></i>
                                     <p>17k</p>
                                 </a>
                             </div>
-
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
                                 <a href="#" class="social-button youtube-button">
                                     <i class="fa fa-youtube"></i>
@@ -255,5 +236,12 @@
     </div><!-- end container -->
 </section>
 
-
-
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var websiteField = document.getElementById("Website");
+        if (websiteField) {
+            websiteField.value = window.location.href;
+        }
+    });
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using TechBlogWebsite.Models;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
+using System.Data.Entity;
 
 namespace TechBlogWebsite.Controllers
 {
@@ -16,9 +18,13 @@ namespace TechBlogWebsite.Controllers
         {
             return View();
         }
-        public ActionResult getMenu() { 
-            var v = from t in _db.menus where t.hide== false orderby t.order ascending select t;
-            return PartialView(v.ToList());
+        public ActionResult getMenu() {
+            var menus = _db.menus
+                       .Where(m => (bool)!m.hide)
+                       .OrderBy(m => m.order)
+                       .Include(m => m.SubMenus)
+                       .ToList();
+            return PartialView(menus.ToList());
         }
         public ActionResult GetPopularPosts()
         {

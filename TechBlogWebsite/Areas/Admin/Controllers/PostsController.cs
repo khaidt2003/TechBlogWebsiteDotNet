@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using TechBlogWebsite.Help;
 using TechBlogWebsite.Models;
 
 namespace TechBlogWebsite.Areas.Admin.Controllers
@@ -56,17 +60,45 @@ namespace TechBlogWebsite.Areas.Admin.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
-        public ActionResult Create([Bind(Include = "PostID,Title,Content,AuthorID,CategoryID,PublishedDate,ModifiedDate,Tags,FeaturedImage,Status,ViewCount,Link,Meta,Hide,Order,DateBegin")] Post post)
+        public ActionResult Create([Bind(Include = "PostID,Title,Content,AuthorID,CategoryID,PublishedDate,ModifiedDate,Tags,FeaturedImage,Status,ViewCount,Link,Meta,Hide,Order,DateBegin")] Post post, HttpPostedFileBase img)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Posts.Add(post);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                var path = "";
+                var filename = "";
+                if (ModelState.IsValid)
+                {
+                    if (img != null)
+                    {
+                        //filename = Guid.NewGuid().ToString() + img.FileName;
+                        filename = DateTime.Now.ToString("dd-MM-yy-hh-mm-ss-") + img.FileName;
+                        path = Path.Combine(Server.MapPath("~/Content/upload/"), filename);
+                        img.SaveAs(path);
+                        post.FeaturedImage = filename; //Lưu ý
+                    }
+                    else
+                    {
+                        post.FeaturedImage = "logo.png";
+                    }
+                    post.DateBegin = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+                    post.PublishedDate = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+                    post.ModifiedDate = Convert.ToDateTime(DateTime.Now.ToShortDateString()) ;
+                    post.Meta = Functions.ConvertToUnSign(post.Meta); //convert Tiếng Việt không dấu
+                    post.Order = getMaxOrder(post.CategoryID);
+                    db.Posts.Add(post);
+                    db.SaveChanges();
+                    //return RedirectToAction("Index");
+                    return RedirectToAction("Index", "Posts", new { id = post.CategoryID });
+                }
             }
-
-            ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "Name", post.CategoryID);
-            ViewBag.AuthorID = new SelectList(db.Users, "UserID", "Username", post.AuthorID);
+            catch (DbEntityValidationException e)
+            {
+                throw e;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
             return View(post);
         }
 
@@ -103,18 +135,68 @@ namespace TechBlogWebsite.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PostID,Title,Content,AuthorID,CategoryID,PublishedDate,ModifiedDate,Tags,FeaturedImage,Status,ViewCount,Link,Meta,Hide,Order,DateBegin")] Post post)
+        [ValidateInput(false)] // Lưu ý: ValidateInput(false) sẽ tắt kiểm tra dữ liệu đầu vào, hãy sử dụng nó cẩn thận
+        public ActionResult Edit([Bind(Include = "PostID,Title,Content,AuthorID,CategoryID,PublishedDate,ModifiedDate,Tags,FeaturedImage,Status,ViewCount,Link,Meta,Hide,Order,DateBegin")] Post post, HttpPostedFileBase img)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Entry(post).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    // Lấy bài viết hiện tại từ database
+                    var existingPost = db.Posts.Find(post.PostID);
+                    if (existingPost == null)
+                    {
+                        return HttpNotFound();
+                    }
+
+                    if (img != null)
+                    {
+                        // Xử lý tải lên hình ảnh mới
+                        var filename = DateTime.Now.ToString("dd-MM-yy-hh-mm-ss-") + Path.GetFileName(img.FileName);
+                        var path = Path.Combine(Server.MapPath("~/Content/upload/"), filename);
+                        img.SaveAs(path);
+                        post.FeaturedImage = filename;
+                    }
+                    else
+                    {
+                        // Giữ nguyên hình ảnh hiện tại
+                        post.FeaturedImage = existingPost.FeaturedImage;
+                    }
+                    post.ModifiedDate = DateTime.Now;
+
+                    // Giữ các giá trị không được cập nhật
+                    post.PublishedDate = existingPost.PublishedDate;
+                    post.AuthorID = existingPost.AuthorID;
+
+                    db.Entry(existingPost).CurrentValues.SetValues(post);
+                    db.SaveChanges();
+
+                    return RedirectToAction("Index");
+                }
             }
+            catch (DbEntityValidationException ex)
+            {
+                // Xử lý các lỗi DbEntityValidationException ở đây
+                foreach (var validationErrors in ex.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        Debug.WriteLine($"Property: {validationError.PropertyName} Error: {validationError.ErrorMessage}");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Exception: {ex.Message}");
+            }
+
             ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "Name", post.CategoryID);
             ViewBag.AuthorID = new SelectList(db.Users, "UserID", "Username", post.AuthorID);
             return View(post);
         }
+
+
+
 
         // GET: Admin/Posts/Delete/5
         public ActionResult Delete(int? id)
@@ -150,5 +232,13 @@ namespace TechBlogWebsite.Areas.Admin.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public int getMaxOrder(long? CategoryId)
+        {
+            if (CategoryId == null)
+                return 1;
+            return db.Posts.Where(x => x.CategoryID == CategoryId).Count();
+        }
+        //ViewBag.getMaxOrder = getMaxOrder(product.categoryid) + 1;
     }
 }

@@ -14,17 +14,10 @@ namespace TechBlogWebsite.Models
     
     public partial class Comment
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Comment()
-        {
-            this.Comments1 = new HashSet<Comment>();
-        }
-    
         public int CommentID { get; set; }
         public Nullable<int> PostID { get; set; }
         public Nullable<int> UserID { get; set; }
         public string Content { get; set; }
-        public Nullable<int> ParentID { get; set; }
         public System.DateTime PublishedDate { get; set; }
         public Nullable<bool> IsApproved { get; set; }
         public string Link { get; set; }
@@ -33,9 +26,6 @@ namespace TechBlogWebsite.Models
         public Nullable<int> Order { get; set; }
         public Nullable<System.DateTime> DateBegin { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Comment> Comments1 { get; set; }
-        public virtual Comment Comment1 { get; set; }
         public virtual Post Post { get; set; }
         public virtual User User { get; set; }
     }

@@ -28,15 +28,26 @@ namespace TechBlogWebsite.Controllers
                 if (check == null)
                 {
                     _user.Password = GetMD5(_user.Password);
-                    _user.Avatar = "";
+                    _user.Avatar = "/Content/upload/Avatar/avartar_default.png";
                     _user.RoleID = 1;
-
                     _user.IsActive = true;
                     _user.Meta = "/users/" + _user.FirstName + _user.LastName;
                     _user.Hide = false;
+
+                    // Disable validation before saving
                     _db.Configuration.ValidateOnSaveEnabled = false;
                     _db.Users.Add(_user);
                     _db.SaveChanges();
+
+                    // Retrieve the newly created user from the database
+                    var newUser = _db.Users.FirstOrDefault(s => s.Email == _user.Email);
+
+                    // Add user information to session
+                    Session["FullName"] = newUser.FirstName + " " + newUser.LastName;
+                    Session["AvatarUrl"] = newUser.Avatar;
+                    Session["idUser"] = newUser.UserID;
+                    Session["Email"] = newUser.Email;
+
                     return RedirectToAction("Index", "Default");
                 }
                 else
@@ -44,18 +55,15 @@ namespace TechBlogWebsite.Controllers
                     ViewBag.error = "Email already exists";
                     return View();
                 }
-
-
             }
             return View();
-
-
         }
+
 
         public ActionResult Logout()
         {
             Session.Clear();//remove session
-            return RedirectToAction("Login");
+            return RedirectToAction("Index", "Default");
         }
 
 
@@ -65,16 +73,22 @@ namespace TechBlogWebsite.Controllers
         {
             if (ModelState.IsValid)
             {
-
-
                 var f_password = GetMD5(password);
                 var data = _db.Users.Where(s => s.Email.Equals(email) && s.Password.Equals(f_password)).ToList();
                 if (data.Count() > 0)
                 {
-                    //add session
-                    Session["FullName"] = data.FirstOrDefault().FirstName + " " + data.FirstOrDefault().LastName;
-                    Session["AvatarUrl"] = data.FirstOrDefault().Avatar;
-                    Session["idUser"] = data.FirstOrDefault().UserID;
+                    // add session
+                    var user = data.FirstOrDefault();
+                    Session["FullName"] = user.FirstName + " " + user.LastName;
+                    Session["AvatarUrl"] = user.Avatar;
+                    Session["idUser"] = user.UserID;
+                    Session["Email"] = user.Email;
+                    if (Session["ReturnUrl"] != null)
+                    {
+                        var returnUrl = Session["ReturnUrl"].ToString();
+                        Session["ReturnUrl"] = null; // xóa session
+                        return Redirect(returnUrl);
+                    }
                     return RedirectToAction("Index", "Default");
                 }
                 else

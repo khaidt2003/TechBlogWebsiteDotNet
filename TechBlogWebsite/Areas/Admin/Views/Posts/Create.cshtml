@@ -10,7 +10,7 @@
 </div>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Create", "Posts", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
@@ -40,7 +40,7 @@
             <div class="col-md-12">
                 <div class="form-group">
                     @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label text-primary" })
-                    @Html.TextAreaFor(model => model.Content, new { @class = "form-control", rows = 6, placeholder = "Enter content" , id = "txtContent" })
+                    @Html.TextAreaFor(model => model.Content, new { @class = "form-control", rows = 6, placeholder = "Enter content", id = "txtContent" })
                     @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -68,18 +68,12 @@
         <div class="row">
 
 
-            <div class="col-md-6">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.FeaturedImage, htmlAttributes: new { @class = "control-label text-primary" })
-                    <input type="file" name="img" id="img" accept=".jpg, .png" class="form-control-file">
+            <div class="form-group row">
+                <div class="col-md-9">
+                    <div class="col-md-6">
+                        <input type="file" name="img" id="img" accept=".jpg,.png,.gif,.jpeg,.bmp" />
+                    </div>
                     @Html.ValidationMessageFor(model => model.FeaturedImage, "", new { @class = "text-danger" })
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label text-primary" })
-                    @Html.EditorFor(model => model.Status, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter status" } })
-                    @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
                 </div>
             </div>
         </div>
@@ -87,13 +81,6 @@
 
 
         <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Link, htmlAttributes: new { @class = "control-label text-primary" })
-                    @Html.EditorFor(model => model.Link, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter link" } })
-                    @Html.ValidationMessageFor(model => model.Link, "", new { @class = "text-danger" })
-                </div>
-            </div>
 
             <div class="col-md-6">
                 <div class="form-group">
@@ -118,13 +105,6 @@
                 </div>
             </div>
 
-            <div class="col-md-6">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Order, htmlAttributes: new { @class = "control-label text-primary" })
-                    @Html.EditorFor(model => model.Order, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter order" } })
-                    @Html.ValidationMessageFor(model => model.Order, "", new { @class = "text-danger" })
-                </div>
-            </div>
         </div>
 
         <div class="row">
@@ -141,18 +121,21 @@
     <script src="~/Areas/Admin/Content/ckeditor/ckeditor.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript">
+        var editor = CKEDITOR.replace("txtContent");
+        var editor = CKEDITOR.replace("txtContent", { height: '400px' });
+        customConfig: '/Areas/admin/Content/ckeditor/config.js';
+    </script>
+    <script type="text/javascript">
         $(function () {
             $("#Title").keyup(function () {
                 var text = $.trim($(this).val().toLowerCase());
-                var text_create = text.replace(/à|á|ạ|à|ã|â|â|â|â|â|â|ă|à|å|ặ|å|ã|ả|ẹ|é|è|ý|ỳ|ỵ|í|ì|i/g, "a").replace(/\ /g, '-').replace(/đ /g, "d");
-                $('#Meta').val(text_create);
+                var text_create;
+                text_create = text.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a").replace(/\ /g, '-').replace(/đ/g, "d").replace(/đ/g, "d").replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y").replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u").replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ.+/g, "o").replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ.+/g, "e").replace(/ì|í|ị|ỉ|ĩ/g, "i");
+                $('#Meta').val(text_create); // Gán giá trị mới vào phần tử có id là "Meta"
             }).keyup();
-
-            CKEDITOR.replace("txtContent");
-            CKEDITOR.replace("txtContent", { height: '600px' });
-            CKEDITOR.config.customConfig = '/Areas/admin/Content/ckeditor/config.js';
         });
     </script>
+
 }
 <div class="container text-center">
     @Html.ActionLink("Back to List", "Index")
