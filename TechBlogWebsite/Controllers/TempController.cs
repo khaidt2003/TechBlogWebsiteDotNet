@@ -45,10 +45,10 @@ namespace TechBlogWebsite.Controllers
             return PartialView(latestPosts.ToList());
         }
 
-        public ActionResult getPopularBlogVideo()
+        public ActionResult getPopularBlogJob()
         {
             var topPosts = _db.Posts
-                .Where(p => p.CategoryID == 4) // Assuming CategoryId is the property for category
+                .Where(p => p.CategoryID == 5) // Assuming CategoryId is the property for category
                 .OrderByDescending(t => t.ViewCount)
                 .Take(3)
                 .ToList();
@@ -75,18 +75,18 @@ namespace TechBlogWebsite.Controllers
         {
             var topPosts = _db.Posts
                 .Where(p => p.CategoryID == 4) // Assuming CategoryId is the property for category
-                .Take(12)
                 .ToList();
             return PartialView(topPosts);
         }
-        public ActionResult getAllPostVideos()
+        public ActionResult getAllPostJobs()
         {
             var topPosts = _db.Posts
                 .Where(p => p.CategoryID == 5) // Assuming CategoryId is the property for category
-                .Take(6)
+                .OrderByDescending(p => p.PostID) // Sort by CreatedAt in descending order
                 .ToList();
             return PartialView(topPosts);
         }
+
         public ActionResult getAllPostReviews()
         {
             var topPosts = _db.Posts

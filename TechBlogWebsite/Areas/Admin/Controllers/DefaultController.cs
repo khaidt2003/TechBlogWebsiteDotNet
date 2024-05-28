@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace TechBlogWebsite.Areas.Admin.Controllers
 {
+    [AdminAuthorize]
     public class DefaultController : Controller
     {
         // GET: Admin/Default
@@ -49,7 +50,7 @@ namespace TechBlogWebsite.Areas.Admin.Controllers
         {
             return View();
         }
-        public ActionResult Chart()
+        public ActionResult TableJobs()
         {
             return View();
         }

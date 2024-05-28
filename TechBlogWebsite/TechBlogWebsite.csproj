@@ -135,6 +135,7 @@
     <Compile Include="Areas\Admin\Controllers\CategoriesController.cs" />
     <Compile Include="Areas\Admin\Controllers\DefaultController.cs" />
     <Compile Include="Areas\Admin\Controllers\ImagePostsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\jobsController.cs" />
     <Compile Include="Areas\Admin\Controllers\menusController.cs" />
     <Compile Include="Areas\Admin\Controllers\PostsController.cs" />
     <Compile Include="Areas\Admin\Controllers\SubMenusController.cs" />
@@ -143,8 +144,10 @@
     <Compile Include="Controllers\AuthorController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JobsController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\TempController.cs" />
+    <Compile Include="Filter\AdminAuthorizeAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -162,6 +165,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ImagePost.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\job.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Like.cs">
@@ -4906,6 +4912,7 @@
     <Content Include="Content\upload\img3_po7.jpg" />
     <Content Include="Content\upload\img3_po8.jpg" />
     <Content Include="Content\upload\img3_po9.jpg" />
+    <Content Include="Content\upload\img\thuoc-phim-ve-cuoc-chien-dau-tien-giua-ai-va-phi-cong-1713843976.jpg" />
     <Content Include="Content\upload\img_po1.jpg" />
     <Content Include="Content\upload\img_po10.jpg" />
     <Content Include="Content\upload\img_po11.jpg" />
@@ -4997,6 +5004,7 @@
     <Content Include="Content\upload\tech_video_01.jpg" />
     <Content Include="Content\upload\tech_video_02.jpg" />
     <Content Include="Content\upload\tech_video_03.jpg" />
+    <Content Include="Content\upload\_thumbs\Images\thuoc-phim-ve-cuoc-chien-dau-tien-giua-ai-va-phi-cong-1713843976.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -5516,7 +5524,6 @@
     <Content Include="Areas\Admin\Views\Users\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Users\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Users\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Default\Chart.cshtml" />
     <Content Include="Areas\Admin\Views\Default\Err404.cshtml" />
     <Content Include="Areas\Admin\Views\Default\TableBannerUser.cshtml" />
     <Content Include="Areas\Admin\Views\Default\TablePosts.cshtml" />
@@ -5541,6 +5548,7 @@
     <Content Include="Areas\Admin\Views\Default\TableSubMenus.cshtml" />
     <Content Include="Areas\Admin\Views\Default\TableImagePosts.cshtml" />
     <Content Include="Areas\Admin\Views\Default\TableCategories.cshtml" />
+    <Content Include="Content\upload\contact_img\recruit_benefit_1.webp" />
     <EntityDeploy Include="Models\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
@@ -5548,6 +5556,12 @@
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\Admin\Views\jobs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\jobs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\jobs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\jobs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\jobs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Default\TableJobs.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -5579,7 +5593,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\MyLayout.cshtml" />
     <Content Include="Views\Default\Index.cshtml" />
-    <Content Include="Views\Default\Contact.cshtml" />
+    <Content Include="Views\Default\Jobs.cshtml" />
     <Content Include="Views\Default\TechCategory.cshtml" />
     <Content Include="Views\Default\TechAuthor.cshtml" />
     <Content Include="Views\Temp\getMenu.cshtml" />
@@ -5591,11 +5605,11 @@
     <Content Include="Views\Default\TechVideo.cshtml" />
     <Content Include="Views\Default\TechReivews.cshtml" />
     <Content Include="Views\Post\Detail.cshtml" />
-    <Content Include="Views\Temp\getPopularBlogVideo.cshtml" />
+    <Content Include="Views\Temp\getPopularBlogJob.cshtml" />
     <Content Include="Views\Temp\getPopularAllPosts.cshtml" />
     <Content Include="Views\Temp\getRecentReviews.cshtml" />
     <Content Include="Views\Temp\getAllPostGadgets.cshtml" />
-    <Content Include="Views\Temp\getAllPostVideos.cshtml" />
+    <Content Include="Views\Temp\getAllPostJobs.cshtml" />
     <Content Include="Views\Temp\getAllPostReviews.cshtml" />
     <Content Include="Views\Post\getPreAndPostPost.cshtml" />
     <Content Include="Views\Post\RandomPost.cshtml" />
@@ -5608,6 +5622,7 @@
     <Content Include="Views\Temp\GetPopularPostsOfTechnology.cshtml" />
     <Content Include="Views\Temp\GetPopularPostsOfScience.cshtml" />
     <Content Include="Views\Post\GetComments.cshtml" />
+    <Content Include="Views\Jobs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

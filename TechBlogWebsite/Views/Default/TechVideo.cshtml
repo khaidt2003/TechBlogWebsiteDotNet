@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "TechVideo";
+    ViewBag.Title = "TechJob";
     Layout = "~/Views/Shared/MyLayout.cshtml";
 }
 
@@ -8,13 +8,13 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                <h2><i class="fa fa-play bg-orange"></i> Videos <small class="hidden-xs-down hidden-sm-down">Nulla felis eros, varius sit amet volutpat non. </small></h2>
+                <h2><i class="fa fa-play bg-orange"></i> Jobs <small class="hidden-xs-down hidden-sm-down">Nulla felis eros, varius sit amet volutpat non. </small></h2>
             </div><!-- end col -->
             <div class="col-lg-4 col-md-4 col-sm-12 hidden-xs-down hidden-sm-down">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
                     <li class="breadcrumb-item"><a href="#">Blog</a></li>
-                    <li class="breadcrumb-item active">Videos</li>
+                    <li class="breadcrumb-item active">Jobs</li>
                 </ol>
             </div><!-- end col -->
         </div><!-- end row -->
@@ -27,7 +27,7 @@
             <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
                 <div class="page-wrapper">
                     <div class="blog-custom-build">
-                        @{Html.RenderAction("getAllPostVideos", "Temp");}
+                        @{Html.RenderAction("getAllPostJobs", "Temp");}
                     </div><!-- end blog-custom-build -->
                 </div><!-- end page-wrapper -->
 
@@ -60,10 +60,10 @@
                     </div><!-- end widget -->
 
                     <div class="widget">
-                        <h2 class="widget-title">Trend Videos</h2>
-                        <div class="trend-videos">
-                            @{Html.RenderAction("getPopularBlogVideo", "Temp");}
-                        </div><!-- end videos -->
+                        <h2 class="widget-title">Trend Jobs</h2>
+                        <div class="trend-Jobs">
+                            @{Html.RenderAction("getPopularBlogJob", "Temp");}
+                        </div><!-- end Jobs -->
                     </div><!-- end widget -->
 
                     <div class="widget">

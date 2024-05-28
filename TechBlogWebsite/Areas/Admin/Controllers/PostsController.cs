@@ -49,8 +49,26 @@ namespace TechBlogWebsite.Areas.Admin.Controllers
         // GET: Admin/Posts/Create
         public ActionResult Create()
         {
+            // Get current user
+            var currentUserEmail = Session["Email"]?.ToString();
+            var currentUser = db.Users.FirstOrDefault(u => u.Email == currentUserEmail);
+
+            if (currentUser != null)
+            {
+                // Pass current user as Author to the view
+                ViewBag.Authors = new List<SelectListItem>
+                {
+                    new SelectListItem { Value = currentUser.UserID.ToString(), Text = currentUser.FirstName + " " + currentUser.LastName }
+                };
+                ViewBag.CurrentAuthorID = currentUser.UserID;
+            }
+            else
+            {
+                // Handle the case where user is not found or not logged in
+                return RedirectToAction("Login", "Account", new { area = "" });
+            }
+
             ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "Name");
-            ViewBag.AuthorID = new SelectList(db.Users, "UserID", "Username");
             return View();
         }
 
@@ -239,6 +257,17 @@ namespace TechBlogWebsite.Areas.Admin.Controllers
                 return 1;
             return db.Posts.Where(x => x.CategoryID == CategoryId).Count();
         }
+        public ActionResult PostViews()
+        {
+            var postViews = db.Posts
+                .OrderByDescending(p => p.ViewCount)
+                .Take(3)
+                .Select(p => new { p.Title, p.ViewCount })
+                .ToList();
+
+            return Json(postViews, JsonRequestBehavior.AllowGet);
+        }
+
         //ViewBag.getMaxOrder = getMaxOrder(product.categoryid) + 1;
     }
 }

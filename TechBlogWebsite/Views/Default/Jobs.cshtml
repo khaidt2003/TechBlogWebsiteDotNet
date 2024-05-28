@@ -1,0 +1,165 @@
+﻿
+@{
+    ViewBag.Title = "Job";
+    Layout = "~/Views/Shared/MyLayout.cshtml";
+}
+<div class="page-title lb single-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                <h2><i class="fa fa-envelope-open-o bg-orange"></i> Post A Job <small class="hidden-xs-down hidden-sm-down">Nulla felis eros, varius sit amet volutpat non. </small></h2>
+            </div><!-- end col -->
+            <div class="col-lg-4 col-md-4 col-sm-12 hidden-xs-down hidden-sm-down">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">Job</li>
+                </ol>
+            </div><!-- end col -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</div><!-- end page-title -->
+
+<section class="">
+    <header>
+        <h1>TechBlog</h1>
+        <h2>Tuyển Dụng IT cùng TechBlog: Tối Ưu Chi Phí, Tối Đa Hỗ Trợ</h2>
+    </header>
+    <section class="services">
+        <div class="service">
+            <img src="~/Content/upload/contact_img/recruit_benefit_1.png" alt="Tư vấn về Thị Trường tuyển dụng IT">
+            <h3>Tư vấn về Thị Trường tuyển dụng IT</h3>
+            <p>Công ty sẽ nhận được tư vấn thông tin thị trường về vị trí đang tuyển dụng (tình hình ứng viên, mức lương trung bình..)</p>
+        </div>
+        <div class="service">
+            <img src="~/Content/upload/contact_img/recruit_benefit_2.png" alt="Hỗ trợ tư vấn Mô tả công việc">
+            <h3>Hỗ trợ tư vấn Mô tả công việc</h3>
+            <p>Công ty sẽ nhận tư vấn mô tả công việc để tối ưu việc tiếp cận ứng viên</p>
+        </div>
+        <div class="service">
+            <img src="~/Content/upload/contact_img/recruit_benefit_3.png" alt="Nhận ngay Ưu đãi">
+            <h3>Nhận ngay Ưu đãi</h3>
+            <p>Nhận ưu đãi đặc biệt chỉ khi liên hệ tư vấn, giúp tối ưu chi phí tối đa hỗ trợ.</p>
+        </div>
+    </section>
+    @{Html.RenderAction("Index", "jobs");}
+</section>
+
+
+    <script src="~/Areas/Admin/Content/ckfinder/ckfinder.js"></script>
+    <script src="~/Areas/Admin/Content/ckeditor/ckeditor.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        var editor = CKEDITOR.replace("job-description");
+        var editor = CKEDITOR.replace("job-description", { height: '400px' });
+        customConfig: '/Areas/admin/Content/ckeditor/config.js';
+    </script>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+
+    header {
+        background: #ff7f50;
+        color: #fff;
+        padding: 1rem 0;
+        text-align: center;
+    }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        header h2 {
+            margin: 0.5rem 0 0;
+        }
+
+    .services {
+        display: flex;
+        justify-content: space-around;
+        padding: 2rem;
+        background: #fff;
+    }
+
+    .service {
+        text-align: center;
+        max-width: 30%;
+    }
+
+        .service img {
+            max-width: 100%;
+            height: auto;
+        }
+
+    .consultation {
+        padding: 2rem;
+        background: #fff;
+        margin: 1rem auto;
+        max-width: 800px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+        .consultation h2 {
+            text-align: center;
+        }
+
+    form {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+        form label {
+            flex: 0 0 100%;
+            margin-bottom: 0.5rem;
+        }
+
+        form input, form select, form textarea, form button {
+            flex: 1 1 100%;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        form textarea {
+            height: 150px;
+            resize: none;
+        }
+
+        form button {
+            background: #ff7f50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            padding: 1rem;
+            font-size: 1rem;
+        }
+
+            form button:hover {
+                background: #e76d3b;
+            }
+
+    footer {
+        text-align: center;
+        padding: 2rem;
+        background: #fff;
+        margin-top: 2rem;
+    }
+
+    .clients {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+        .clients img {
+            max-width: 100px;
+            margin: 1rem;
+        }
+</style>

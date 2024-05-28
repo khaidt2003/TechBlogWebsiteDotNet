@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="TechBlogDBNetModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="TechBlogDBNetModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="BannerUsers">
           <Key>
             <PropertyRef Name="BannerID" />
@@ -75,6 +75,22 @@
           <Property Name="Hide" Type="bit" />
           <Property Name="Order" Type="int" />
           <Property Name="DateBegin" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="jobs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="company_name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="full_name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="current_position" Type="nvarchar" MaxLength="255" />
+          <Property Name="email" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="phone" Type="nvarchar" MaxLength="20" />
+          <Property Name="how_heard" Type="nvarchar" MaxLength="255" />
+          <Property Name="job_description" Type="nvarchar(max)" />
+          <Property Name="is_posted" Type="bit" />
+          <Property Name="created_at" Type="datetime" />
         </EntityType>
         <EntityType Name="Likes">
           <Key>
@@ -328,6 +344,18 @@
             </Principal>
             <Dependent Role="Forums">
               <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__jobs__user_id__55F4C372">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="jobs" Type="Self.jobs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="jobs">
+              <PropertyRef Name="user_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -697,6 +725,7 @@
           <EntitySet Name="Comments" EntityType="Self.Comments" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Forums" EntityType="Self.Forums" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ImagePost" EntityType="Self.ImagePost" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="jobs" EntityType="Self.jobs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Likes" EntityType="Self.Likes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="menu" EntityType="Self.menu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Posts" EntityType="Self.Posts" Schema="dbo" store:Type="Tables" />
@@ -738,6 +767,10 @@
           <AssociationSet Name="FK__Forums__Category__7B5B524B" Association="Self.FK__Forums__Category__7B5B524B">
             <End Role="Categories" EntitySet="Categories" />
             <End Role="Forums" EntitySet="Forums" />
+          </AssociationSet>
+          <AssociationSet Name="FK__jobs__user_id__55F4C372" Association="Self.FK__jobs__user_id__55F4C372">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="jobs" EntitySet="jobs" />
           </AssociationSet>
           <AssociationSet Name="FK__Likes__ReplyID__01142BA1" Association="Self.FK__Likes__ReplyID__01142BA1">
             <End Role="Replies" EntitySet="Replies" />
@@ -860,7 +893,8 @@
             <End Role="SubMenus" EntitySet="SubMenus" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TechBlogDBNetModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -956,6 +990,23 @@
           <Property Name="Order" Type="Int32" />
           <Property Name="DateBegin" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Post" Relationship="Self.FK_PostID" FromRole="ImagePost" ToRole="Posts" />
+        </EntityType>
+        <EntityType Name="job">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="company_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="full_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="current_position" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="how_heard" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="job_description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="is_posted" Type="Boolean" />
+          <Property Name="created_at" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="User" Relationship="Self.FK__jobs__user_id__55F4C372" FromRole="jobs" ToRole="Users" />
         </EntityType>
         <EntityType Name="Like">
           <Key>
@@ -1154,6 +1205,7 @@
           <Property Name="DateBegin" Type="DateTime" Precision="0" />
           <NavigationProperty Name="BannerUsers" Relationship="Self.FK_BannerUsers_Users" FromRole="Users" ToRole="BannerUsers" />
           <NavigationProperty Name="Comments" Relationship="Self.FK__Comments__UserID__71D1E811" FromRole="Users" ToRole="Comments" />
+          <NavigationProperty Name="jobs" Relationship="Self.FK__jobs__user_id__55F4C372" FromRole="Users" ToRole="jobs" />
           <NavigationProperty Name="Likes" Relationship="Self.FK__Likes__UserID__00200768" FromRole="Users" ToRole="Likes" />
           <NavigationProperty Name="Likes1" Relationship="Self.FK__Likes__UserID__02084FDA" FromRole="Users" ToRole="Likes" />
           <NavigationProperty Name="Likes2" Relationship="Self.FK__Likes__UserID__7E37BEF6" FromRole="Users" ToRole="Likes" />
@@ -1359,6 +1411,18 @@
             </Principal>
             <Dependent Role="ImagePost">
               <PropertyRef Name="PostID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__jobs__user_id__55F4C372">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="jobs" Type="Self.job" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="jobs">
+              <PropertyRef Name="user_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1632,6 +1696,7 @@
           <EntitySet Name="Comments" EntityType="Self.Comment" />
           <EntitySet Name="Forums" EntityType="Self.Forum" />
           <EntitySet Name="ImagePosts" EntityType="Self.ImagePost" />
+          <EntitySet Name="jobs" EntityType="Self.job" />
           <EntitySet Name="Likes" EntityType="Self.Like" />
           <EntitySet Name="menus" EntityType="Self.menu" />
           <EntitySet Name="Posts" EntityType="Self.Post" />
@@ -1705,6 +1770,10 @@
           <AssociationSet Name="FK_PostID" Association="Self.FK_PostID">
             <End Role="Posts" EntitySet="Posts" />
             <End Role="ImagePost" EntitySet="ImagePosts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__jobs__user_id__55F4C372" Association="Self.FK__jobs__user_id__55F4C372">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="jobs" EntitySet="jobs" />
           </AssociationSet>
           <AssociationSet Name="FK__Likes__ReplyID__01142BA1" Association="Self.FK__Likes__ReplyID__01142BA1">
             <End Role="Replies" EntitySet="Replies" />
@@ -1874,6 +1943,23 @@
                 <ScalarProperty Name="Hide" ColumnName="Hide" />
                 <ScalarProperty Name="Order" ColumnName="Order" />
                 <ScalarProperty Name="DateBegin" ColumnName="DateBegin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="jobs">
+            <EntityTypeMapping TypeName="TechBlogDBNetModel.job">
+              <MappingFragment StoreEntitySet="jobs">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="company_name" ColumnName="company_name" />
+                <ScalarProperty Name="full_name" ColumnName="full_name" />
+                <ScalarProperty Name="current_position" ColumnName="current_position" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="how_heard" ColumnName="how_heard" />
+                <ScalarProperty Name="job_description" ColumnName="job_description" />
+                <ScalarProperty Name="is_posted" ColumnName="is_posted" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -4,22 +4,23 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="776ef9c893e742d4b07ea96bac913e9a" Name="Diagram1">
-        <EntityTypeShape EntityType="TechBlogDBNetModel.BannerUser" Width="1.5" PointX="5.25" PointY="16.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="TechBlogDBNetModel.Category" Width="1.5" PointX="3.75" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="TechBlogDBNetModel.Comment" Width="1.5" PointX="8.25" PointY="15.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TechBlogDBNetModel.Forum" Width="1.5" PointX="6" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="TechBlogDBNetModel.ImagePost" Width="1.5" PointX="7.5" PointY="21.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="TechBlogDBNetModel.Like" Width="1.5" PointX="5.25" PointY="11.625" IsExpanded="true" />
+      <Diagram DiagramId="d55d82daeeb244539f0a34fa7a5092d9" Name="Diagram1">
+        <EntityTypeShape EntityType="TechBlogDBNetModel.BannerUser" Width="1.5" PointX="5.25" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TechBlogDBNetModel.Category" Width="1.5" PointX="0.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TechBlogDBNetModel.Comment" Width="1.5" PointX="8.25" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="TechBlogDBNetModel.Forum" Width="1.5" PointX="3" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TechBlogDBNetModel.ImagePost" Width="1.5" PointX="13.5" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TechBlogDBNetModel.job" Width="1.5" PointX="5.25" PointY="24" IsExpanded="true" />
+        <EntityTypeShape EntityType="TechBlogDBNetModel.Like" Width="1.5" PointX="8.25" PointY="12.875" IsExpanded="true" />
         <EntityTypeShape EntityType="TechBlogDBNetModel.menu" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="TechBlogDBNetModel.Post" Width="1.5" PointX="5.25" PointY="19.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="TechBlogDBNetModel.Reply" Width="1.5" PointX="11.25" PointY="14.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="TechBlogDBNetModel.Role" Width="1.5" PointX="0.75" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TechBlogDBNetModel.Post" Width="1.5" PointX="11.25" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TechBlogDBNetModel.Reply" Width="1.5" PointX="8.25" PointY="23.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TechBlogDBNetModel.Role" Width="1.5" PointX="0.75" PointY="18.125" IsExpanded="true" />
         <EntityTypeShape EntityType="TechBlogDBNetModel.Stat" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TechBlogDBNetModel.SubMenu" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="TechBlogDBNetModel.Tag" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TechBlogDBNetModel.Topic" Width="1.5" PointX="8.25" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="TechBlogDBNetModel.User" Width="1.5" PointX="3" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TechBlogDBNetModel.Tag" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TechBlogDBNetModel.Topic" Width="1.5" PointX="5.25" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TechBlogDBNetModel.User" Width="1.5" PointX="3" PointY="16" IsExpanded="true" />
         <AssociationConnector Association="TechBlogDBNetModel.FK_BannerUsers_Users" ManuallyRouted="false" />
         <AssociationConnector Association="TechBlogDBNetModel.FK__Categorie__Paren__6E01572D" ManuallyRouted="false" />
         <AssociationConnector Association="TechBlogDBNetModel.FK__Categorie__Paren__6EF57B66" ManuallyRouted="false" />
@@ -36,6 +37,7 @@
         <AssociationConnector Association="TechBlogDBNetModel.FK__Topics__ForumID__123EB7A3" ManuallyRouted="false" />
         <AssociationConnector Association="TechBlogDBNetModel.FK__Topics__ForumID__14270015" ManuallyRouted="false" />
         <AssociationConnector Association="TechBlogDBNetModel.FK_PostID" ManuallyRouted="false" />
+        <AssociationConnector Association="TechBlogDBNetModel.FK__jobs__user_id__55F4C372" ManuallyRouted="false" />
         <AssociationConnector Association="TechBlogDBNetModel.FK__Likes__ReplyID__01142BA1" ManuallyRouted="false" />
         <AssociationConnector Association="TechBlogDBNetModel.FK__Likes__ReplyID__7D439ABD" ManuallyRouted="false" />
         <AssociationConnector Association="TechBlogDBNetModel.FK__Likes__ReplyID__7F2BE32F" ManuallyRouted="false" />

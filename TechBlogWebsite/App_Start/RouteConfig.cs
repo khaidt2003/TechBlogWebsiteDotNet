@@ -29,7 +29,7 @@ namespace TechBlogWebsite
                 namespaces: new[] { "TechBlogWebsite.Controllers" }
             );
             routes.MapRoute("Contact", "{type}",
-                new { controller = "Default", action = "Contact", meta = UrlParameter.Optional },
+                new { controller = "Default", action = "Jobs", meta = UrlParameter.Optional },
                 new RouteValueDictionary
                 {
                     { "type", "lien-he" }
@@ -40,7 +40,7 @@ namespace TechBlogWebsite
                 new { controller = "Default", action = "TechVideo", meta = UrlParameter.Optional },
                 new RouteValueDictionary
                 {
-                    { "type", "video-cong-nghe" }
+                    { "type", "jobs-cong-nghe" }
                 },
                 namespaces: new[] { "TechBlogWebsite.Controllers" }
             );

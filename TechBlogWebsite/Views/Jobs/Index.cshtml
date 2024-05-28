@@ -1,0 +1,57 @@
+﻿@model TechBlogWebsite.Models.job
+
+@{
+    Layout = null;
+}
+
+<section class="consultation">
+    <h2>Yêu cầu tư vấn</h2>
+    @using (Html.BeginForm("Create", "Jobs", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div>
+            <label for="company-name">Tên công ty</label>
+            <input type="text" id="company-name" name="companyName" placeholder="Ví dụ: TechBlog" required>
+        </div>
+
+        <div>
+            <label for="full-name">Họ và Tên</label>
+            <input type="text" id="full-name" name="fullName" placeholder="Ví dụ: Nguyễn Văn A" required>
+        </div>
+
+        <div>
+            <label for="current-position">Vị trí hiện tại</label>
+            <input type="text" id="current-position" name="currentPosition" placeholder="Ví dụ: HR Specialist">
+        </div>
+
+        <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="hr@TechBlog.vn" required>
+        </div>
+
+        <div>
+            <label for="phone">Số điện thoại</label>
+            <input type="tel" id="phone" name="phone" placeholder="0912345678">
+        </div>
+
+        <div>
+            <label for="how-heard">Bạn biết đến dịch vụ tuyển dụng IT của TechBlog thông qua đâu?</label>
+            <select id="how-heard" name="howHeard">
+                <option value="">-- Chọn --</option>
+                <option value="internet">Internet</option>
+                <option value="friend">Bạn bè</option>
+                <option value="advertisement">Quảng cáo</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="job-description">Vui lòng mô tả yêu cầu tuyển dụng IT của bạn hoặc để lại ghi chú cụ thể cho chúng tôi</label>
+            <textarea id="job-description" name="jobDescription" placeholder="Miêu tả yêu cầu tuyển dụng tại đây"></textarea>
+        </div>
+
+        <div>
+            <button type="submit">Gửi yêu cầu</button>
+        </div>
+    }
+</section>

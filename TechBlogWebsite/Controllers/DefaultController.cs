@@ -13,7 +13,7 @@ namespace TechBlogWebsite.Controllers
         {
             return View();
         }
-        public ActionResult Contact()
+        public ActionResult Jobs()
         {
             return View();
         }

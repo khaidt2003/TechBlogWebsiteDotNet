@@ -84,7 +84,7 @@ namespace TechBlogWebsite.Areas.Admin.Controllers
             {
                 db.Entry(menu).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Table", "Default");
             }
             return View(menu);
         }

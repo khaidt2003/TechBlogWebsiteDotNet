@@ -19,6 +19,7 @@ namespace TechBlogWebsite.Models
         {
             this.BannerUsers = new HashSet<BannerUser>();
             this.Comments = new HashSet<Comment>();
+            this.jobs = new HashSet<job>();
             this.Likes = new HashSet<Like>();
             this.Likes1 = new HashSet<Like>();
             this.Likes2 = new HashSet<Like>();
@@ -53,6 +54,8 @@ namespace TechBlogWebsite.Models
         public virtual ICollection<BannerUser> BannerUsers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Comment> Comments { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<job> jobs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Like> Likes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

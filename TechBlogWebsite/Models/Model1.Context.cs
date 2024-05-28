@@ -30,6 +30,7 @@ namespace TechBlogWebsite.Models
         public virtual DbSet<Comment> Comments { get; set; }
         public virtual DbSet<Forum> Forums { get; set; }
         public virtual DbSet<ImagePost> ImagePosts { get; set; }
+        public virtual DbSet<job> jobs { get; set; }
         public virtual DbSet<Like> Likes { get; set; }
         public virtual DbSet<menu> menus { get; set; }
         public virtual DbSet<Post> Posts { get; set; }

@@ -71,6 +71,22 @@
     <Property Name="Order" Type="int" />
     <Property Name="DateBegin" Type="smalldatetime" />
   </EntityType>
+  <EntityType Name="jobs">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="company_name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="full_name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="current_position" Type="nvarchar" MaxLength="255" />
+    <Property Name="email" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="phone" Type="nvarchar" MaxLength="20" />
+    <Property Name="how_heard" Type="nvarchar" MaxLength="255" />
+    <Property Name="job_description" Type="nvarchar(max)" />
+    <Property Name="is_posted" Type="bit" />
+    <Property Name="created_at" Type="datetime" />
+  </EntityType>
   <EntityType Name="Likes">
     <Key>
       <PropertyRef Name="LikeID" />
@@ -323,6 +339,18 @@
       </Principal>
       <Dependent Role="Forums">
         <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__jobs__user_id__55F4C372">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="jobs" Type="Self.jobs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="jobs">
+        <PropertyRef Name="user_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -692,6 +720,7 @@
     <EntitySet Name="Comments" EntityType="Self.Comments" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Forums" EntityType="Self.Forums" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ImagePost" EntityType="Self.ImagePost" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="jobs" EntityType="Self.jobs" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Likes" EntityType="Self.Likes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="menu" EntityType="Self.menu" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Posts" EntityType="Self.Posts" Schema="dbo" store:Type="Tables" />
@@ -733,6 +762,10 @@
     <AssociationSet Name="FK__Forums__Category__7B5B524B" Association="Self.FK__Forums__Category__7B5B524B">
       <End Role="Categories" EntitySet="Categories" />
       <End Role="Forums" EntitySet="Forums" />
+    </AssociationSet>
+    <AssociationSet Name="FK__jobs__user_id__55F4C372" Association="Self.FK__jobs__user_id__55F4C372">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="jobs" EntitySet="jobs" />
     </AssociationSet>
     <AssociationSet Name="FK__Likes__ReplyID__01142BA1" Association="Self.FK__Likes__ReplyID__01142BA1">
       <End Role="Replies" EntitySet="Replies" />

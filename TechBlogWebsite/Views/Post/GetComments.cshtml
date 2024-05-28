@@ -13,7 +13,14 @@
                     {
                         <div class="media">
                             <a class="media-left" href="#">
-                                <img src="~/Content/upload/img_user2.jpg" alt="" class="rounded-circle">
+                                @if (Session["AvatarUrl"] != null)
+                                {
+                                    <img src="~/Content/upload/@Session["AvatarUrl"].ToString()" alt="Avatar" class="img-profile rounded-circle" width="40" height="40" onerror="this.onerror=null;this.src='~/Content/upload/Avatar/avatar_default.png';">
+                                }
+                                else
+                                {
+                                    <img src="~/Content/upload/Avatar/avatar_default.png" alt="Default Avatar" class="img-profile rounded-circle" width="40" height="40">
+                                }
                             </a>
                             <div class="media-body">
                                 <h4 class="media-heading user_name">

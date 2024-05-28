@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -83,11 +84,18 @@ namespace TechBlogWebsite.Controllers
                     Session["AvatarUrl"] = user.Avatar;
                     Session["idUser"] = user.UserID;
                     Session["Email"] = user.Email;
+                    Session["RoleID"] = user.RoleID;
                     if (Session["ReturnUrl"] != null)
                     {
                         var returnUrl = Session["ReturnUrl"].ToString();
                         Session["ReturnUrl"] = null; // xóa session
                         return Redirect(returnUrl);
+                    }
+                    Debug.WriteLine(user.RoleID);
+
+                    if (user.RoleID == 2)
+                    {
+                        return RedirectToAction("Index", "Default", new { area = "Admin" });
                     }
                     return RedirectToAction("Index", "Default");
                 }
