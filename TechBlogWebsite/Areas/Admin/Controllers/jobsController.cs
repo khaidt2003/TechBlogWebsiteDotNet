@@ -48,6 +48,7 @@ namespace TechBlogWebsite.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Create([Bind(Include = "id,user_id,company_name,full_name,current_position,email,phone,how_heard,job_description,is_posted,created_at")] job job)
         {
             if (ModelState.IsValid)
@@ -82,6 +83,7 @@ namespace TechBlogWebsite.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Edit([Bind(Include = "id,user_id,company_name,full_name,current_position,email,phone,how_heard,job_description,is_posted,created_at")] job job)
         {
             if (ModelState.IsValid)

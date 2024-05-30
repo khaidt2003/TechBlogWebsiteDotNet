@@ -15,7 +15,7 @@
                                     <div class="tab">
                                         @foreach (var subMenu in menu.SubMenus)
                                         {
-                                            <button class="tablinks @(subMenu == menu.SubMenus.First() ? "active" : "")" onclick="openCategory(event, 'cat@(subMenu.name)')">@subMenu.meta</button>
+                                            <button class="tablinks @(subMenu == menu.SubMenus.First() ? "active" : "")" onclick="openCategory(event, 'cat@(subMenu.name)')">@subMenu.name</button>
                                         }
                                     </div>
 
@@ -24,7 +24,7 @@
                                         {
                                             <div id="cat@(subMenu.name)" class="tabcontent @(subMenu == menu.SubMenus.First() ? "active" : "")" style="background-color: #fff;">
                                                 <!-- Render action based on submenu meta -->
-                                                @{Html.RenderAction($"GetPopularPostsOf{subMenu.name}", "Temp");}
+                                                @{Html.RenderAction($"GetPopularPostsOfScience", "Temp");}
                                             </div>
                                         }
                                     </div><!-- end tab-details -->

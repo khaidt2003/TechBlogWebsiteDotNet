@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
@@ -70,6 +71,29 @@ namespace TechBlogWebsite.Help
                 else
                     return timeSpan.Days > 365 ? $"{timeSpan.Days / 365} years ago" : "a year ago";
          }
+        public static string ToVietnameseDateString(DateTime date)
+        {
+            var dayOfWeek = new CultureInfo("vi-VN").DateTimeFormat.GetDayName(date.DayOfWeek);
+            return $"Thứ {dayOfWeek} Ngày {date.Day} Tháng {date.Month} Năm {date.Year} Lúc {date.ToString("hh:mm:ss tt")}";
+        }
+        public static string ReplaceHtmlTagsAndTruncate(string input, int wordLimit)
+        {
+            if (string.IsNullOrEmpty(input)) return input;
+
+            // Replace all HTML tags with an empty string and remove line breaks
+            string replaced = Regex.Replace(input, @"<[^>]+>", "").Replace("\r", "").Replace("\n", "");
+
+            // Replace spaces with &nbsp; to prevent line breaks
+            replaced = replaced.Replace(" ", "&nbsp;");
+
+            // Truncate the text to the specified word limit
+            var words = replaced.Split(new[] { "&nbsp;" }, StringSplitOptions.None);
+            if (words.Length <= wordLimit) return replaced;
+
+            var truncatedWords = words.Take(wordLimit);
+            return string.Join("&nbsp;", truncatedWords) + "...";
+        }
+
 
     }
 }

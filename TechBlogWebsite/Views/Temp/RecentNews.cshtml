@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<TechBlogWebsite.Models.Post>
+@using TechBlogWebsite.Help
 @foreach (var i in Model)
 {
     <div class="blog-box row">
@@ -13,7 +14,7 @@
 
         <div class="blog-meta big-meta col-md-8" style="height: 300px;">
             <h4><a href="/blog/@i.Category.Name/@(i.Meta + "-" + i.PostID)">@i.Title</a></h4>
-            <p class="content-for-recent-new" style="max-height: 27%; overflow: hidden ">@i.Content</p>
+            <p class="content-for-recent-new" style="max-height: 27%; overflow: hidden ">@Html.Raw(Functions.ReplaceHtmlTagsAndTruncate( i.Content, 100))</p>
             <small class="firstsmall"><a class="bg-orange" href="/@i.Category.Meta" title="">@i.Category.Name</a></small>
             <small><a href="/blog/@i.Category.Name/@(i.Meta + "-" + i.PostID)" title="">@i.PublishedDate</a></small>
             <small><a href="/Author/@(i.User.Meta + "-" + i.User.UserID)" title="">@i.User.Username</a></small>

@@ -52,7 +52,10 @@ namespace TechBlogWebsite.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                subMenu.datebegin = DateTime.Now; // Set datebegin to the current date and time
                 db.SubMenus.Add(subMenu);
+                var maxOrder = db.SubMenus.Max(s => (int?)s.order) ?? 0;
+                subMenu.order = maxOrder + 1; // Set order to the next highest value
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -86,6 +89,7 @@ namespace TechBlogWebsite.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                subMenu.datebegin = DateTime.Now; // Set datebegin to the current date and time
                 db.Entry(subMenu).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

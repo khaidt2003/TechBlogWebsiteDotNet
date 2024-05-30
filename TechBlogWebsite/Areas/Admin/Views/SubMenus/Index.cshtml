@@ -19,12 +19,7 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-    <p class="mb-4">
-        DataTables is a third party plugin that is used to generate the demo table below.
-        For more information about DataTables, please visit the <a target="_blank"
-                                                                   href="https://datatables.net">official DataTables documentation</a>.
-    </p>
+    <h1 class="h3 mb-2 text-gray-800">Quản Lý Menus Phụ</h1>
     <p>
         <a href="@Url.Action("Create")" class="btn btn-dark">Create New</a>
     </p>
@@ -90,7 +85,7 @@
                                 </td>
                                 <td>
                                     @Html.NoEncodeActionLink("<i class='fas fa-pencil-alt'>Edit</i>", "Edit", "Edit", "SubMenus", routeValues: new { id = item.SubMenuID }, htmlAttributes: new { data_modal = "", @class = "btn btn-dark" })
-                                    @Html.NoEncodeActionLink("<i class='fas fa-info-circle'>Detail</i>", "Detail", "Details", "SubMenu", routeValues: new { id = item.SubMenuID }, htmlAttributes: new { data_modal = "", @class = "btn btn-primary" })
+                                    @Html.NoEncodeActionLink("<i class='fas fa-info-circle'>Detail</i>", "Detail", "Details", "SubMenus", routeValues: new { id = item.SubMenuID }, htmlAttributes: new { data_modal = "", @class = "btn btn-primary" })
                                     @Html.NoEncodeActionLink("<i class='fas fa-trash'>Delete</i>", "Delete", "Delete", "SubMenus", routeValues: new { id = item.SubMenuID }, htmlAttributes: new { data_modal = "", @class = "btn btn-danger" })
                                 </td>
                             </tr>
