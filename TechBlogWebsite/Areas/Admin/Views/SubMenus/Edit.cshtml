@@ -1,80 +1,128 @@
 ﻿@model TechBlogWebsite.Models.SubMenu
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Edit Submenu";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage1.cshtml";
 }
 
-<h2>Edit</h2>
+<style>
+    .container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>SubMenu</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.SubMenuID)
+    .card {
+        width: 100%;
+    }
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.name, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
-            </div>
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-control {
+        font-size: 1.2rem;
+        padding: 15px;
+        border-radius: 8px;
+        border: 1px solid #ced4da;
+    }
+
+    label.col-form-label {
+        font-size: 1.1rem;
+    }
+
+    .card-header {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 1.1rem;
+    }
+
+    .custom-dropdown {
+        appearance: none;
+        -webkit-appearance: none;
+        background-color: #fff;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='1' d='M2 5l6 6 6-6'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+        padding: 10px 30px 10px 10px;
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+    }
+</style>
+
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header">
+            <h2 class="text-center mb-0">EDIT SUBMENU</h2>
         </div>
+        <div class="card-body">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.SubMenuID)
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        @Html.LabelFor(model => model.name, htmlAttributes: new { @class = "control-label text-primary" })
+                        @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Name", id = "Name" } })
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.link, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.link, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.link, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.meta, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.meta, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.meta, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.hide, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.hide)
-                    @Html.ValidationMessageFor(model => model.hide, "", new { @class = "text-danger" })
+                    <div class="form-group col-md-6">
+                        @Html.LabelFor(model => model.link, htmlAttributes: new { @class = "control-label text-primary" })
+                        @Html.EditorFor(model => model.link, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Link" } })
+                    </div>
                 </div>
-            </div>
-        </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        @Html.LabelFor(model => model.meta, htmlAttributes: new { @class = "control-label text-primary" })
+                        @Html.EditorFor(model => model.meta, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Meta", id = "Meta" } })
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.order, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.order, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.order, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                    <div class="form-group col-md-6">
+                        @Html.LabelFor(model => model.hide, htmlAttributes: new { @class = "control-label text-primary" })
+                        <div class="form-check">
+                            @Html.EditorFor(model => model.hide)
+                            <label class="form-check-label" for="@Html.IdFor(model => model.hide)">Hide</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        @Html.LabelFor(model => model.order, htmlAttributes: new { @class = "control-label text-primary" })
+                        @Html.EditorFor(model => model.order, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Order" } })
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.ID, "ID", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("ID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.ID, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                    <div class="form-group col-md-6">
+                        @Html.LabelFor(model => model.ID, "Parent Menu", htmlAttributes: new { @class = "control-label text-primary" })
+                        @Html.DropDownList("ID", null, "No Parent", htmlAttributes: new { @class = "form-control custom-dropdown" })
+                    </div>
+                </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
+                <div class="text-center mt-3">
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary" })
+                </div>
+            }
         </div>
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>
+
+@section _Footer
+{
+    <script src="~/Areas/Admin/Content/ckfinder/ckfinder.js"></script>
+    <script src="~/Areas/Admin/Content/ckeditor/ckeditor.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#Name").keyup(function () {
+                var text = $.trim($(this).val().toLowerCase());
+                var text_create = text.replace(/à|á|ạ|à|ã|â|â|â|â|â|â|ă|à|å|ặ|å|ã|ả|ẹ|é|è|ý|ỳ|ỵ|í|ì|i/g, "a").replace(/\ /g, '-').replace(/đ /g, "d");
+                $('#Meta').val(text_create);
+            }).keyup();
+        });
+    </script>
+}

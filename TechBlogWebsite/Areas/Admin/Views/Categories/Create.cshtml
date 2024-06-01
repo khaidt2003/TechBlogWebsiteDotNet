@@ -1,117 +1,160 @@
 ﻿@model TechBlogWebsite.Models.Category
-
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Create Category";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage1.cshtml";
 }
 
-<div class="container py-5 text-center" style="background-color: #fff7d6;">
-    <h2 class="text-dark font-weight-bold">CREATE CATEGORY</h2>
-</div>
+<style>
+    /* Sử dụng Grid để bố cục */
+    .container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+    .card {
+        width: 100%;
+    }
 
-    <div class="container">
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    .form-group {
+        margin-bottom: 20px;
+    }
 
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label text-primary" })
-                    <div>
+    .form-control {
+        font-size: 1.2rem;
+        padding: 15px;
+        border-radius: 8px;
+        border: 1px solid #ced4da;
+    }
+
+    label.control-label {
+        font-size: 1.1rem;
+        color: #007bff; /* Màu xanh dương nổi bật */
+    }
+
+    .card-header {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 1.1rem;
+    }
+
+    .custom-dropdown {
+        width: 100%; /* Đảm bảo dropdown chiếm toàn bộ chiều rộng */
+    }
+
+    /* CSS cho checkbox */
+    .form-check-input {
+        width: 1.5em;
+        height: 1.5em;
+    }
+
+    .form-check-label {
+        font-size: 1.1rem;
+        margin-left: 10px;
+    }
+
+    /* CSS để căn chỉnh lại các phần tử trong row */
+    .row {
+        display: flex;
+        align-items: center;
+    }
+
+        .row .col-md-6:first-child {
+            padding-right: 10px;
+        }
+
+    .form-control.custom-dropdown {
+        height: auto; /* Cho phép dropdown tự điều chỉnh chiều cao */
+        padding: 10px; /* Điều chỉnh padding của dropdown */
+        font-size: 1rem; /* Điều chỉnh kích thước chữ của dropdown */
+        border-radius: 5px; /* Bo tròn góc của dropdown */
+    }
+
+    .custom-dropdown {
+        appearance: none;
+        -webkit-appearance: none;
+        background-color: #fff;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='1' d='M2 5l6 6 6-6'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+        padding: 10px 30px 10px 10px; /* Điều chỉnh padding */
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+    }
+</style>
+
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header">
+            <h2 class="text-center mb-0">CREATE CATEGORY</h2>
+        </div>
+        <div class="card-body">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label text-primary" })
                         @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Name" } })
-                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
                     </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label text-primary" })
-                    <div>
+
+                    <div class="form-group col-md-6">
+                        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label text-primary" })
                         @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Description" } })
-                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
                     </div>
                 </div>
-            </div>
-        </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        @Html.LabelFor(model => model.ParentID, "Parent Category", htmlAttributes: new { @class = "control-label text-primary" })
+                        @Html.DropDownList("ParentID", null, "No Parent", htmlAttributes: new { @class = "form-control custom-dropdown" })
+                    </div>
 
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.ParentID, "ParentID", htmlAttributes: new { @class = "control-label text-primary" })
-                    <div>
-                        @Html.DropDownList("ParentID", null, htmlAttributes: new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.ParentID, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Link, htmlAttributes: new { @class = "control-label text-primary" })
-                    <div>
+                    <div class="form-group col-md-6">
+                        @Html.LabelFor(model => model.Link, htmlAttributes: new { @class = "control-label text-primary" })
                         @Html.EditorFor(model => model.Link, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Link" } })
-                        @Html.ValidationMessageFor(model => model.Link, "", new { @class = "text-danger" })
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Meta, htmlAttributes: new { @class = "control-label text-primary" })
-                    <div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        @Html.LabelFor(model => model.Meta, htmlAttributes: new { @class = "control-label text-primary" })
                         @Html.EditorFor(model => model.Meta, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Meta" } })
-                        @Html.ValidationMessageFor(model => model.Meta, "", new { @class = "text-danger" })
                     </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Hide, htmlAttributes: new { @class = "control-label text-primary" })
-                    <div class="checkbox">
-                        <label>
+                    <div class="form-group col-md-6">
+                        @Html.LabelFor(model => model.Hide, htmlAttributes: new { @class = "control-label text-primary" })
+                        <div class="form-check">
                             @Html.EditorFor(model => model.Hide)
-                            Hide
-                        </label>
-                        @Html.ValidationMessageFor(model => model.Hide, "", new { @class = "text-danger" })
+                            <label class="form-check-label" for="@Html.IdFor(model => model.Hide)">Hide</label>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Order, htmlAttributes: new { @class = "control-label text-primary" })
-                    <div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        @Html.LabelFor(model => model.Order, htmlAttributes: new { @class = "control-label text-primary" })
                         @Html.EditorFor(model => model.Order, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Order" } })
-                        @Html.ValidationMessageFor(model => model.Order, "", new { @class = "text-danger" })
                     </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.DateBegin, htmlAttributes: new { @class = "control-label text-primary" })
-                    <div>
-                        @Html.EditorFor(model => model.DateBegin, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Date Begin" } })
-                        @Html.ValidationMessageFor(model => model.DateBegin, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Create</button>
+                    <div class="form-group col-md-6">
+                        @Html.LabelFor(model => model.DateBegin, htmlAttributes: new { @class = "control-label text-primary" })
+                        @Html.EditorFor(model => model.DateBegin, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Date Begin" } })
+                    </div>
                 </div>
-            </div>
+                <div class="text-center mt-3">
+                    <button type="submit" class="btn btn-primary">Create</button>
+                    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary" })
+                </div>
+
+            }
         </div>
     </div>
-}
+</div>
+
 
 @section _Footer
 {

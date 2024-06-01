@@ -1,83 +1,121 @@
 ﻿@model TechBlogWebsite.Models.Category
-
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Category Details";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage1.cshtml";
 }
+<style>
+    .container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
 
-<h2>Details</h2>
+    .card {
+        width: 100%;
+    }
 
-<div>
-    <h4>Category</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+    .card-header {
+        background-color: #007bff;
+        color: white;
+    }
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+    .card-body {
+        font-size: 1.2rem;
+    }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
+    .card-title {
+        font-size: 1.4rem;
+    }
 
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
+    .col-sm-3 {
+        color: #007bff;
+    }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Link)
-        </dt>
+    .dl-horizontal dt {
+        width: 180px; /* Adjust width as needed */
+        font-weight: bold;
+    }
 
-        <dd>
-            @Html.DisplayFor(model => model.Link)
-        </dd>
+    .dl-horizontal dd {
+        margin-left: 200px; /* Adjust margin as needed */
+    }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Meta)
-        </dt>
+    .detail-label {
+        font-weight: bold;
+        color: #007bff; /* Primary color from Bootstrap */
+    }
+</style>
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header">
+            <h2 class="text-center mb-0">CATEGORY DETAILS</h2>
+        </div>
+        <div class="card-body">
+            <dl class="dl-horizontal">
+                <dt>
+                    <span class="detail-label">@Html.DisplayNameFor(model => model.Name):</span>
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Meta)
-        </dd>
+                <dt>
+                    <span class="detail-label">@Html.DisplayNameFor(model => model.Description):</span>
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Hide)
-        </dt>
+                <dt>
+                    <span class="detail-label">@Html.DisplayNameFor(model => model.Link):</span>
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Link)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Hide)
-        </dd>
+                <dt>
+                    <span class="detail-label">@Html.DisplayNameFor(model => model.Meta):</span>
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Meta)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Order)
-        </dt>
+                <dt>
+                    <span class="detail-label">@Html.DisplayNameFor(model => model.Hide):</span>
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Hide)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Order)
-        </dd>
+                <dt>
+                    <span class="detail-label">@Html.DisplayNameFor(model => model.Order):</span>
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Order)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DateBegin)
-        </dt>
+                <dt>
+                    <span class="detail-label">@Html.DisplayNameFor(model => model.DateBegin):</span>
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.DateBegin)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.DateBegin)
-        </dd>
+                @if (Model.Category1 != null) // Check if there's a parent category
+                {
+                    <dt>
+                        <span class="detail-label">@Html.DisplayNameFor(model => model.Category1.Name):</span> (Parent Category)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Category1.Name)
+                    </dd>
+                }
+            </dl>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Category1.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Category1.Name)
-        </dd>
-
-    </dl>
+            <div class="text-center mt-3">
+                @Html.ActionLink("Edit", "Edit", new { id = Model.CategoryID }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary" })
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.CategoryID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

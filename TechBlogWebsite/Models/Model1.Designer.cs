@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\University\HK6\.NetTechnology\52100807_52100777\TechBlogWebsite\TechBlogWebsite\Models\Model1.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\HocTap\DotNet\TechBlogWebsiteDotNet\TechBlogWebsite\Models\Model1.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

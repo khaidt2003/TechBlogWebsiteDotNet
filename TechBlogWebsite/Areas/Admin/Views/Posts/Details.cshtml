@@ -2,19 +2,43 @@
 @model TechBlogWebsite.Models.Post
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Post Details";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage1.cshtml";
 }
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<style>
+    /* Sử dụng Grid để bố cục */
+    .container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
 
+    .card {
+        width: 100%;
+    }
+
+    .card-header {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .card-body {
+        font-size: 1.2rem;
+    }
+
+    .card-title {
+        font-size: 1.4rem;
+    }
+
+    .col-sm-3 {
+        color: #007bff;
+    }
+</style>
 <div class="container mt-4">
     <div class="card">
-        <div class="card-header bg-primary text-white">
-            <h2>Post Details</h2>
+        <div class="card-header">
+            <h2 class="text-center mb-0">POST DETAILS</h2>
         </div>
         <div class="card-body">
             <dl class="row">
@@ -22,7 +46,7 @@
                 <dd class="col-sm-9">@Html.DisplayFor(model => model.Title)</dd>
 
                 <dt class="col-sm-3">Content</dt>
-                <dd class="col-sm-9">@Html.DisplayFor(model => model.Content)</dd>
+                <dd class="col-sm-9">@Html.Raw(Model.Content)</dd>
 
                 <dt class="col-sm-3">Published Date</dt>
                 <dd class="col-sm-9">@Html.DisplayFor(model => model.PublishedDate)</dd>
@@ -35,7 +59,7 @@
 
                 <dt class="col-sm-3">Featured Image</dt>
                 <dd class="col-sm-9">
-                    <img src="@Url.Content("~/images/" + Model.FeaturedImage)" alt="Featured Image" class="img-fluid">
+                    <img src="@Url.Content("~/Content/upload/" + Model.FeaturedImage)" alt="Featured Image" class="img-fluid">
                 </dd>
 
                 <dt class="col-sm-3">Status</dt>
@@ -66,9 +90,10 @@
                 <dd class="col-sm-9">@Html.DisplayFor(model => model.User.Username)</dd>
             </dl>
         </div>
-        <div class="card-footer text-muted">
-            <a href="@Url.Action("Edit", "Posts", new { id = Model.PostID })" class="btn btn-success">Edit</a>
-            <a href="@Url.Action("Index", "Posts")" class="btn btn-secondary">Back to List</a>
+        <div class="card-footer text-muted text-center">
+            @Html.ActionLink("Edit", "Edit", new { id = Model.PostID }, new { @class = "btn btn-success mr-3" })
+            @Html.ActionLink("Back to List", "Index", "Posts", null, new { @class = "btn btn-secondary" })
+
         </div>
     </div>
 </div>

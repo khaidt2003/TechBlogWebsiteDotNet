@@ -1,120 +1,146 @@
 ﻿@model TechBlogWebsite.Models.Post
-
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Create Post";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage1.cshtml";
 }
 
-<div class="container py-5 text-center" style="background-color: #fff7d6;">
-    <h2 class="text-dark font-weight-bold">CREATE POST</h2>
-</div>
+<style>
+    .container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
 
+    .card {
+        width: 100%;
+    }
 
-@using (Html.BeginForm("Create", "Posts", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    @Html.AntiForgeryToken()
+    .form-group {
+        margin-bottom: 20px;
+    }
 
-    <div class="container">
+    .form-control {
+        font-size: 1.2rem;
+        padding: 15px;
+        border-radius: 8px; /* Bo tròn góc input */
+        border: 1px solid #ced4da;
+    }
 
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    label.control-label {
+        font-size: 1.1rem;
+    }
 
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label text-primary" })
-                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter title" } })
-                    @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
-                </div>
-            </div>
+    .card-header {
+        background-color: #007bff;
+        color: white;
+    }
 
-            <div class="col-md-6">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.AuthorID, "Author", htmlAttributes: new { @class = "control-label text-primary" })
-                    @Html.DropDownList("AuthorID", new SelectList(ViewBag.Authors as List<SelectListItem>, "Value", "Text"), new { @class = "form-control", disabled = "disabled" })
-                    @Html.ValidationMessageFor(model => model.AuthorID, "", new { @class = "text-danger" })
-                    <input type="hidden" name="AuthorID" value="@ViewBag.CurrentAuthorID" />
-                </div>
-            </div>
+    .btn {
+        padding: 10px 20px;
+        font-size: 1.1rem;
+    }
+    .form-control.custom-dropdown {
+        height: auto; /* Cho phép dropdown tự điều chỉnh chiều cao */
+        padding: 10px; /* Điều chỉnh padding của dropdown */
+        font-size: 1rem; /* Điều chỉnh kích thước chữ của dropdown */
+        border-radius: 5px; /* Bo tròn góc của dropdown */
+    }
+    .custom-dropdown {
+        appearance: none;
+        -webkit-appearance: none;
+        background-color: #fff;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='1' d='M2 5l6 6 6-6'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+        padding: 10px 30px 10px 10px; /* Điều chỉnh padding */
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+    }
+</style>
+
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header">
+            <h2 class="text-center mb-0">CREATE POST</h2>
         </div>
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label text-primary" })
-                    @Html.TextAreaFor(model => model.Content, new { @class = "form-control", rows = 6, placeholder = "Enter content", id = "txtContent" })
-                    @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-
-        </div>
-
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.CategoryID, "Category", htmlAttributes: new { @class = "control-label text-primary" })
-                    @Html.DropDownList("CategoryID", null, "Select Category", htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" })
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Tags, htmlAttributes: new { @class = "control-label text-primary" })
-                    @Html.EditorFor(model => model.Tags, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter tags" } })
-                    @Html.ValidationMessageFor(model => model.Tags, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-
-
-            <div class="form-group row">
-                <div class="col-md-9">
-                    <div class="col-md-6">
-                        <input type="file" name="img" id="img" accept=".jpg,.png,.gif,.jpeg,.bmp" />
+        <div class="card-body">
+            @using (Html.BeginForm("Create", "Posts", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label text-primary" })
+                        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter title" } })
+                        @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
                     </div>
-                    @Html.ValidationMessageFor(model => model.FeaturedImage, "", new { @class = "text-danger" })
+
+                    <div class="form-group col-md-6">
+                        @Html.LabelFor(model => model.AuthorID, "Author", htmlAttributes: new { @class = "control-label text-primary" })
+                        @Html.DropDownList("AuthorID", new SelectList(ViewBag.Authors as List<SelectListItem>, "Value", "Text"), new { @class = "form-control custom-dropdown", disabled = "disabled" })
+                        @Html.ValidationMessageFor(model => model.AuthorID, "", new { @class = "text-danger" })
+                        <input type="hidden" name="AuthorID" value="@ViewBag.CurrentAuthorID" />
+                    </div>
                 </div>
-            </div>
-        </div>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label text-primary" })
+                        @Html.TextAreaFor(model => model.Content, new { @class = "form-control", rows = 6, placeholder = "Enter content", id = "txtContent" })
+                        @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
+                    </div>
 
-
-
-        <div class="row">
-
-            <div class="col-md-6">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Meta, htmlAttributes: new { @class = "control-label text-primary" })
-                    @Html.EditorFor(model => model.Meta, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter meta" } })
-                    @Html.ValidationMessageFor(model => model.Meta, "", new { @class = "text-danger" })
                 </div>
-            </div>
-        </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        @Html.LabelFor(model => model.CategoryID, "Category", htmlAttributes: new { @class = "control-label text-primary" })
+                        @Html.DropDownList("CategoryID", null, "Select Category", htmlAttributes: new { @class = "form-control custom-dropdown" })
+                        @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" })
+                    </div>
 
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Hide, htmlAttributes: new { @class = "control-label text-primary" })
-                    <div class="checkbox">
-                        <label>
+                    <div class="form-group col-md-6">
+                        @Html.LabelFor(model => model.Tags, htmlAttributes: new { @class = "control-label text-primary" })
+                        @Html.EditorFor(model => model.Tags, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter tags" } })
+                        @Html.ValidationMessageFor(model => model.Tags, "", new { @class = "text-danger" })
+                    </div>
+
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-9">
+                        <div class="col-md-6">
+                            <input type="file" name="img" id="img" accept=".jpg,.png,.gif,.jpeg,.bmp" />
+                        </div>
+                        @Html.ValidationMessageFor(model => model.FeaturedImage, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-row">
+
+                    <div class="form-group col-md-6">
+                        @Html.LabelFor(model => model.Meta, htmlAttributes: new { @class = "control-label text-primary" })
+                        @Html.EditorFor(model => model.Meta, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter meta" } })
+                        @Html.ValidationMessageFor(model => model.Meta, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6 d-flex align-items-center">
+                        @Html.LabelFor(model => model.Hide, htmlAttributes: new { @class = "control-label mr-3 text-primary" })
+                        <div class="form-check">
                             @Html.EditorFor(model => model.Hide)
-                            Hide
-                        </label>
+                            <label class="form-check-label" for="@Html.IdFor(model => model.Hide)">
+                            </label>
+                        </div>
+                        @Html.ValidationMessageFor(model => model.Hide, "", new { @class = "text-danger" })
                     </div>
-                    @Html.ValidationMessageFor(model => model.Hide, "", new { @class = "text-danger" })
                 </div>
-            </div>
 
-        </div>
-
-        <div class="row">
-            <div class="col-md-12">
-                <button type="submit" class="btn btn-primary">Create</button>
-            </div>
+                <div class="text-center mt-3">
+                    <button type="submit" class="btn btn-primary">Create</button>
+                    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary" })
+                </div>
+            }
         </div>
     </div>
-}
+</div>
 
 @section _Footer
 {
@@ -134,6 +160,18 @@
                 text_create = text.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a").replace(/\ /g, '-').replace(/đ/g, "d").replace(/đ/g, "d").replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y").replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u").replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ.+/g, "o").replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ.+/g, "e").replace(/ì|í|ị|ỉ|ĩ/g, "i");
                 $('#Meta').val(text_create); // Gán giá trị mới vào phần tử có id là "Meta"
             }).keyup();
+        });
+        $(document).ready(function () {
+            $('.custom-dropdown').each(function () {
+                var $dropdown = $(this);
+                var $dropdownMenu = $dropdown.siblings('.dropdown-menu');
+
+                $dropdown.on('show.bs.dropdown', function () {
+                    // Tính toán chiều cao cần thiết để hiển thị tất cả các mục
+                    var maxHeight = $(window).height() - $dropdown.offset().top - $dropdownMenu.outerHeight() - 20; // 20px là khoảng cách an toàn
+                    $dropdownMenu.css('max-height', maxHeight + 'px');
+                });
+            });
         });
     </script>
 

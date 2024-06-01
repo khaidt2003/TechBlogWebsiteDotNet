@@ -80,6 +80,11 @@
     <EntitySetMapping Name="jobs">
       <EntityTypeMapping TypeName="TechBlogDBNetModel.job">
         <MappingFragment StoreEntitySet="jobs">
+          <ScalarProperty Name="datebegin" ColumnName="datebegin" />
+          <ScalarProperty Name="order" ColumnName="order" />
+          <ScalarProperty Name="hide" ColumnName="hide" />
+          <ScalarProperty Name="meta" ColumnName="meta" />
+          <ScalarProperty Name="link" ColumnName="link" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="user_id" ColumnName="user_id" />
           <ScalarProperty Name="company_name" ColumnName="company_name" />

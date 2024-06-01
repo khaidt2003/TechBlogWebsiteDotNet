@@ -1,83 +1,89 @@
 ﻿@model TechBlogWebsite.Models.BannerUser
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Create Banner User"; /* Sửa title */
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage1.cshtml";
 }
 
-<div class="container py-5 text-center" style="background-color: #fff7d6;">
-    <h2 class="text-dark font-weight-bold">CREATE BANNER USER</h2>
-</div>
+<style>
+    /* Các style khác */
+    .custom-dropdown {
+        width: 100%;
+    }
 
-@using (Html.BeginForm("Create", "BannerUsers", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    @Html.AntiForgeryToken()
+    .form-check-input {
+        width: 1.5em; /* Điều chỉnh kích thước checkbox */
+        height: 1.5em;
+    }
 
-    <div class="container">
+    .form-check-label {
+        font-size: 1.1rem; /* Điều chỉnh kích thước chữ của label */
+        margin-left: 10px; /* Tạo khoảng cách giữa checkbox và label */
+    }
 
-        <h4>Banner User Information</h4>
-        <hr />
+    .card-header {
+        background-color: #007bff;
+        color: white;
+    }
+</style>
 
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-        <div class="row">
-            <div class="col-md-2">
-                @Html.LabelFor(model => model.UserID, "UserID", htmlAttributes: new { @class = "control-label text-primary" })
-            </div>
-            <div class="col-md-10">
-                @Html.DropDownList("UserID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.UserID, "", new { @class = "text-danger" })
-            </div>
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header">
+            <h2 class="text-center mb-0">CREATE BANNER USER</h2>
         </div>
+        <div class="card-body">
+            @using (Html.BeginForm("Create", "BannerUsers", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
 
-        <div class="row mt-3">
-            <div class="col-md-2">
-                <label class="control-label text-primary">Profile Picture</label>
-            </div>
-            <div class="col-md-10">
-                <input type="file" name="img" id="img" accept=".jpg,.png,.gif,.jpeg,.bmp" class="form-control-file" />
-            </div>
-        </div>
+                <h4>Banner User Information</h4>
+                <hr />
 
-        <div class="row mt-3">
-            <div class="col-md-2">
-                <label class="control-label text-primary">Display</label>
-            </div>
-            <div class="col-md-10">
-                @{
-                    bool hide = true;
-                }
-                @Html.CheckBoxFor(model => hide)
-            </div>
-        </div>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-        <div class="row mt-3">
-            <div class="col-md-2">
-                @Html.LabelFor(model => model.Order, htmlAttributes: new { @class = "control-label text-primary" })
-            </div>
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Order, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Order" } })
-                @Html.ValidationMessageFor(model => model.Order, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.UserID, "User", new { @class = "control-label text-primary" })
+                    @Html.DropDownList("UserID", null, htmlAttributes: new { @class = "form-control custom-dropdown" })
+                    @Html.ValidationMessageFor(model => model.UserID, "", new { @class = "text-danger" })
+                </div>
 
-        <div class="row mt-3">
-            <div class="col-md-2">
-                @Html.LabelFor(model => model.DateBegin, htmlAttributes: new { @class = "control-label text-primary" })
-            </div>
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DateBegin, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Date Begin" } })
-                @Html.ValidationMessageFor(model => model.DateBegin, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                <div class="form-group">
+                    <label class="control-label text-primary">Profile Picture</label>
+                    <input type="file" name="img" id="img" accept=".jpg,.png,.gif,.jpeg,.bmp" class="form-control-file" />
+                </div>
 
-        <div class="row mt-3">
-            <div class="col-md-12">
-                <button type="submit" class="btn btn-primary">Create</button>
-            </div>
+                <div class="form-group">
+                    <label class="control-label text-primary">Display</label>
+                    <div>
+                        @{
+                            bool hide = true;
+                        }
+                        @Html.CheckBoxFor(model => hide)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Order, htmlAttributes: new { @class = "control-label text-primary" })
+                    @Html.EditorFor(model => model.Order, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Order" } })
+                    @Html.ValidationMessageFor(model => model.Order, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DateBegin, htmlAttributes: new { @class = "control-label text-primary" })
+                    @Html.EditorFor(model => model.DateBegin, new { htmlAttributes = new { @class = "form-control", type = "date" } })
+                    @Html.ValidationMessageFor(model => model.DateBegin, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="text-center mt-3">
+                    <button type="submit" class="btn btn-primary">Create</button>
+                    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary" })
+                </div>
+            }
         </div>
     </div>
-}
+</div>
+
 
 @section _Footer
 {

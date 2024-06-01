@@ -1,75 +1,114 @@
 ﻿@model TechBlogWebsite.Models.SubMenu
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "SubMenu Details";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage1.cshtml";
 }
 
-<h2>Details</h2>
+<style>
+    .container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
 
-<div>
-    <h4>SubMenu</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.name)
-        </dt>
+    .card {
+        width: 100%;
+    }
 
-        <dd>
-            @Html.DisplayFor(model => model.name)
-        </dd>
+    .card-header {
+        background-color: #007bff;
+        color: white;
+    }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.link)
-        </dt>
+    .card-body {
+        font-size: 1.2rem;
+    }
 
-        <dd>
-            @Html.DisplayFor(model => model.link)
-        </dd>
+    .card-title {
+        font-size: 1.4rem;
+    }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.meta)
-        </dt>
+    .col-sm-3 {
+        color: #007bff;
+    }
 
-        <dd>
-            @Html.DisplayFor(model => model.meta)
-        </dd>
+    .dl-horizontal dt {
+        width: 180px; /* Adjust width as needed */
+        font-weight: bold;
+    }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.hide)
-        </dt>
+    .dl-horizontal dd {
+        margin-left: 200px; /* Adjust margin as needed */
+    }
 
-        <dd>
-            @Html.DisplayFor(model => model.hide)
-        </dd>
+    .detail-label {
+        font-weight: bold;
+        color: #007bff; /* Primary color from Bootstrap */
+    }
+</style>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.order)
-        </dt>
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header">
+            <h2 class="text-center mb-0">SUBMENU DETAILS</h2>
+        </div>
+        <div class="card-body">
+            <dl class="dl-horizontal">
+                <dt>
+                    <span class="detail-label">@Html.DisplayNameFor(model => model.name):</span>
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.name)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.order)
-        </dd>
+                <dt>
+                    <span class="detail-label">@Html.DisplayNameFor(model => model.link):</span>
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.link)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.datebegin)
-        </dt>
+                <dt>
+                    <span class="detail-label">@Html.DisplayNameFor(model => model.meta):</span>
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.meta)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.datebegin)
-        </dd>
+                <dt>
+                    <span class="detail-label">@Html.DisplayNameFor(model => model.hide):</span>
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.hide)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.menu.name)
-        </dt>
+                <dt>
+                    <span class="detail-label">@Html.DisplayNameFor(model => model.order):</span>
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.order)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.menu.name)
-        </dd>
+                <dt>
+                    <span class="detail-label">@Html.DisplayNameFor(model => model.datebegin):</span>
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.datebegin)
+                </dd>
 
-    </dl>
+                <dt>
+                    <span class="detail-label">@Html.DisplayNameFor(model => model.menu.name):</span> (Parent Menu)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.menu.name)
+                </dd>
+            </dl>
+
+            <div class="text-center mt-3">
+                @Html.ActionLink("Edit", "Edit", new { id = Model.SubMenuID }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary" })
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.SubMenuID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

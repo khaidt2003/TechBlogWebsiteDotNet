@@ -109,6 +109,11 @@
     <Property Name="is_posted" Type="Boolean" />
     <Property Name="created_at" Type="DateTime" Precision="3" />
     <NavigationProperty Name="User" Relationship="Self.FK__jobs__user_id__55F4C372" FromRole="jobs" ToRole="Users" />
+    <Property Name="link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="meta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="hide" Type="Boolean" />
+    <Property Name="order" Type="Int32" />
+    <Property Name="datebegin" Type="DateTime" Precision="0" />
   </EntityType>
   <EntityType Name="Like">
     <Key>

@@ -1,40 +1,66 @@
 ﻿@model TechBlogWebsite.Models.menu
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Menu Details";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage1.cshtml";
 }
 
-<div class="container">
-    <h2 class="text-center mt-4">Details</h2>
+<style>
+    /* Sử dụng Grid để bố cục */
+    .container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+    .card-header {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .card-body {
+        font-size: 1.2rem;
+    }
+
+    .card-title {
+        font-size: 1.4rem;
+    }
+</style>
+
+<div class="container mt-4">
     <div class="card">
+        <div class="card-header">
+            <h2 class="text-center mb-0">MENU DETAILS</h2>
+        </div>
         <div class="card-body">
-            <h4 class="card-title">Menu Details</h4>
-            <hr />
             <dl class="row">
-                <dt class="col-sm-3">Name:</dt>
+                <dt class="col-sm-3 text-primary">Name:</dt>
                 <dd class="col-sm-9">@Html.DisplayFor(model => model.name)</dd>
 
-                <dt class="col-sm-3">Link:</dt>
+                <dt class="col-sm-3 text-primary">Link:</dt>
                 <dd class="col-sm-9">@Html.DisplayFor(model => model.link)</dd>
 
-                <dt class="col-sm-3">Meta:</dt>
+                <dt class="col-sm-3 text-primary">Meta:</dt>
                 <dd class="col-sm-9">@Html.DisplayFor(model => model.meta)</dd>
 
-                <dt class="col-sm-3">Hide:</dt>
+                <dt class="col-sm-3 text-primary">Hide:</dt>
                 <dd class="col-sm-9">@Html.DisplayFor(model => model.hide)</dd>
 
-                <dt class="col-sm-3">Order:</dt>
+                <dt class="col-sm-3 text-primary">Order:</dt>
                 <dd class="col-sm-9">@Html.DisplayFor(model => model.order)</dd>
 
-                <dt class="col-sm-3">Date Begin:</dt>
+                <dt class="col-sm-3 text-primary">Date Begin:</dt>
                 <dd class="col-sm-9">@Html.DisplayFor(model => model.datebegin)</dd>
             </dl>
         </div>
     </div>
-    <div class="mt-4">
-        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }, new { @class = "btn btn-primary" })
-        @Html.ActionLink("Back to List", "Table", "Default", null, new { @class = "btn btn-secondary" })
 
+    <div class="mt-4 text-center">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }, new { @class = "btn btn-primary mr-3" })
+        @Html.ActionLink("Back to List", "Table", "Default", null, new { @class = "btn btn-secondary" })
     </div>
 </div>

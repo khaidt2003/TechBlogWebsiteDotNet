@@ -1,110 +1,154 @@
 ﻿@model TechBlogWebsite.Models.job
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Create Job Posting";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage1.cshtml";
 }
+<style>
+    .container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
 
-<h2>Create</h2>
+    .card {
+        width: 100%;
+    }
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>job</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.user_id, "user_id", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("user_id", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.user_id, "", new { @class = "text-danger" })
-            </div>
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-control {
+        font-size: 1.2rem;
+        padding: 15px;
+        border-radius: 8px; /* Bo tròn góc input */
+        border: 1px solid #ced4da;
+    }
+
+    label.control-label {
+        font-size: 1.1rem;
+    }
+
+    .card-header {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 1.1rem;
+    }
+
+    .form-control.custom-dropdown {
+        height: auto; /* Cho phép dropdown tự điều chỉnh chiều cao */
+        padding: 10px; /* Điều chỉnh padding của dropdown */
+        font-size: 1rem; /* Điều chỉnh kích thước chữ của dropdown */
+        border-radius: 5px; /* Bo tròn góc của dropdown */
+    }
+
+    .custom-dropdown {
+        appearance: none;
+        -webkit-appearance: none;
+        background-color: #fff;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='1' d='M2 5l6 6 6-6'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+        padding: 10px 30px 10px 10px; /* Điều chỉnh padding */
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+    }
+</style>
+
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header">
+            <h2 class="text-center mb-0">CREATE JOB POSTING</h2>
         </div>
+        <div class="card-body">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.company_name, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.company_name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.company_name, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.full_name, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.full_name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.full_name, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.current_position, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.current_position, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.current_position, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.phone, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.phone, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.phone, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.how_heard, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.how_heard, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.how_heard, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.job_description, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.job_description, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.job_description, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.is_posted, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.is_posted)
-                    @Html.ValidationMessageFor(model => model.is_posted, "", new { @class = "text-danger" })
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        @Html.LabelFor(model => model.user_id, "User", htmlAttributes: new { @class = "control-label text-primary" })
+                        @Html.DropDownList("user_id", null, htmlAttributes: new { @class = "form-control custom-dropdown" })
+                    </div>
+                    <div class="form-group col-md-6">
+                        @Html.LabelFor(model => model.company_name, htmlAttributes: new { @class = "control-label text-primary" })
+                        @Html.EditorFor(model => model.company_name, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter company name" } })
+                    </div>
                 </div>
-            </div>
-        </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        @Html.LabelFor(model => model.full_name, htmlAttributes: new { @class = "control-label text-primary" })
+                        @Html.EditorFor(model => model.full_name, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter full name" } })
+                    </div>
+                    <div class="form-group col-md-6">
+                        @Html.LabelFor(model => model.current_position, htmlAttributes: new { @class = "control-label text-primary" })
+                        @Html.EditorFor(model => model.current_position, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter current position" } })
+                    </div>
+                </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.created_at, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.created_at, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.created_at, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label text-primary" })
+                        @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter email" } })
+                    </div>
+                    <div class="form-group col-md-6">
+                        @Html.LabelFor(model => model.phone, htmlAttributes: new { @class = "control-label text-primary" })
+                        @Html.EditorFor(model => model.phone, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter phone" } })
+                    </div>
+                </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.how_heard, htmlAttributes: new { @class = "control-label text-primary" })
+                    @Html.EditorFor(model => model.how_heard, new { htmlAttributes = new { @class = "form-control", placeholder = "How did you hear about us?" } })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.job_description, htmlAttributes: new { @class = "control-label text-primary" })
+                    @Html.TextAreaFor(model => model.job_description, new { @class = "form-control", rows = 6, placeholder = "Enter job description" })
+                </div>
+
+
+                <div class="form-group form-check">
+                    @Html.EditorFor(model => model.is_posted)
+                    @Html.LabelFor(model => model.is_posted, htmlAttributes: new { @class = "form-check-label text-primary" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.created_at, htmlAttributes: new { @class = "control-label text-primary" })
+                    @Html.EditorFor(model => model.created_at, new { htmlAttributes = new { @class = "form-control", type = "date" } })
+                </div>
+
+                <div class="text-center mt-3">
+                    <button type="submit" class="btn btn-primary">Create</button>
+                    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary" })
+                </div>
+            }
         </div>
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>
+
+@section _Footer
+{
+    <script src="~/Areas/Admin/Content/ckfinder/ckfinder.js"></script>
+    <script src="~/Areas/Admin/Content/ckeditor/ckeditor.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#Title").keyup(function () {
+                var text = $.trim($(this).val().toLowerCase());
+                var text_create = text.replace(/à|á|ạ|à|ã|â|â|â|â|â|â|ă|à|å|ặ|å|ã|ả|ẹ|é|è|ý|ỳ|ỵ|í|ì|i/g, "a").replace(/\ /g, '-').replace(/đ /g, "d");
+                $('#Meta').val(text_create);
+            }).keyup();
+
+            CKEDITOR.replace("txtContent");
+            CKEDITOR.replace("txtContent", { height: '600px' });
+            CKEDITOR.config.customConfig = '/Areas/admin/Content/ckeditor/config.js';
+        });
+    </script>
+}

@@ -25,6 +25,11 @@ namespace TechBlogWebsite.Models
         public string job_description { get; set; }
         public Nullable<bool> is_posted { get; set; }
         public Nullable<System.DateTime> created_at { get; set; }
+        public string link { get; set; }
+        public string meta { get; set; }
+        public Nullable<bool> hide { get; set; }
+        public Nullable<int> order { get; set; }
+        public Nullable<System.DateTime> datebegin { get; set; }
     
         public virtual User User { get; set; }
     }
